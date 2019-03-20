@@ -1,0 +1,46 @@
+############## Make linux boot faster by Disabling Unnecessary Services ############################
+
+=> Systemd: it shows you the total time required to boot and the time it takes for each service to load. Note that some services load in parallel. So, if one requires two seconds to load and the other three seconds, it doesn’t necessarily mean five seconds are required in total. It may be much less than that.
+  $ systemd-analyze
+ Note: This shows how long it takes for the Linux kernel and base system services to load, which means it doesn’t account for the time your graphical interface requires to boot up.
+=> However, you can also see the time required by the graphical interface to initialize with this command:
+  $ systemd-analyze critical-chain graphical.target
+ Note: This shows the total time for graphical user interface to be loaded.
+ Note: This doesn't account for the time required to load desktop utilities. To enable/disable those, launch your desktop environment startup manager.
+
+=>Finally, probably the most useful command for the purpose of this tutorial is:
+  $ systemd-analyze blame
+ Note: Use Page-UP and P-Down to scroll and 'q' to quit.
+
+******** Use systemctl to Disable Unnecessary Services *************
+
+As you can see in the previous picture, the snapd service takes 1.295 seconds to load. On an SSD, this is negligible. But on a hard disk, these kinds of times would be in the orders of multiple seconds, and they would add up to a lot in the end. Also, on an SSD many things load in parallel with incredible efficiency. On a hard disk it’s very hard for services to load in parallel. The read heads that float on the disk platters have to move from sector to sector, so it’s almost impossible to truly read data in parallel. To simplify, imagine this: if on an SSD you would see five services that require one second to boot, it’s likely that the total time required to load all of these might be less than 1.2 seconds. If, on a hard disk, you see the same five services initialize in one second, it’s likely that the total load time is way above five seconds.
+
+Say you don’t need the snapd service, which provides access to containerized application snaps. You can disable it with this command:
+
+  $ sudo systemctl disable snapd.service
+
+But, if you reboot, you will notice the snap daemon is still running. That’s because other dependencies may launch it, even if it’s disabled. Try to see what those may be:
+
+  $ systemd-analyze blame | grep snap
+
+systemd-analyze-grep-snap
+
+snapd.seeded.service and snapd.socket are the culprits here. A child service can request to launch its parent service. When you disable one, you just tell it to not automatically start at boot by itself. But there is a brute-force method to get around this issue.
+
+>Use systemctl to Mask a Service
+
+ $ sudo systemctl mask snapd.service
+
+This basically makes the service file null so that applications have no way to start the service. In most cases it’s not this complicated to disable a service. This example has been chosen to show you how to deal with trickier scenarios. In this case, snapd.seeded.service and snapd.socket should be disabled or masked, too.
+
+The following shows the improved boot time.
+
+  $ systemd-analyze-improved-boot-time
+Conclusion
+
+From 4.078, boot time was reduced to 3.452 seconds, which amounts to a decrease of ~15%. Not too bad, considering just one service was disabled, and this is on an SSD. On a hard disk it’s much easier to get much more significant results.
+
+In this particular example, more services could have been disabled with a command like: sudo systemctl mask avahi-daemon.service ModemManager.service thermald.service pppd-dns.service.
+
+> If you prefer a graphical application to manage your services, you can take a look at the Systemd Manager project. You will be limited in what you can do with it, though, since the command line offers much more flexibility.
