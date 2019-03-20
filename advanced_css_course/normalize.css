@@ -22,9 +22,12 @@ html {
 
 body {
   margin: 0;
-  color:red;
-  background-color:yellow;
+  /* color:red; */
+  /* background-color:yellow; */
+
+
 }
+
 
 /**
  * Render the `main` element consistently in IE.
