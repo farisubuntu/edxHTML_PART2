@@ -1,0 +1,9 @@
+/* reset styles  */
+
+
+button,ol,ul,li,figure,h1,h2,h3,h4,div{
+ border:unset;
+ background-color:unset;
+ color:black;
+display: initial;
+ }
