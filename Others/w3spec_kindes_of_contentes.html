@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>w3 specification - contents categories</title>
+	<link rel='stylesheet' href='https://www.w3.org/StyleSheets/TR/2016/base.css' />
+	
+</head>
+
+<body>
+	
+	
+<section>
+
+    <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  -->
+
+<div id="toCut">
+<h4 class="heading settled" data-level="3.2.4" id="content-models"><span class="secno">3.2.4. </span><span class="content">Content models</span><a class="self-link" href="dom.html#content-models"></a></h4></div>
+    <p>Each element defined in this specification has a content model: a description of the element’s
+  expected <a data-link-type="dfn" href="dom.html#element-contents" id="ref-for-element-contents">contents</a>. An <a data-link-type="dfn" href="infrastructure.html#html-element" id="ref-for-html-element⑥">HTML element</a> must have contents that match the requirements
+  described in the element’s content model. The <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="element contents" data-noexport="" id="element-contents">contents of an element</dfn> are its children
+  in the DOM.</p>
+    <p class="note" role="note">When a <code><a data-link-type="element" href="semantics-scripting.html#elementdef-template" id="ref-for-elementdef-template">template</a></code> element is being parsed, its children are assigned to the <a data-link-type="dfn" href="semantics-scripting.html#template-contents" id="ref-for-template-contents">template contents</a> (a separate <code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#documentfragment" id="ref-for-documentfragment①">DocumentFragment</a></code> assigned to the element when the element is
+  created), rather than its children.</p>
+    <p>The <a data-link-type="dfn" href="infrastructure.html#space-characters" id="ref-for-space-characters②⑤">space characters</a> are always allowed between elements. User agents represent these
+  characters between elements in the source markup as <code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#text" id="ref-for-text⑧">Text</a></code> nodes in the DOM. Empty <code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#text" id="ref-for-text⑨">Text</a></code> nodes and <code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#text" id="ref-for-text①⓪">Text</a></code> nodes consisting of just sequences of those characters are considered <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="inter-element-white-space">inter-element white space</dfn>.</p>
+    <p><a data-link-type="dfn" href="dom.html#inter-element-white-space" id="ref-for-inter-element-white-space">Inter-element white space</a>, comment nodes, and processing instruction nodes must be ignored when
+  establishing whether an element’s contents match the element’s content model or not, and must
+  be ignored when following algorithms that define document and element semantics.</p>
+    <p class="note" role="note">Thus, an element <var>A</var> is said to be <i>preceded or followed</i> by a second element <var>B</var> if <var>A</var> and <var>B</var> have the same parent node and there are no other element nodes or <code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#text" id="ref-for-text①①">Text</a></code> nodes (other than <a data-link-type="dfn" href="dom.html#inter-element-white-space" id="ref-for-inter-element-white-space①">inter-element white space</a>) between them. Similarly, a node is the <i>only child</i> of an element if that element contains no other nodes other than <a data-link-type="dfn" href="dom.html#inter-element-white-space" id="ref-for-inter-element-white-space②">inter-element white space</a>, comment nodes, and processing instruction nodes.</p>
+    <p>Authors must not use <a data-link-type="dfn" href="infrastructure.html#html-element" id="ref-for-html-element⑦">HTML elements</a> anywhere except where they are explicitly allowed, as
+  defined for each element, or as explicitly required by other specifications. For XML compound
+  documents, these contexts could be inside elements from other namespaces, if those elements are
+  defined as providing the relevant contexts.</p>
+    <div class="example" id="example-68052308"><a class="self-link" href="dom.html#example-68052308"></a> For example, the Atom specification defines a <a data-link-type="element" href="https://tools.ietf.org/html/rfc4287#section-4.1.3" id="ref-for-section-4.1.3"><code>content</code></a> element. When its <code><a data-link-type="element-sub" href="https://tools.ietf.org/html/rfc4287#section-3.1.1" id="ref-for-section-3.1.1">type</a></code> attribute has the value <code>xhtml</code>, the Atom
+    specification requires that it contain a single HTML <code><a data-link-type="element" href="grouping-content.html#elementdef-div" id="ref-for-elementdef-div⑤">div</a></code> element. Thus, a <code><a data-link-type="element" href="grouping-content.html#elementdef-div" id="ref-for-elementdef-div⑥">div</a></code> element is
+    allowed in that context, even though this is not explicitly normatively stated by this
+    specification. <a data-link-type="biblio" href="references.html#biblio-rfc4287">[RFC4287]</a> </div>
+    <p>In addition, <a data-link-type="dfn" href="infrastructure.html#html-element" id="ref-for-html-element⑧">HTML elements</a> may be orphan nodes (i.e., without a parent node).</p>
+    <div class="example" id="example-872f3663">
+     <a class="self-link" href="dom.html#example-872f3663"></a> For example, creating a <code><a data-link-type="element" href="tabular-data.html#elementdef-td" id="ref-for-elementdef-td">td</a></code> element and storing it in a global variable in a script is
+    conforming, even though <code><a data-link-type="element" href="tabular-data.html#elementdef-td" id="ref-for-elementdef-td①">td</a></code> elements are otherwise only supposed to be used inside <code><a data-link-type="element" href="tabular-data.html#elementdef-tr" id="ref-for-elementdef-tr">tr</a></code> elements. 
+<pre class="highlight"><span class="kd">var</span> data <span class="o">=</span> <span class="p">{</span>
+  name<span class="o">:</span> <span class="s2">"Banana"</span><span class="p">,</span>
+  cell<span class="o">:</span> document<span class="p">.</span>createElement<span class="p">(</span><span class="s1">'td'</span><span class="p">),</span>
+<span class="p">};</span>
+</pre>
+    </div>
+    <h5 class="heading settled" data-level="3.2.4.1" id="the-nothing-content-model"><span class="secno">3.2.4.1. </span><span class="content">The "nothing" content model</span><a class="self-link" href="dom.html#the-nothing-content-model"></a></h5>
+    <p>When an element’s content model is <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="nothing">nothing</dfn>, the element must contain no <code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#text" id="ref-for-text①②">Text</a></code> nodes
+  (other than <a data-link-type="dfn" href="dom.html#inter-element-white-space" id="ref-for-inter-element-white-space③">inter-element white space</a>) and no element nodes.</p>
+    <p class="note" role="note">Most HTML elements whose content model is "nothing" are also, for convenience, <a data-link-type="dfn" href="syntax.html#void-elements" id="ref-for-void-elements">void elements</a> (elements that have no <a data-link-type="dfn" href="syntax.html#syntax-end-tags" id="ref-for-syntax-end-tags②">end tag</a> in the <a href="syntax.html#syntax">HTML syntax</a>). However,
+  these are entirely separate concepts.</p>
+    <h5 class="heading settled" data-level="3.2.4.2" id="kinds-of-content"><span class="secno">3.2.4.2. </span><span class="content">Kinds of content</span><a class="self-link" href="dom.html#kinds-of-content"></a></h5>
+    <p>Each element in HTML falls into zero or more <dfn data-dfn-type="dfn" data-lt="content categories|content category" data-noexport="" id="content-categories">categories<a class="self-link" href="dom.html#content-categories"></a></dfn> that group elements with similar
+  characteristics together. The following broad categories are used in this specification:</p>
+    <ul class="brief">
+     <li data-md="">
+      <p><a href="dom.html#metadata-content">Metadata content</a></p>
+     </li><li data-md="">
+      <p><a href="dom.html#flow-content">Flow content</a></p>
+     </li><li data-md="">
+      <p><a href="dom.html#sectioning-content">Sectioning content</a></p>
+     </li><li data-md="">
+      <p><a href="dom.html#heading-content">Heading content</a></p>
+     </li><li data-md="">
+      <p><a href="dom.html#phrasing-content">Phrasing content</a></p>
+     </li><li data-md="">
+      <p><a href="dom.html#embedded-content">Embedded content</a></p>
+     </li><li data-md="">
+      <p><a href="dom.html#interactive-content">Interactive content</a></p>
+    </li></ul>
+    <p class="note" role="note">Some elements also fall into other categories, which are defined in other parts of
+  this specification.</p>
+    <p>These categories are related as follows:</p>
+    <p>
+     <object data="images/content-venn.svg" height="288" width="1000"><img alt="" height="288" src="images/content-venn.png" width="512"></object>
+    </p>
+    <p>Sectioning content, heading content, phrasing content, embedded content, and interactive content
+  are all types of flow content. Metadata is sometimes flow content. Metadata and interactive
+  content are sometimes phrasing content. Embedded content is also a type of phrasing content, and
+  sometimes is interactive content.</p>
+    <p>Other categories are also used for specific purposes, e.g., form controls are specified using a
+  number of categories to define common requirements. Some elements have unique requirements and do
+  not fit into any particular category.</p>
+    <h6 class="heading settled" data-level="3.2.4.2.1" id="metadata-content"><span class="secno">3.2.4.2.1. </span><span class="content">Metadata content</span><a class="self-link" href="dom.html#metadata-content"></a></h6>
+    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="metadata-content-2">Metadata content</dfn> is content that sets up the presentation or
+  behavior of the rest of the content, or that sets up the relationship of the document with other
+  documents, or that conveys other "out of band" information.</p>
+    <ul class="brief category-list">
+     <li><code><a data-link-type="element" href="document-metadata.html#elementdef-base" id="ref-for-elementdef-base③">base</a></code> 
+     </li><li><code><a data-link-type="element" href="document-metadata.html#elementdef-link" id="ref-for-elementdef-link">link</a></code> 
+     </li><li><code><a data-link-type="element" href="document-metadata.html#elementdef-meta" id="ref-for-elementdef-meta⑥">meta</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-noscript" id="ref-for-elementdef-noscript①">noscript</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-script" id="ref-for-elementdef-script①④">script</a></code> 
+     </li><li><code><a data-link-type="element" href="document-metadata.html#elementdef-style" id="ref-for-elementdef-style②">style</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-template" id="ref-for-elementdef-template①">template</a></code> 
+     </li><li><code><a data-link-type="element" href="document-metadata.html#elementdef-title" id="ref-for-elementdef-title①①">title</a></code> 
+    </li></ul>
+    <p>Elements from other namespaces whose semantics are primarily metadata-related (e.g., RDF) are also <a data-link-type="dfn" href="dom.html#metadata-content-2" id="ref-for-metadata-content-2">metadata content</a>.</p>
+    <div class="example" id="example-d778fa5e">
+     <a class="self-link" href="dom.html#example-d778fa5e"></a> Thus, in the XML serialization, one can use RDF, like this: 
+<pre class="highlight"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">"http://www.w3.org/1999/xhtml"</span> <span class="na">xmlns:r</span><span class="o">=</span><span class="s">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hedral’s Home Page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">r:RDF</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">Person</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">"http://www.w3.org/2000/10/swap/pim/contact#"</span>
+                 <span class="na">r:about</span><span class="o">=</span><span class="s">"https://hedral.example.com/#"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">fullName</span><span class="p">&gt;</span>Cat Hedral<span class="p">&lt;/</span><span class="nt">fullName</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">mailbox</span> <span class="na">r:resource</span><span class="o">=</span><span class="s">"mailto:hedral@damowmow.com"</span><span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">personalTitle</span><span class="p">&gt;</span>Sir<span class="p">&lt;/</span><span class="nt">personalTitle</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">Person</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">r:RDF</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My home page<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>I like playing with string, I guess. Sister says squirrels are fun
+    too so sometimes I follow her to play with them.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre>
+     <p>This isn’t possible in the HTML serialization, however.</p>
+    </div>
+    <h6 class="heading settled" data-level="3.2.4.2.2" id="flow-content"><span class="secno">3.2.4.2.2. </span><span class="content">Flow content</span><a class="self-link" href="dom.html#flow-content"></a></h6>
+    <p>Most elements that are used in the body of documents and applications are categorized as <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="flow content|flow" data-noexport="" id="flow-content-2">flow content</dfn>.</p>
+    <ul class="brief category-list">
+     <li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-a" id="ref-for-elementdef-a⑥">a</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-abbr" id="ref-for-elementdef-abbr">abbr</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-address" id="ref-for-elementdef-address②">address</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-area" id="ref-for-elementdef-area③">area</a></code> (if it is a descendant of a <code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-map" id="ref-for-elementdef-map②">map</a></code> element) 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-article" id="ref-for-elementdef-article">article</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-aside" id="ref-for-elementdef-aside">aside</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-audio" id="ref-for-elementdef-audio①">audio</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-b" id="ref-for-elementdef-b②">b</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-bdi" id="ref-for-elementdef-bdi">bdi</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-bdo" id="ref-for-elementdef-bdo">bdo</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-blockquote" id="ref-for-elementdef-blockquote③">blockquote</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-br" id="ref-for-elementdef-br">br</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-button" id="ref-for-elementdef-button⑥">button</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-canvas" id="ref-for-elementdef-canvas">canvas</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-cite" id="ref-for-elementdef-cite">cite</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-code" id="ref-for-elementdef-code">code</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-data" id="ref-for-elementdef-data">data</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-datalist" id="ref-for-elementdef-datalist">datalist</a></code> 
+     </li><li><code><a data-link-type="element" href="edits.html#elementdef-del" id="ref-for-elementdef-del①">del</a></code> 
+     </li><li><code><a data-link-type="element" href="interactive-elements.html#elementdef-details" id="ref-for-elementdef-details">details</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-dfn" id="ref-for-elementdef-dfn">dfn</a></code> 
+     </li><li><code><a data-link-type="element" href="interactive-elements.html#elementdef-dialog" id="ref-for-elementdef-dialog①">dialog</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-div" id="ref-for-elementdef-div⑦">div</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-dl" id="ref-for-elementdef-dl">dl</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-em" id="ref-for-elementdef-em">em</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-embed" id="ref-for-elementdef-embed⑦">embed</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-fieldset" id="ref-for-elementdef-fieldset">fieldset</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-figure" id="ref-for-elementdef-figure">figure</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-footer" id="ref-for-elementdef-footer">footer</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-form" id="ref-for-elementdef-form⑨">form</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h1" id="ref-for-elementdef-h1④">h1</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h2" id="ref-for-elementdef-h2②">h2</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h3" id="ref-for-elementdef-h3">h3</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h4" id="ref-for-elementdef-h4">h4</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h5" id="ref-for-elementdef-h5">h5</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h6" id="ref-for-elementdef-h6">h6</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-header" id="ref-for-elementdef-header">header</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-hr" id="ref-for-elementdef-hr③">hr</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-i" id="ref-for-elementdef-i①③">i</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-iframe" id="ref-for-elementdef-iframe①⓪">iframe</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-img" id="ref-for-elementdef-img①①">img</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-input" id="ref-for-elementdef-input⑤">input</a></code> 
+     </li><li><code><a data-link-type="element" href="edits.html#elementdef-ins" id="ref-for-elementdef-ins①">ins</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-kbd" id="ref-for-elementdef-kbd①">kbd</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-label" id="ref-for-elementdef-label">label</a></code> 
+     </li><li><code><a data-link-type="element" href="document-metadata.html#elementdef-link" id="ref-for-elementdef-link①">link</a></code> (if it is <a data-link-type="dfn" href="document-metadata.html#allowed-in-the-body" id="ref-for-allowed-in-the-body">allowed in the body</a>) 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-main" id="ref-for-elementdef-main①">main</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-map" id="ref-for-elementdef-map③">map</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-mark" id="ref-for-elementdef-mark">mark</a></code> 
+     </li><li>MathML <code><a data-link-type="element" href="https://www.w3.org/TR/MathML/chapter2.html#interf.toplevel" id="ref-for-interf.toplevel">math</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-meter" id="ref-for-elementdef-meter">meter</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-nav" id="ref-for-elementdef-nav">nav</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-noscript" id="ref-for-elementdef-noscript②">noscript</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-object" id="ref-for-elementdef-object①⓪">object</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-ol" id="ref-for-elementdef-ol②">ol</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-output" id="ref-for-elementdef-output①">output</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-p" id="ref-for-elementdef-p⑦">p</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-picture" id="ref-for-elementdef-picture">picture</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-pre" id="ref-for-elementdef-pre">pre</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-progress" id="ref-for-elementdef-progress">progress</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-q" id="ref-for-elementdef-q①">q</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-ruby" id="ref-for-elementdef-ruby">ruby</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-s" id="ref-for-elementdef-s①">s</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-samp" id="ref-for-elementdef-samp">samp</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-script" id="ref-for-elementdef-script①⑤">script</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-section" id="ref-for-elementdef-section①">section</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-select" id="ref-for-elementdef-select①⓪">select</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-small" id="ref-for-elementdef-small①">small</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-span" id="ref-for-elementdef-span⑤">span</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-strong" id="ref-for-elementdef-strong">strong</a></code> 
+     </li><li><code><a data-link-type="element" href="document-metadata.html#elementdef-style" id="ref-for-elementdef-style③">style</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-sub" id="ref-for-elementdef-sub">sub</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-sup" id="ref-for-elementdef-sup">sup</a></code> 
+     </li><li>SVG <code><a data-link-type="element" href="https://www.w3.org/TR/svg2/struct.html#elementdef-svg" id="ref-for-elementdef-svg③">svg</a></code> 
+     </li><li><code><a data-link-type="element" href="tabular-data.html#elementdef-table" id="ref-for-elementdef-table②">table</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-template" id="ref-for-elementdef-template②">template</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-textarea" id="ref-for-elementdef-textarea③">textarea</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-time" id="ref-for-elementdef-time①">time</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-u" id="ref-for-elementdef-u①">u</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-ul" id="ref-for-elementdef-ul②">ul</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-var" id="ref-for-elementdef-var">var</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-video" id="ref-for-elementdef-video">video</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-wbr" id="ref-for-elementdef-wbr">wbr</a></code> 
+     </li><li><a data-link-type="dfn" href="dom.html#text-content" id="ref-for-text-content">text</a> 
+    </li></ul>
+    <h6 class="heading settled" data-level="3.2.4.2.3" id="sectioning-content"><span class="secno">3.2.4.2.3. </span><span class="content">Sectioning content</span><a class="self-link" href="dom.html#sectioning-content"></a></h6>
+    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="sectioning content|sectioning" data-noexport="" id="sectioning-content-2">Sectioning content</dfn> is
+  content that defines the scope of <a data-link-type="dfn" href="dom.html#heading-content-2" id="ref-for-heading-content-2">headings</a> and <a href="sections.html#the-footer-element">footers</a>.</p>
+    <ul class="brief category-list">
+     <li><code><a data-link-type="element" href="sections.html#elementdef-article" id="ref-for-elementdef-article①">article</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-aside" id="ref-for-elementdef-aside①">aside</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-nav" id="ref-for-elementdef-nav①">nav</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-section" id="ref-for-elementdef-section②">section</a></code> 
+    </li></ul>
+    <p>Each <a data-link-type="dfn" href="dom.html#sectioning-content-2" id="ref-for-sectioning-content-2">sectioning content</a> element potentially has a heading and an <a data-link-type="dfn" href="sections.html#outline" id="ref-for-outline①">outline</a>. See the section
+  on <a href="sections.html#headings-and-sections">headings and sections</a> for further details.</p>
+    <p class="note" role="note">There are also certain elements that are <a data-link-type="dfn" href="sections.html#sectioning-roots" id="ref-for-sectioning-roots">sectioning roots</a>. These are distinct
+  from <a data-link-type="dfn" href="dom.html#sectioning-content-2" id="ref-for-sectioning-content-2①">sectioning content</a>, but they can also have an <a data-link-type="dfn" href="sections.html#outline" id="ref-for-outline②">outline</a>.</p>
+    <h6 class="heading settled" data-level="3.2.4.2.4" id="heading-content"><span class="secno">3.2.4.2.4. </span><span class="content">Heading content</span><a class="self-link" href="dom.html#heading-content"></a></h6>
+    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="heading content|headings" data-noexport="" id="heading-content-2">Heading content</dfn> defines the header
+  of a section (whether explicitly marked up using <a data-link-type="dfn" href="dom.html#sectioning-content-2" id="ref-for-sectioning-content-2②">sectioning content</a> elements, or implied by
+  the heading content itself).</p>
+    <ul class="brief category-list">
+     <li><code><a data-link-type="element" href="sections.html#elementdef-h1" id="ref-for-elementdef-h1⑤">h1</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h2" id="ref-for-elementdef-h2③">h2</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h3" id="ref-for-elementdef-h3①">h3</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h4" id="ref-for-elementdef-h4①">h4</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h5" id="ref-for-elementdef-h5①">h5</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h6" id="ref-for-elementdef-h6①">h6</a></code> 
+    </li></ul>
+    <h6 class="heading settled" data-level="3.2.4.2.5" id="phrasing-content"><span class="secno">3.2.4.2.5. </span><span class="content">Phrasing content</span><a class="self-link" href="dom.html#phrasing-content"></a></h6>
+    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="phrasing content|phrasing" data-noexport="" id="phrasing-content-2">Phrasing content</dfn> is the text of
+  the document, as well as elements that mark up that text at the intra-paragraph level. Runs of <a data-link-type="dfn" href="dom.html#phrasing-content-2" id="ref-for-phrasing-content-2⑥">phrasing content</a> form <a data-link-type="dfn" href="dom.html#paragraph" id="ref-for-paragraph①">paragraphs</a>.</p>
+    <ul class="brief category-list">
+     <li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-a" id="ref-for-elementdef-a⑦">a</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-abbr" id="ref-for-elementdef-abbr①">abbr</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-area" id="ref-for-elementdef-area④">area</a></code> (if it is a descendant of a <code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-map" id="ref-for-elementdef-map④">map</a></code> element) 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-audio" id="ref-for-elementdef-audio②">audio</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-b" id="ref-for-elementdef-b③">b</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-bdi" id="ref-for-elementdef-bdi①">bdi</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-bdo" id="ref-for-elementdef-bdo①">bdo</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-br" id="ref-for-elementdef-br①">br</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-button" id="ref-for-elementdef-button⑦">button</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-canvas" id="ref-for-elementdef-canvas①">canvas</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-cite" id="ref-for-elementdef-cite①">cite</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-code" id="ref-for-elementdef-code①">code</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-data" id="ref-for-elementdef-data①">data</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-datalist" id="ref-for-elementdef-datalist①">datalist</a></code> 
+     </li><li><code><a data-link-type="element" href="edits.html#elementdef-del" id="ref-for-elementdef-del②">del</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-dfn" id="ref-for-elementdef-dfn①">dfn</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-em" id="ref-for-elementdef-em①">em</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-embed" id="ref-for-elementdef-embed⑧">embed</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-i" id="ref-for-elementdef-i①④">i</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-iframe" id="ref-for-elementdef-iframe①①">iframe</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-img" id="ref-for-elementdef-img①②">img</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-input" id="ref-for-elementdef-input⑥">input</a></code> 
+     </li><li><code><a data-link-type="element" href="edits.html#elementdef-ins" id="ref-for-elementdef-ins②">ins</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-kbd" id="ref-for-elementdef-kbd②">kbd</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-label" id="ref-for-elementdef-label①">label</a></code> 
+     </li><li><code><a data-link-type="element" href="document-metadata.html#elementdef-link" id="ref-for-elementdef-link②">link</a></code> (if it is <a data-link-type="dfn" href="document-metadata.html#allowed-in-the-body" id="ref-for-allowed-in-the-body①">allowed in the body</a>) 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-map" id="ref-for-elementdef-map⑤">map</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-mark" id="ref-for-elementdef-mark①">mark</a></code> 
+     </li><li>MathML <code><a data-link-type="element" href="https://www.w3.org/TR/MathML/chapter2.html#interf.toplevel" id="ref-for-interf.toplevel①">math</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-meter" id="ref-for-elementdef-meter①">meter</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-noscript" id="ref-for-elementdef-noscript③">noscript</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-object" id="ref-for-elementdef-object①①">object</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-output" id="ref-for-elementdef-output②">output</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-picture" id="ref-for-elementdef-picture①">picture</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-progress" id="ref-for-elementdef-progress①">progress</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-q" id="ref-for-elementdef-q②">q</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-ruby" id="ref-for-elementdef-ruby①">ruby</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-s" id="ref-for-elementdef-s②">s</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-samp" id="ref-for-elementdef-samp①">samp</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-script" id="ref-for-elementdef-script①⑥">script</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-select" id="ref-for-elementdef-select①①">select</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-small" id="ref-for-elementdef-small②">small</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-span" id="ref-for-elementdef-span⑥">span</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-strong" id="ref-for-elementdef-strong①">strong</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-sub" id="ref-for-elementdef-sub①">sub</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-sup" id="ref-for-elementdef-sup①">sup</a></code> 
+     </li><li>SVG <code><a data-link-type="element" href="https://www.w3.org/TR/svg2/struct.html#elementdef-svg" id="ref-for-elementdef-svg④">svg</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-template" id="ref-for-elementdef-template③">template</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-textarea" id="ref-for-elementdef-textarea④">textarea</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-time" id="ref-for-elementdef-time②">time</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-u" id="ref-for-elementdef-u②">u</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-var" id="ref-for-elementdef-var①">var</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-video" id="ref-for-elementdef-video①">video</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-wbr" id="ref-for-elementdef-wbr①">wbr</a></code> 
+     </li><li><a data-link-type="dfn" href="dom.html#text-content" id="ref-for-text-content①">text</a> 
+    </li></ul>
+    <p class="note" role="note">Most elements that are categorized as phrasing content can only contain elements
+  that are themselves categorized as phrasing content, not any flow content.</p>
+    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="text|text content" data-noexport="" id="text-content">Text</dfn>, in the context of content models, means
+  either nothing, or <code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#text" id="ref-for-text①③">Text</a></code> nodes. <a data-link-type="dfn" href="dom.html#text-content" id="ref-for-text-content②">Text</a> is sometimes used as a content model on its own, but
+  is also <a data-link-type="dfn" href="dom.html#phrasing-content-2" id="ref-for-phrasing-content-2⑦">phrasing content</a>, and can be <a data-link-type="dfn" href="dom.html#inter-element-white-space" id="ref-for-inter-element-white-space④">inter-element white space</a> (if the <code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#text" id="ref-for-text①④">Text</a></code> nodes are
+  empty or contain just <a data-link-type="dfn" href="infrastructure.html#space-characters" id="ref-for-space-characters②⑥">space characters</a>).</p>
+    <p><code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#text" id="ref-for-text①⑤">Text</a></code> nodes and attribute values must consist of <a data-link-type="dfn" href="infrastructure.html#unicode-character" id="ref-for-unicode-character①">Unicode characters</a>, must not contain
+  U+0000 characters, must not contain permanently undefined Unicode characters (noncharacters), and
+  must not contain <a data-link-type="dfn" href="infrastructure.html#control-characters" id="ref-for-control-characters①">control characters</a> other than <a data-link-type="dfn" href="infrastructure.html#space-characters" id="ref-for-space-characters②⑦">space characters</a>. This specification
+  includes extra constraints on the exact value of <code class="idl"><a data-link-type="idl" href="https://www.w3.org/TR/dom41/#text" id="ref-for-text①⑥">Text</a></code> nodes and attribute values depending on
+  their precise context.</p>
+    <p>For elements in HTML, the constraints of the <a data-link-type="dfn" href="dom.html#text-content" id="ref-for-text-content③">Text</a> <a data-link-type="dfn" href="dom.html#content-model" id="ref-for-content-model①">content model</a> also depends on the <a data-link-type="dfn" href="syntax.html#kind-of-element" id="ref-for-kind-of-element">kind of element</a>. For instance, an "<code>&lt;</code>" inside a <code><a data-link-type="element" href="sec-forms.html#elementdef-textarea" id="ref-for-elementdef-textarea⑤">textarea</a></code> element does not
+  need to be escaped in HTML because <code><a data-link-type="element" href="sec-forms.html#elementdef-textarea" id="ref-for-elementdef-textarea⑥">textarea</a></code> is an <a data-link-type="dfn" href="syntax.html#escapable-raw-text" id="ref-for-escapable-raw-text">escapable raw text</a> element. (This does
+  not apply to XHTML. In XHTML, the <a data-link-type="dfn" href="syntax.html#kind-of-element" id="ref-for-kind-of-element①">kind of element</a> doesn’t affect the constraints of the <a data-link-type="dfn" href="dom.html#text-content" id="ref-for-text-content④">Text</a> <a data-link-type="dfn" href="dom.html#content-model" id="ref-for-content-model②">content model</a>.)</p>
+    <h6 class="heading settled" data-level="3.2.4.2.6" id="embedded-content"><span class="secno">3.2.4.2.6. </span><span class="content">Embedded content</span><a class="self-link" href="dom.html#embedded-content"></a></h6>
+    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="embedded content|embedded" data-noexport="" id="embedded-content-2">Embedded content</dfn> is content that
+  imports another resource into the document, or content from another vocabulary that is <a data-link-type="dfn" href="infrastructure.html#document-inserted-into" id="ref-for-document-inserted-into">inserted into the document</a>.</p>
+    <ul class="brief category-list">
+     <li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-audio" id="ref-for-elementdef-audio③">audio</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-canvas" id="ref-for-elementdef-canvas②">canvas</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-embed" id="ref-for-elementdef-embed⑨">embed</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-iframe" id="ref-for-elementdef-iframe①②">iframe</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-img" id="ref-for-elementdef-img①③">img</a></code> 
+     </li><li>MathML <code><a data-link-type="element" href="https://www.w3.org/TR/MathML/chapter2.html#interf.toplevel" id="ref-for-interf.toplevel②">math</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-object" id="ref-for-elementdef-object①②">object</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-picture" id="ref-for-elementdef-picture②">picture</a></code> 
+     </li><li>SVG <code><a data-link-type="element" href="https://www.w3.org/TR/svg2/struct.html#elementdef-svg" id="ref-for-elementdef-svg⑤">svg</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-video" id="ref-for-elementdef-video②">video</a></code> 
+    </li></ul>
+    <p>Elements that are from namespaces other than the <a data-link-type="dfn" href="infrastructure.html#html-namespace" id="ref-for-html-namespace⑨">HTML namespace</a> and that convey content but
+  not metadata, are <a data-link-type="dfn" href="dom.html#embedded-content-2" id="ref-for-embedded-content-2">embedded content</a> for the purposes of the content models defined in this
+  specification. (For example, MathML, or SVG.)</p>
+    <p>Some embedded content elements can have <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="fallback-content">fallback content</dfn>: content that is to be used
+  when the external resource cannot be used (e.g., because it is of an unsupported format). The
+  element definitions state what the fallback is, if any.</p>
+
+
+    <h6 class="heading settled" data-level="3.2.4.2.7" id="interactive-content"><span class="secno">3.2.4.2.7. </span><span class="content">Interactive content</span><a class="self-link" href="dom.html#interactive-content"></a></h6>
+    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="interactive content|interactive" data-noexport="" id="interactive-content-2">Interactive content</dfn> is
+  content that is specifically intended for user interaction.</p>
+    <ul class="brief category-list">
+     <li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-a" id="ref-for-elementdef-a⑧">a</a></code> (if the <code><a data-link-type="element-sub" href="links.html#element-attrdef-a-href" id="ref-for-element-attrdef-a-href⑦">href</a></code> attribute is present) 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-audio" id="ref-for-elementdef-audio④">audio</a></code> (if the <code><a data-link-type="element-sub" href="semantics-embedded-content.html#element-attrdef-mediaelements-controls" id="ref-for-element-attrdef-mediaelements-controls①">controls</a></code> attribute is present) 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-button" id="ref-for-elementdef-button⑧">button</a></code> 
+     </li><li><code><a data-link-type="element" href="interactive-elements.html#elementdef-details" id="ref-for-elementdef-details①">details</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-embed" id="ref-for-elementdef-embed①⓪">embed</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-iframe" id="ref-for-elementdef-iframe①③">iframe</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-img" id="ref-for-elementdef-img①④">img</a></code> (if the <code><a data-link-type="element-sub" href="semantics-embedded-content.html#element-attrdef-img-usemap" id="ref-for-element-attrdef-img-usemap">usemap</a></code> attribute is present) 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-input" id="ref-for-elementdef-input⑦">input</a></code> (if the <code><a data-link-type="element-sub" href="sec-forms.html#element-attrdef-input-type" id="ref-for-element-attrdef-input-type">type</a></code> attribute is <em>not</em> in the <code><a data-link-type="element-sub" href="sec-forms.html#element-statedef-input-hidden" id="ref-for-element-statedef-input-hidden">Hidden</a></code> state) 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-label" id="ref-for-elementdef-label②">label</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-select" id="ref-for-elementdef-select①②">select</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-textarea" id="ref-for-elementdef-textarea⑦">textarea</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-video" id="ref-for-elementdef-video③">video</a></code> (if the <code><a data-link-type="element-sub" href="semantics-embedded-content.html#element-attrdef-mediaelements-controls" id="ref-for-element-attrdef-mediaelements-controls②">controls</a></code> attribute is present) 
+    </li></ul>
+    <p>The <code><a data-link-type="element-sub" href="editing.html#element-attrdef-global-tabindex" id="ref-for-element-attrdef-global-tabindex①">tabindex</a></code> attribute can also make any element into <a data-link-type="dfn" href="dom.html#interactive-content-2" id="ref-for-interactive-content-2①">interactive content</a>.</p>
+    <h6 class="heading settled" data-level="3.2.4.2.8" id="palpable-content"><span class="secno">3.2.4.2.8. </span><span class="content">Palpable content</span><a class="self-link" href="dom.html#palpable-content"></a></h6>
+    <p>As a general rule, elements whose content model allows any <a data-link-type="dfn" href="dom.html#flow-content-2" id="ref-for-flow-content-2④">flow content</a> or <a data-link-type="dfn" href="dom.html#phrasing-content-2" id="ref-for-phrasing-content-2⑧">phrasing content</a> should have at least one node in its <a data-link-type="dfn" href="dom.html#element-contents" id="ref-for-element-contents①">contents</a> that is <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="palpable-content-2">palpable content</dfn> and that does not have the <code><a data-link-type="element-sub" href="editing.html#element-attrdef-global-hidden" id="ref-for-element-attrdef-global-hidden">hidden</a></code> attribute specified.</p>
+    <p class="note" role="note"><a data-link-type="dfn" href="dom.html#palpable-content-2" id="ref-for-palpable-content-2">Palpable content</a> makes an element non-empty by providing either some
+  descendant non-empty <a data-link-type="dfn" href="dom.html#text-content" id="ref-for-text-content⑤">text</a>, or else something users can hear (<code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-audio" id="ref-for-elementdef-audio⑤">audio</a></code> elements) or view
+  (<code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-video" id="ref-for-elementdef-video④">video</a></code> or <code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-img" id="ref-for-elementdef-img①⑤">img</a></code> or <code><a data-link-type="element" href="semantics-scripting.html#elementdef-canvas" id="ref-for-elementdef-canvas③">canvas</a></code> elements) or otherwise interact with (for example, interactive
+  form controls).</p>
+    <p>This requirement is not a hard requirement, however, as there are many cases where an element can
+  be empty legitimately, for example when it is used as a placeholder which will later be filled in
+  by a script, or when the element is part of a template and would on most pages be filled in but on
+  some pages is not relevant.</p>
+    <p>Conformance checkers are encouraged to provide a mechanism for authors to find elements that fail
+  to fulfill this requirement, as an authoring aid.</p>
+    <p>The following elements are palpable content:</p>
+    <ul class="brief category-list">
+     <li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-a" id="ref-for-elementdef-a⑨">a</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-abbr" id="ref-for-elementdef-abbr②">abbr</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-address" id="ref-for-elementdef-address③">address</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-article" id="ref-for-elementdef-article②">article</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-aside" id="ref-for-elementdef-aside②">aside</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-audio" id="ref-for-elementdef-audio⑥">audio</a></code> (if the <code><a data-link-type="element-sub" href="semantics-embedded-content.html#element-attrdef-mediaelements-controls" id="ref-for-element-attrdef-mediaelements-controls③">controls</a></code> attribute is present) 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-b" id="ref-for-elementdef-b④">b</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-bdi" id="ref-for-elementdef-bdi②">bdi</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-bdo" id="ref-for-elementdef-bdo②">bdo</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-blockquote" id="ref-for-elementdef-blockquote④">blockquote</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-button" id="ref-for-elementdef-button⑨">button</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-scripting.html#elementdef-canvas" id="ref-for-elementdef-canvas④">canvas</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-cite" id="ref-for-elementdef-cite②">cite</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-code" id="ref-for-elementdef-code②">code</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-data" id="ref-for-elementdef-data②">data</a></code> 
+     </li><li><code><a data-link-type="element" href="interactive-elements.html#elementdef-details" id="ref-for-elementdef-details②">details</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-dfn" id="ref-for-elementdef-dfn②">dfn</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-div" id="ref-for-elementdef-div⑧">div</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-dl" id="ref-for-elementdef-dl①">dl</a></code> (if the element’s children include at least one name-value group) 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-em" id="ref-for-elementdef-em②">em</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-embed" id="ref-for-elementdef-embed①①">embed</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-fieldset" id="ref-for-elementdef-fieldset①">fieldset</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-figure" id="ref-for-elementdef-figure①">figure</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-footer" id="ref-for-elementdef-footer①">footer</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-form" id="ref-for-elementdef-form①⓪">form</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h1" id="ref-for-elementdef-h1⑥">h1</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h2" id="ref-for-elementdef-h2④">h2</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h3" id="ref-for-elementdef-h3②">h3</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h4" id="ref-for-elementdef-h4②">h4</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h5" id="ref-for-elementdef-h5②">h5</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-h6" id="ref-for-elementdef-h6②">h6</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-header" id="ref-for-elementdef-header①">header</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-i" id="ref-for-elementdef-i①⑤">i</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-iframe" id="ref-for-elementdef-iframe①④">iframe</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-img" id="ref-for-elementdef-img①⑥">img</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-input" id="ref-for-elementdef-input⑧">input</a></code> (if the <code><a data-link-type="element-sub" href="sec-forms.html#element-attrdef-input-type" id="ref-for-element-attrdef-input-type①">type</a></code> attribute is <em>not</em> in the <code><a data-link-type="element-sub" href="sec-forms.html#element-statedef-input-hidden" id="ref-for-element-statedef-input-hidden①">Hidden</a></code> state) 
+     </li><li><code><a data-link-type="element" href="edits.html#elementdef-ins" id="ref-for-elementdef-ins③">ins</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-kbd" id="ref-for-elementdef-kbd③">kbd</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-label" id="ref-for-elementdef-label③">label</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-main" id="ref-for-elementdef-main②">main</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-map" id="ref-for-elementdef-map⑥">map</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-mark" id="ref-for-elementdef-mark②">mark</a></code> 
+     </li><li>MathML <code><a data-link-type="element" href="https://www.w3.org/TR/MathML/chapter2.html#interf.toplevel" id="ref-for-interf.toplevel③">math</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-meter" id="ref-for-elementdef-meter②">meter</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-nav" id="ref-for-elementdef-nav②">nav</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-object" id="ref-for-elementdef-object①③">object</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-ol" id="ref-for-elementdef-ol③">ol</a></code> (if the element’s children include at least one <code><a data-link-type="element" href="grouping-content.html#elementdef-li" id="ref-for-elementdef-li②">li</a></code> element) 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-output" id="ref-for-elementdef-output③">output</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-p" id="ref-for-elementdef-p⑧">p</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-pre" id="ref-for-elementdef-pre①">pre</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-progress" id="ref-for-elementdef-progress②">progress</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-q" id="ref-for-elementdef-q③">q</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-ruby" id="ref-for-elementdef-ruby②">ruby</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-s" id="ref-for-elementdef-s③">s</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-samp" id="ref-for-elementdef-samp②">samp</a></code> 
+     </li><li><code><a data-link-type="element" href="sections.html#elementdef-section" id="ref-for-elementdef-section③">section</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-select" id="ref-for-elementdef-select①③">select</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-small" id="ref-for-elementdef-small③">small</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-span" id="ref-for-elementdef-span⑦">span</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-strong" id="ref-for-elementdef-strong②">strong</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-sub" id="ref-for-elementdef-sub②">sub</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-sup" id="ref-for-elementdef-sup②">sup</a></code> 
+     </li><li>SVG <code><a data-link-type="element" href="https://www.w3.org/TR/svg2/struct.html#elementdef-svg" id="ref-for-elementdef-svg⑥">svg</a></code> 
+     </li><li><code><a data-link-type="element" href="tabular-data.html#elementdef-table" id="ref-for-elementdef-table③">table</a></code> 
+     </li><li><code><a data-link-type="element" href="sec-forms.html#elementdef-textarea" id="ref-for-elementdef-textarea⑧">textarea</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-time" id="ref-for-elementdef-time③">time</a></code> 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-u" id="ref-for-elementdef-u③">u</a></code> 
+     </li><li><code><a data-link-type="element" href="grouping-content.html#elementdef-ul" id="ref-for-elementdef-ul③">ul</a></code> (if the element’s children include at least one <code><a data-link-type="element" href="grouping-content.html#elementdef-li" id="ref-for-elementdef-li③">li</a></code> element) 
+     </li><li><code><a data-link-type="element" href="textlevel-semantics.html#elementdef-var" id="ref-for-elementdef-var②">var</a></code> 
+     </li><li><code><a data-link-type="element" href="semantics-embedded-content.html#elementdef-video" id="ref-for-elementdef-video⑤">video</a></code> 
+     </li><li><a data-link-type="dfn" href="dom.html#text-content" id="ref-for-text-content⑥">text</a> that is not <a data-link-type="dfn" href="dom.html#inter-element-white-space" id="ref-for-inter-element-white-space⑤">inter-element white space</a> 
+    </li></ul>
+    
+   </section>
+</body>
+</html>
