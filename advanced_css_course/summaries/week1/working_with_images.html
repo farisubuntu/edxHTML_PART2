@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- saved from url=(0260)https://courses.edx.org/courses/course-v1:Microsoft+DEV218x+1T2019/courseware/92d91dcd96444b358677ea4b10f25a24/c89b8249f53e402c9a439b32c1a58f9c/3?activate_block_id=block-v1%3AMicrosoft%2BDEV218x%2B1T2019%2Btype%40html%2Bblock%40fdeb6b58851a41bb9a38e91f9df473f7 -->
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head><body>
+    <div class="xblock xblock-student_view xblock-student_view-vertical xblock-initialized" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:Microsoft+DEV218x+1T2019" data-request-token="009fd7b04b3311e9a29d0a192bfb6e98" data-runtime-version="1" data-usage-id="block-v1:Microsoft+DEV218x+1T2019+type@vertical+block@31722577aeec40af8a8ee358691c1bad" data-block-type="vertical">
+  
+
+  <h2 class="hd hd-2 unit-title">Working with Images</h2>
+
+    
+
+
+
+<div class="bookmark-button-wrapper">
+  <button class="btn btn-link bookmark-button" aria-pressed="false" data-bookmark-id="farisubuntu,block-v1:Microsoft+DEV218x+1T2019+type@vertical+block@31722577aeec40af8a8ee358691c1bad" data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/">
+     <span class="bookmark-text">Bookmark this page</span>
+    </button>
+</div>
+
+
+<div class="vert-mod">
+    <div class="vert vert-0" data-id="block-v1:Microsoft+DEV218x+1T2019+type@html+block@1177bd5c3a5a4a3c96b439330beb5ced">
+        
+<div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule xblock-initialized" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="009fd7b04b3311e9a29d0a192bfb6e98" data-runtime-version="1" data-usage-id="block-v1:Microsoft+DEV218x+1T2019+type@html+block@1177bd5c3a5a4a3c96b439330beb5ced" data-type="HTMLModule" data-course-id="course-v1:Microsoft+DEV218x+1T2019">
+  
+  <h3><span class="title-value">Working with Images</span><b></b><i></i><span style="text-decoration: underline;"></span><sub></sub><sup></sup><span style="text-decoration: line-through;"></span></h3>
+<p>Including effective images in your web page design is crucial and can lead to increased user engagement with your content.</p>
+<p>Before you add images to your web page, first prepare the images for the Web using an image editing program. That preparation consists of these three steps:</p>
+<ol><ol>
+<li>Resampling the image so that it is at the proper resolution for the Web.</li>
+<li>Resizing or cropping the image so that it is the right size on your web page.</li>
+<li>Saving the image in one of the three Web image graphics formats: JPEG, PNG, or GIF.
+<p><em>Tip:</em> For images, JPEG is the best overall option, but the GIF standard allows animated images.</p>
+</li>
+</ol></ol>
+<p>Every image is comprised of pixels. The more pixels per inch the image has, the sharper and more detailed it will appear. Most images on the Web are 72 and 100 pixels per inch.</p>
+<blockquote>
+<p><em>Tip:</em> Loading images takes time. Since large images can slow down your page, use good judgement regarding the&nbsp;number and size of the images you select for your web page.</p>
+</blockquote>
+<h4 id="html-image-tags-and-their-descriptions">HTML Image Tags and Their Descriptions</h4>
+<p>Use the HTML <code>&lt;img&gt;</code> element to define an image. The <code>&lt;img&gt;</code> tag is empty; it contains attributes only, and does not have a closing tag. Here's the coding:</p>
+<div class="sourceCode">
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;img</span><span class="ot"> height=</span><span class="st">"##"</span><span class="ot"> width=</span><span class="st">"##"</span><span class="ot"> src=</span><span class="st">"image.gif"</span><span class="kw">&gt;</span></code></pre>
+</div>
+<p>Use the <code>&lt;img&gt;</code> tag's <code>height</code> and <code>width</code> attributes to define the size of the image. In the coding example above, replace the ## with the corresponding number of pixels for the image’s height and width. By specifying the actual dimensions of the image, the web page will load with the correct amount of space allocated to the image. Otherwise, the image will download, causing the page to move down and rearrange for every image that subsequently downloads.</p>
+<p>To make an image responsive to the container it is in, you will set the width&nbsp;to 100%. The following is a basic CSS example&nbsp;to make your images responsive:</p>
+<p class="p1"><code><span class="s1">img&nbsp;{<br></span>&nbsp; &nbsp; max-width:&nbsp;100%;</code><br><code>&nbsp; &nbsp; height:&nbsp;auto;</code><br><code>}</code></p>
+<p>Use the <code>&lt;img&gt;</code> tag's <code>src</code> attribute to define the URL of the image. Since it is common to store images in a subfolder, include the folder name in the <code>src</code> attribute. If not specified, the browser expects to find the image in the same folder as the web page. Some websites store their images on image servers.</p>
+<p style="padding-left: 30px;"><em>Tip:</em> You can access images from any web address in the world.</p>
+<p>Use the <code>&lt;img&gt;</code> tag's <code>alt</code> attribute to define an alternate text for an image if theimage cannot be displayed, due to a slow connection, an error in the <code>src</code> attribute, or if the user is viewing it on a screen reader. A screen reader is a software program that can read what is displayed on a screen. Screen readers are useful to people who are blind, visually impaired, or learning disabled.</p>
+<p style="padding-left: 30px;"><strong>Note:</strong> The alt attribute is required; a web page will not validate correctly without it.</p>
+<p></p>
+<p></p>
+</div>
+
+    </div>
+</div>
+
+</div></body>
+
+</html>
