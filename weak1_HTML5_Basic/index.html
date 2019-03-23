@@ -1,0 +1,1060 @@
+<html class="show-head-levels show-error show-head-error-h1 show-out-levels show-section dark-theme news-active"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- base href="moz-extension://3bbac294-91c3-40fd-af00-ec87ed3ac164/html/" --><style>html, body {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    margin: 5px 0 0;
+}
+
+h3 {
+    margin: 0;
+    border-bottom: 1px dotted;
+}
+
+p:not(.note),
+li {
+    line-height: 1.3;
+    font-size: 1.1em;
+}
+
+p.note {
+    clear: both;
+}
+
+p + p {
+    margin-top: 0;
+}
+
+dl {
+    margin-top: 10px;
+    line-height: 1.3;
+    font-size: 1.1em;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd, li {
+    margin-bottom: 5px;
+}
+
+li {
+    margin-left: 0;
+}
+
+dd {
+    margin-left: 30px;
+}
+
+#headingsMapWrapper {
+    text-align: left;
+    font-weight: normal;
+    overflow: auto;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 13px;
+    background-size: 100% 24px;
+    position: relative;
+    padding: 40px 0 1px;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+#extension_title {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    margin: 0;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.results .tree-root {
+    font-size: 1em;
+    margin: 10px 5px;
+    cursor: pointer;
+}
+
+#headingsMapWrapper .tabs-container {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    flex-grow: 2;
+}
+
+#headingsMapWrapper .action-button {
+    border: none;
+}
+
+#headingsMapWrapper .panel-results {
+    border: 1px solid;
+    margin-top: -1px;
+    flex-shrink: 1;
+    flex-grow: 2;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    overscroll-behavior: none;
+}
+
+#headingsMapWrapper .results {
+    display: none;
+    flex-shrink: 1;
+    flex-grow: 2;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#headingsMapWrapper .results ul {
+    font-weight: normal;
+    font-size: 1em;
+    margin: 0;
+    width: 96%;
+    list-style: none;
+    background: url(icons/tree_d.gif) 3px top repeat-y;
+}
+
+#headingsMapWrapper .results ul ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#headingsMapWrapper .spinner {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background: transparent url(spinner.gif) center center no-repeat;
+    background-size: 125px;
+}
+
+#headingsMapWrapper .spinner.active,
+#headingsMapWrapper .results.active {
+    display: block;
+}
+
+#headingsMapWrapper .results section {
+    padding-right: 10px;
+}
+
+#headingsMapWrapper .results section > ul {
+    font-weight: normal;
+    padding-left: 10px;
+    background-position: 13px top;
+    width: 99%;
+}
+
+#headingsMapWrapper .results li:nth-last-child(1) {
+    background: url(icons/tree_c.gif) 3px top no-repeat;
+}
+
+#headingsMapWrapper .results li {
+    position: relative;
+    font-weight: normal;
+    font-size: 1em;
+    margin: 1px 0;
+    padding: 0 0 0 25px;
+    background: url(icons/tree_b.gif) 3px top no-repeat;
+    line-height: 1.4;
+}
+
+#headingsMapWrapper .results li:nth-last-child(1) {
+    background: url(icons/tree_c.gif) 3px top no-repeat;
+}
+
+#headingsMapWrapper :focus {
+    outline: none;
+}
+
+#headingsMapWrapper .results a,
+#headingsMapWrapper .results .no-headed {
+    font-weight: normal;
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 0 3px 2px;
+    margin-left: -2px;
+}
+
+.additional-info:after {
+    content: ' ';
+}
+
+.additional-info:last-child:after {
+    content: ' - ';
+}
+
+#headingsMapWrapper #main-menu {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 25px;
+}
+
+.menu-item {
+    line-height: 20px;
+    cursor: pointer;
+    margin: 0;
+    padding: 3px;
+    list-style: none;
+    z-index: 1000;
+    opacity: .7;
+    position: relative;
+}
+
+#headingsMapWrapper #main-menu li:first-child:after {
+    display: block;
+    content: ' ';
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    position: absolute;
+    top: -7px;
+    width: 6px;
+    height: 6px;
+    transform: rotate(-45deg);
+    right: 11px;
+}
+
+#headingsMapWrapper #main-menu ul {
+    padding: 3px;
+    margin: 3px -10px 0 0;
+    position: absolute;
+    z-index: 3000;
+    right: 7px;
+    top: 25px;
+    border: 1px solid;
+    display: none;
+}
+
+#headingsMapWrapper #main-menu ul.active {
+    display: block;
+    box-shadow: 1px 1px 3px rgba(1, 1, 1, .5);
+    border-radius: 5px;
+}
+
+.menu-item,
+#headingsMapWrapper .headingsMap_closer {
+    padding-left: 27px;
+    background-size: auto 70%;
+    background-repeat: no-repeat;
+    background-position: 4px center;
+    white-space: nowrap;
+}
+
+#headingsMapWrapper #main-menu #menu-link:hover,
+#headingsMapWrapper #main-menu #menu-link:focus,
+.menu-item:hover,
+.menu-item:focus,
+#headingsMapWrapper .headingsMap_closer:hover,
+#headingsMapWrapper .headingsMap_closer:focus {
+    opacity: .9;
+}
+
+#headingsMapWrapper #main-menu #menu-link,
+#headingsMapWrapper .headingsMap_closer {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: block;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    opacity: .6;
+    padding: 0;
+    width: 20px;
+}
+
+#tabLinksId {
+    position: relative;
+    z-index: 20;
+}
+
+#headingsMapWrapper .tab-button {
+    font-weight: normal;
+    font-size: 1em;
+    margin-left: auto;
+    line-height: 24px;
+    cursor: pointer;
+    width: 48%;
+    max-width: 190px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    opacity: .7;
+    position: relative;
+    padding-bottom: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.tab-button {
+    display: inline-block;
+}
+
+#headingsMapWrapper .tab-button.active {
+    font-size: 1em;
+    opacity: 1;
+    font-weight: bold;
+}
+
+#headingsMapWrapper .no-headed,
+#headingsMapWrapper .head-error {
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.collapse-trigger {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    left: 11px;
+    font-size: 20px;
+    top: -4px;
+    z-index: 10;
+}
+
+.collapse-trigger.collapsed {
+    top: -5px;
+}
+
+.collapse-trigger:before {
+    content: "\025be";
+}
+
+.collapse-trigger.collapsed:before {
+    content: "\025b8";
+}
+
+#sliding_dialog_panel {
+    position: absolute;
+    top: -140%;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 50;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 0 10px;
+    overflow-y: auto;
+    transition: all .25s ease-out;
+}
+
+.dialog-active #sliding_dialog_panel {
+    top: 30px;
+    transition: all .15s ease-out;
+    overflow-y: auto;
+    height: 90%;
+    overscroll-behavior: none;
+}
+
+#sliding_dialog_panel .headingsMap_closer {
+    top: 5px
+}
+
+.dialog-active #sliding_dialog_panel {
+    display: block;
+}
+
+.dialog-active #sliding_dialog_panel .contents {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: none;
+}
+
+.dialog-active #tabLinksId,
+.dialog-active .results {
+    filter: blur(5px);
+    pointer-events: none;
+    transition: filter .25s ease-out;
+}
+
+#tabLinksId,
+.results {
+    transition: filter .15s ease-out;
+}
+
+#utilsId {
+    position: relative;
+    top: -40px;
+}
+
+.dialog-active #utilsId,
+.dialog-content {
+    display: none;
+}
+
+.dialog-active .active {
+    display: block;
+    overscroll-behavior: none;
+}
+
+#release_notes dt {
+    position: relative;
+}
+
+#release_notes dd:before {
+    content: '\2022';
+    display: inline-block;
+    margin-right: 4px;
+    margin-left: -9px;
+}
+
+#sliding_dialog_panel .active {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#sliding_dialog_panel h2 {
+    padding-left: 30px;
+    background-size: auto 75%;
+    background-repeat: no-repeat;
+    background-position: 4px center;
+}
+
+#sliding_dialog_panel .fieldset {
+    margin: 10px 0;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid;
+}
+
+#headingsMapWrapper fieldset p {
+    font-size: .9em;
+    margin: 0 4px 4px;
+}
+
+#sliding_dialog_panel .fieldset legend {
+    font-weight: bold;
+}
+
+#sliding_dialog_panel .fieldset label {
+    display: block;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+#sliding_dialog_panel .fieldset label select {
+    display: block;
+}
+
+#sliding_dialog_panel .fieldset select {
+    font-weight: normal;
+}
+
+#sliding_dialog_panel .fieldset label:nth-child(2n + 1) {
+    clear: left;
+}
+
+/* Styles that depend on options classes */
+.additional-info,
+.tab-button[data-tab-id=outlineTab] {
+    display: none;
+}
+
+.is-outline-test-active .tab-button[data-tab-id=outlineTab] {
+    display: inline-block;
+}
+
+.show-head-levels .head-level,
+.show-out-levels .section-index,
+.show-section .tag-name {
+    display: initial;
+    pointer-events: none;
+}
+
+.news-active #main-menu:before,
+.news-active #headingsMap_release_notes:before,
+.news-active #release_notes dt:first-child:before {
+    content: "N";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 9px;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    background-color: red;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #FFF;
+    text-shadow: 0 0 2px #666;
+    z-index: 100;
+    box-shadow: 0 0 2px #666;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.news-active #release_notes dt:first-child {
+    padding-left: 20px;
+}</style><style>#headingsMapWrapper,
+#headingsMapWrapper .results ul,
+#headingsMapWrapper li,
+#headingsMapWrapper .tab-button,
+#headingsMapWrapper .results.active .tree-root,
+#headingsMapWrapper .results.active,
+#headingsMapWrapper #main-menu ul {
+    color: #333;
+}
+
+body,
+#headingsMapWrapper,
+#sliding_dialog_panel,
+#headingsMapWrapper #main-menu ul,
+#headingsMapWrapper #menu-link,
+#headingsMapWrapper #main-menu li:first-child:after {
+    background: #FFF;
+}
+
+#headingsMapWrapper .results ul,
+#headingsMapWrapper .results ul li:nth-last-child(1),
+#headingsMapWrapper .results.active,
+#headingsMapWrapper .tab-button {
+    background-color: #FFF;
+}
+
+#headingsMapWrapper .panel-results,
+#headingsMapWrapper .tab-button,
+#sliding_dialog_panel,
+#sliding_dialog_panel .fieldset,
+#headingsMapWrapper #main-menu ul,
+#headingsMapWrapper #main-menu li:first-child:after {
+    border-color: #CCC !important;;
+}
+
+#headingsMapWrapper p,
+#headingsMapWrapper a,
+#headingsMapWrapper .no-headed {
+    color: #333;
+}
+
+.show-error #headingsMapWrapper .head-error,
+.show-error #headingsMapWrapper .no-headed,
+.show-error.show-head-error-h1 #headingsMapWrapper .head-error-h1 {
+    background-color: #FF7575 !important;
+}
+
+#headingsMapWrapper #menu-link {
+    background-image: url(./themes/bright/icons/menu.png);
+}
+
+#headingsMapWrapper #headingsMap_refresh {
+    background-image: url(./themes/bright/icons/refresh.png);
+}
+
+#sliding_dialog_panel #settings_form h2,
+#headingsMapWrapper #headingsMap_settings {
+    background-image: url(./themes/bright/icons/wrench.png);
+}
+
+#sliding_dialog_panel #help_panel h2,
+#headingsMapWrapper #help {
+    background-image: url(./themes/bright/icons/info.png);
+}
+
+#sliding_dialog_panel #release_notes h2,
+#headingsMapWrapper #headingsMap_release_notes {
+    background-image: url(./themes/bright/icons/releasenotes.png);
+}
+
+#headingsMapWrapper .headingsMap_closer {
+    background-image: url(./themes/bright/icons/close.png);
+}</style><style>.dark-theme #headingsMapWrapper,
+.dark-theme #headingsMapWrapper .results ul,
+.dark-theme #headingsMapWrapper li,
+.dark-theme #headingsMapWrapper .results.active .tree-root,
+.dark-theme #headingsMapWrapper .tab-button,
+.dark-theme #headingsMapWrapper #main-menu ul,
+.dark-theme #headingsMapWrapper #list_of_documents,
+.dark-theme #headingsMapWrapper #document_selector #document_selected:after{
+    color: #CCC;
+}
+
+.dark-theme,
+.dark-theme #headingsMapWrapper,
+.dark-theme #sliding_dialog_panel,
+.dark-theme #headingsMapWrapper .results ul,
+.dark-theme #headingsMapWrapper .results ul li:nth-last-child(1),
+.dark-theme #headingsMapWrapper .results.active,
+.dark-theme #headingsMapWrapper .tab-button.active,
+.dark-theme #headingsMapWrapper #main-menu ul,
+.dark-theme #headingsMapWrapper #menu-link,
+.dark-theme #headingsMapWrapper #main-menu li:first-child:after,
+.dark-theme #headingsMapWrapper #document_selector #list_of_documents{
+    background-color: #222;
+}
+
+.dark-theme #headingsMapWrapper p,
+.dark-theme #headingsMapWrapper a,
+.dark-theme #headingsMapWrapper .no-headed {
+    color: #CCC;
+}
+
+.dark-theme #headingsMapWrapper .tab-button,
+.dark-theme #headingsMapWrapper .panel-results,
+.dark-theme #headingsMapWrapper #sliding_dialog_panel,
+.dark-theme #headingsMapWrapper #sliding_dialog_panel .fieldset,
+.dark-theme #headingsMapWrapper #main-menu ul,
+.dark-theme #headingsMapWrapper #main-menu li:first-child:after,
+.dark-theme #headingsMapWrapper #list_of_documents,
+.dark-theme #headingsMapWrapper #document_selector {
+    border-color: #555 !important;
+}
+
+.dark-theme #headingsMapWrapper .tab-button,
+.dark-theme #headingsMapWrapper #list_of_documents li:hover {
+    background-color: #333;
+}
+
+.dark-theme.show-error #headingsMapWrapper .head-error,
+.dark-theme.show-error #headingsMapWrapper .no-headed,
+.dark-theme.show-error.show-head-error-h1 #headingsMapWrapper .head-error-h1 {
+    background-color: #800 !important;
+}
+
+.dark-theme #headingsMapWrapper #menu-link  {
+    background-image: url(./themes/dark/icons/menu.png);
+}
+
+.dark-theme #headingsMapWrapper #headingsMap_refresh {
+    background-image: url(./themes/dark/icons/refresh.png);
+}
+
+.dark-theme #sliding_dialog_panel #settings_form h2,
+.dark-theme #headingsMapWrapper #headingsMap_settings {
+    background-image: url(./themes/dark/icons/wrench.png);
+}
+
+.dark-theme #sliding_dialog_panel #help_panel h2,
+.dark-theme #headingsMapWrapper #help {
+    background-image: url(./themes/dark/icons/info.png);
+}
+
+.dark-theme #sliding_dialog_panel #release_notes h2,
+.dark-theme #headingsMapWrapper #headingsMap_release_notes {
+    background-image: url(./themes/dark/icons/releasenotes.png);
+}
+
+.dark-theme #headingsMapWrapper .headingsMap_closer {
+    background-image: url(./themes/dark/icons/close.png);
+}
+
+.dark-theme .custom-scrollbar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.3);
+    background-color: #555;
+}
+
+.dark-theme .custom-scrollbar::-webkit-scrollbar {
+    background-color: #555;
+}
+
+.dark-theme .custom-scrollbar::-webkit-scrollbar-thumb,
+.dialog-active #sliding_dialog_panel .contents::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 3px rgba(255, 255, 255, .3);
+    background-color: #BBB;
+}</style><style>.custom-scrollbar::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track,
+.custom-scrollbar::-webkit-scrollbar {
+    background-color: #F1F1F1;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, .2);
+    background-color: #DDD;
+}</style></head><body id="headingsMapWrapper"><h1 id="extension_title">HeadingsMap</h1><div id="utilsId"><div id="main-menu"><button id="menu-link" aria-label="menu"></button><ul id="main-menu-list"><li id="help" class="action-button menu-item">help</li><li id="headingsMap_settings" class="action-button menu-item">settings</li><li id="headingsMap_refresh" class="action-button menu-item">refresh results</li><li id="headingsMap_release_notes" class="action-button menu-item">release notes</li></ul></div><button class="headingsMap_closer action-button" aria-label="close panel"></button></div><div id="document_selector_wrapper" class=""><style><style>#document_selector_wrapper {
+    position: relative;
+    box-sizing: border-box;
+    display: none;
+    margin: -8px 3px 5px;
+}
+
+#document_selector {
+    position: relative;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+#document_selector_wrapper:not(.unique-document) {
+    display: block;
+}
+
+#document_selector_wrapper #document_selector_label,
+#document_selector_wrapper #document_selector {
+    cursor: pointer;
+    float: left;
+    box-sizing: border-box;
+}
+
+#document_selector_wrapper #document_selector_label {
+    width: 20%;
+    padding: 5px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: .9em;
+}
+
+#document_selector_wrapper #document_selector {
+    width: 80%;
+}
+
+#document_selector #list_of_documents {
+    padding: 0;
+    margin: 0 -1px;
+    position: absolute;
+    z-index: 3000;
+    border: 1px solid #CCC;
+    display: none;
+    box-shadow: 1px 1px 3px rgba(1, 1, 1, .5);
+    right: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    top: 100%;
+    width: 120%;
+    color: #333;
+    background: #FFF;
+}
+
+#document_selector_wrapper.open #document_selector {
+    border-radius: 5px 5px 0 0;
+}
+
+#document_selector_wrapper.open #list_of_documents {
+    display: block;
+}
+
+#document_selector #document_selected,
+#document_selector #list_of_documents li {
+    display: block;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    margin: 0;
+}
+
+#list_of_documents li:hover {
+    background-color: #F1F1F1;
+}
+
+#document_selector #document_selected {
+    cursor: pointer;
+    padding-right: 23px;
+    border: none;
+    background: no-repeat;
+    color: inherit;
+    width: 100%;
+    font-family: inherit;
+    text-align: left;
+}
+
+#document_selector #document_selected:after {
+    position: absolute;
+    content: "\025be";
+    line-height: 23px;
+    width: 24px;
+    height: 24px;
+    right: 0;
+    top: 0;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#document_selector_wrapper.open #document_selected:after {
+    transform: rotate(180deg);
+    color: #333;
+}</style></style><span id="document_selector_label">Documents</span><div id="document_selector" title="select the document to obtain its heading/sectioning structure"><button id="document_selected">How to Create a Graphic Design Project Outline</button><ul id="list_of_documents"><li data-frame-id="0">How to Create a Graphic Design Project Outline</li><li data-frame-id="42949672966">https://gum.criteo.com/syncframe?topUrl=www.lifewire.com#{%22optout%22:{%22value%22:false,%22origin%22:0},%22uid%22:{%22origin%22:0},%22idfs%22:{%22origin%22:0},%22sid%22:{%22origin%22:0},%22origin%22:%22publishertag%22,%22version%22:65,%22lwid%22:{%22value%22:%2254f7504b-513b-40aa-9367-d001a4d4a4a4%22,%22origin%22:3},%22tld%22:%22lifewire.com%22,%22topUrl%22:%22www.lifewire.com%22}</li><li data-frame-id="42949672972">https://bcp.crwdcntrl.net/5/ct=y/c=10692/rand=906037016/pv=y/rt=ifr</li><li data-frame-id="42949672975">https://www.lifewire.com/create-a-graphic-design-project-outline-1697432</li><li data-frame-id="42949672977">https://www.lifewire.com/create-a-graphic-design-project-outline-1697432</li><li data-frame-id="42949672979">https://www.lifewire.com/create-a-graphic-design-project-outline-1697432</li><li data-frame-id="42949672981">https://www.lifewire.com/create-a-graphic-design-project-outline-1697432</li><li data-frame-id="42949672983">https://a1878.casalemedia.com/ifnotify?c=FF0E1C&amp;r=9AD3D083&amp;t=5C95C0DD&amp;u=X0lLUGFNTER6elpPZUlJMEU4Rlo0WlM5&amp;m=fed9ad19776d17e007fbce8d432a31e2&amp;wp=5E&amp;aid=34096743AB51D403&amp;tid=125FF&amp;s=338D6&amp;cp=0.94&amp;n=www.lifewire.com&amp;pr=xx&amp;sid=5fc0-600e&amp;epr=63474999</li><li data-frame-id="42949672992">https://tpc.googlesyndication.com/sodar/Enqz_20U.html</li><li data-frame-id="42949672994">https://s0.2mdn.net/8173218/1551347406570/Nokia_Tactical-KSA-300x250-EN/index.html</li><li data-frame-id="42949673002">https://s.amazon-adsystem.com/iu3?cm3ppd=1&amp;d=dtb-pub&amp;csif=t&amp;dl=ym_rbd_brt_ppt_oath_fban_ox_dm_an_dmx_3lift&amp;dcc=t</li><li data-frame-id="42949673005">https://www.lifewire.com/create-a-graphic-design-project-outline-1697432</li></ul></div></div><div class="tabs-container"><div id="tabLinksId"><button data-tab-id="headingsTab" class="action-button tab-button active">Headers Structure</button><button data-tab-id="outlineTab" class="action-button tab-button">HTML5 Outline</button></div><div class="custom-scrollbar panel-results"><div data-panel-id="headingsTab" class="results active"><section><h2 class="tree-root">How to Create a Graphic Design Project Outline</h2><ul class="headingsMap-h0"><li class="biohead4"><a data-element-id="hmap-0" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-0" title=" Software " class="head-error-h1"><span class="head-level additional-info">4</span> Software </a></li><li class="biohead1"><a data-element-id="article-heading_1-0" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#article-heading_1-0" title=" How to Create a Graphic Design Project Outline "><span class="head-level additional-info">1</span> How to Create a Graphic Design Project Outline </a><span class="collapse-trigger"></span><ul class="headingsMap-h2"><li class="biohead4"><a data-element-id="hmap-2" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-2" title=" Software " class="head-error"><span class="head-level additional-info">4</span> Software </a></li><li class="biohead3"><a data-element-id="mntl-sc-block_1-0-2" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#mntl-sc-block_1-0-2" title=" Format of a Graphic Design Project Outline "><span class="head-level additional-info">3</span> Format of a Graphic Design Project Outline </a></li><li class="biohead3"><a data-element-id="mntl-sc-block_1-0-5" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#mntl-sc-block_1-0-5" title=" What to Include in a Graphic Design Project Outline "><span class="head-level additional-info">3</span> What to Include in a Graphic Design Project Outline </a></li><li class="biohead3"><a data-element-id="mntl-sc-block_1-0-10" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#mntl-sc-block_1-0-10" title=" How to Use the Outline "><span class="head-level additional-info">3</span> How to Use the Outline </a><span class="collapse-trigger"></span><ul class="headingsMap-h4"><li class="biohead4"><a data-element-id="hmap-6" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-6" title="Determining a Flat Rate for Graphic Design Projects"><span class="head-level additional-info">4</span>Determining a Flat Rate for Graphic Design Projects</a></li><li class="biohead4"><a data-element-id="hmap-7" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-7" title="What Every Graphic Designer Should Ask New Clients"><span class="head-level additional-info">4</span>What Every Graphic Designer Should Ask New Clients</a></li><li class="biohead4"><a data-element-id="hmap-8" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-8" title="What Are The Steps of the Graphic Design Process?"><span class="head-level additional-info">4</span>What Are The Steps of the Graphic Design Process?</a></li><li class="biohead4"><a data-element-id="hmap-9" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-9" title="Graphic Design Business Ideas and Tips"><span class="head-level additional-info">4</span>Graphic Design Business Ideas and Tips</a></li><li class="biohead4"><a data-element-id="hmap-10" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-10" title="Wow Prospective Clients With a Slick PDF Portfolio"><span class="head-level additional-info">4</span>Wow Prospective Clients With a Slick PDF Portfolio</a></li><li class="biohead4"><a data-element-id="hmap-11" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-11" title="Life of a Graphic Designer at an Ad Agency"><span class="head-level additional-info">4</span>Life of a Graphic Designer at an Ad Agency</a></li><li class="biohead4"><a data-element-id="hmap-12" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-12" title="Online Printers for Graphic Design Projects"><span class="head-level additional-info">4</span>Online Printers for Graphic Design Projects</a></li><li class="biohead4"><a data-element-id="hmap-13" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-13" title="A Guide to the Different Types of Graphic Design Portfolios"><span class="head-level additional-info">4</span>A Guide to the Different Types of Graphic Design Portfolios</a></li><li class="biohead4"><a data-element-id="hmap-14" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-14" title="The Benefits of Working on Retainer as a Graphic Designer"><span class="head-level additional-info">4</span>The Benefits of Working on Retainer as a Graphic Designer</a></li><li class="biohead4"><a data-element-id="hmap-15" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-15" title="Should Graphic Designers Charge Hourly or Flat Rates?"><span class="head-level additional-info">4</span>Should Graphic Designers Charge Hourly or Flat Rates?</a></li><li class="biohead4"><a data-element-id="hmap-16" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-16" title="How Do Graphic Designers Combine Art and Technology?"><span class="head-level additional-info">4</span>How Do Graphic Designers Combine Art and Technology?</a></li><li class="biohead4"><a data-element-id="hmap-17" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-17" title="Practice Projects for Your Graphic Design Portfolio"><span class="head-level additional-info">4</span>Practice Projects for Your Graphic Design Portfolio</a></li><li class="biohead4"><a data-element-id="hmap-18" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-18" title="What Does It Mean to Design for Branding?"><span class="head-level additional-info">4</span>What Does It Mean to Design for Branding?</a></li><li class="biohead4"><a data-element-id="hmap-19" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-19" title="How Do Shapes Impact Graphic Design Projects?"><span class="head-level additional-info">4</span>How Do Shapes Impact Graphic Design Projects?</a></li><li class="biohead4"><a data-element-id="hmap-20" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-20" title="Do You Have to Be an Artist to Be a Graphic Designer?"><span class="head-level additional-info">4</span>Do You Have to Be an Artist to Be a Graphic Designer?</a></li><li class="biohead4"><a data-element-id="hmap-21" data-element-is-anchor="true" href="https://www.lifewire.com/create-a-graphic-design-project-outline-1697432#hmap-21" title="Why Graphic Designers Need Portfolios and What Goes In Them"><span class="head-level additional-info">4</span>Why Graphic Designers Need Portfolios and What Goes In Them</a></li></ul></li></ul></li></ul></section></div><div data-panel-id="outlineTab" class="results"></div></div></div><div class="spinner"></div><div id="sliding_dialog_panel" class="dialog"><button class="headingsMap_closer dialog-closer" title="close"></button><div class="flex-grid dialog-content" id="settings_form">
+    <h2>Settings</h2>
+    <fieldset class="fieldset">
+        <legend>General settings</legend>
+        <div>
+            <label for="darkTheme">Theme
+                <select name="darkTheme" id="darkTheme" callback="setTheme">
+                    <option value="false">Bright</option>
+                    <option value="true" selected="selected">Dark</option>
+                </select></label>
+            <label for="position">Position
+                <select name="position" id="position" callback="updateWidgetPosition">
+                    <option value="left" selected="selected">left</option>
+                    <option value="right">right</option>
+                </select></label>
+        </div>
+    </fieldset>
+    <fieldset class="fieldset">
+        <legend>Headers structure test</legend>
+        <div>
+            <label for="showHeadLevels">Heading level
+                <select name="showHeadLevels" id="showHeadLevels">
+                    <option value="true" selected="selected">Show</option>
+                    <option value="false">Hide</option>
+                </select></label>
+            <label for="showHiddenHeaders">Hidden headers
+                <select name="showHiddenHeaders" id="showHiddenHeaders" callback="refresh">
+                    <option value="false" selected="selected">Don't consider</option>
+                    <option value="true">Consider</option>
+                </select></label>
+            <label for="showAriaLabelContent">aria-label content *
+                <select name="showAriaLabelContent" id="showAriaLabelContent" callback="refresh">
+                    <option value="false" selected="selected">Hide</option>
+                    <option value="true">Show</option>
+                </select></label>
+        </div>
+        <p class="note">* If the headers (or the elements that they include) use <em>aria-label</em> attribute,
+            screen-readers may access to it and use it as part of the content.</p>
+    </fieldset>
+    <fieldset class="fieldset">
+        <legend>Error identification</legend>
+        <div>
+            <label for="showHeadError">Identify errors
+                <select name="showHeadError" id="showHeadError" callback="disableFields" related-fields="showHeadErrorH1">
+                    <option value="true" selected="selected">Yes</option>
+                    <option value="false">No</option>
+                </select></label>
+            <label for="showHeadErrorH1">Error if not initial h1
+                <select name="showHeadErrorH1" id="showHeadErrorH1">
+                    <option value="true" selected="selected">Yes</option>
+                    <option value="false">No</option>
+                </select></label>
+        </div>
+    </fieldset>
+    <fieldset class="fieldset">
+        <legend><abbr title="this test could have performance implications in long documents">HTML 5 Outline test
+            *</abbr>
+            <select name="isOutlineTestActive" id="isOutlineTestActive" aria-label="HTML 5 Outline test status" callback="refresh disableFields" related-fields="showOutLevels showOutElem showHiddenSections">
+                <option value="true">Activated</option>
+                <option value="false" selected="selected">Deactivated</option>
+            </select></legend>
+        <p class="note">There are no browsers or assistive technology with native implementations of W3C Outline
+            algorithm. Therefore
+            it cannot be relied upon to convey document structure to users and authors should use heading rank (1 to 6)
+            for doing it (<a href="https://www.w3.org/TR/2017/REC-html52-20171214/sections.html#creating-an-outline" target="_blank">HTML 5.2 Creating an outline</a>)
+        </p>
+        <div>
+            <label for="showOutLevels">Section index
+                <select name="showOutLevels" id="showOutLevels" disabled="disabled">
+                    <option value="true" selected="selected">Show</option>
+                    <option value="false">Hide</option>
+                </select></label>
+            <label for="showOutElem">Section tag
+                <select name="showOutElem" id="showOutElem" disabled="disabled">
+                    <option value="true" selected="selected">Show</option>
+                    <option value="false">Hide</option>
+                </select></label>
+            <label for="showHiddenSections">Hidden sections *
+                <select name="showHiddenSections" id="showHiddenSections" callback="refresh" disabled="disabled">
+                    <option value="false" selected="selected">Don't consider</option>
+                    <option value="true">Consider</option>
+                </select></label>
+        </div>
+        <p class="note">* it can have performance implications in long documents</p>
+    </fieldset>
+</div><div class="flex-grid dialog-content" id="help_panel">
+    <h2>Help</h2>
+    <div class="contents custom-scrollbar">
+        <p>HeadingsMap is a browser extension which basic goal is being a tool that shows the headers structure of web
+            documents so it helps auditing their accessibility.</p>
+        <p>The extension checks the document for extracting the headers and sections structure an shows the results in
+            a hierarchical tree according to the hierarchy in the document. The results are shown in tabs, one for the
+            headers structure and, if it is active, one for the sections structure (HTML 5 Outline).</p>
+        <p>Since its first version (released in May 5th, 2008), it had a lot of changes (mostly improvements but also
+            bugfixes). One of them was the introduction of the HTML 5 outline algorithm for showing the sections
+            structure of the documents. Sadly, according to what the W3C says (
+            <a href="https://www.w3.org/TR/2017/REC-html52-20171214/sections.html#creating-an-outline" target="_blank">HTML
+                5.2 Creating an outline</a>), there are no browsers or assistive technology with native implementations
+            of that algorithm, so it cannot be relied upon to convey document structure to users. Anyway, I decided to
+            keep the analysis because the algorithm is still valid and I think that having it in a tool helps to the
+            developers for adding a better structure to the documents.</p>
+        <h3>Features</h3>
+        <ul>
+            <li>List of headings with information about their level and if they break the hierarchical structure</li>
+            <li>If there are elements that use <em>role</em> attribute with value <em>heading</em>, they are also listed
+                and considered in the structure (their level is according to the value of <em>aria-level</em> attribute
+                or 2 when it is not defined).</li>
+            <li>List of sections with header information and warnings for errors in the structure</li>
+            <li>Information from the main document and also from the documents inside iframes (includes a document
+                selector that is active when there are multiple documents)</li>
+            <li>By clicking on the headers the document scrolls to the position of the header/section and highlights
+                it (if the header is visible)</li>
+            <li>Detects changes in the DOM and when they finish it updates the trees</li>
+            <li>It can also be refreshed manually</li>
+            <li>Allow collapsing list of headers by levels</li>
+            <li>Dark theme (optional)</li>
+            <li>HTML 5 Outline test is optional</li>
+            <li>CSS outline for identifying the header (or section) when clicking the tree and if it is visible in the
+                page</li>
+            <li>It doesn't show hidden headers or sections (hidden for assistive technologies)</li>
+            <li>If the header (or section) is an anchor, the link in the results has the href pointing to it (useful for
+                being copied directly from the tree with the option in the contextual menu of the browser)</li>
+            <li>If header/section content uses aria-label, its value can be shown (optional property configurable in the
+                settings section)</li>
+            <li>Version for multiple browsers (it uses the browserExtensions API):
+                <ul>
+                    <li><a href="https://addons.mozilla.org/es/firefox/addon/headingsmap/" target="_blank">Firefox</a>
+                    </li>
+                    <li><a href="https://chrome.google.com/webstore/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi" target="_blank">Chrome</a></li>
+                    <li><a href="https://chrome.google.com/webstore/detail/headingsmap/flbjommegcjonpdmenkdiocclhjacmbi" target="_blank">Vivaldi (uses shame version as Chrome)</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h3>HeadingsMap tree - settings</h3>
+        <dl>
+            <dt>Show heading level</dt>
+            <dd>It includes the heading level (1 to 6) that is used as tag (h1 to h6)</dd>
+            <dt>Identify errors</dt>
+            <dd>When active, it highlights the tree items that correspond to headers that don't follow
+                the right order (for instance, one h4 after one h2 instead of being h3)
+            </dd>
+            <dt>Error if not initial h1</dt>
+            <dd>It is commonly accepted that the first header in the document must be an h1. With this option
+                active, and "identify errors" as well, the lack on this rule is considered error
+            </dd>
+            <dt>Show hidden headers</dt>
+            <dd>When the document includes headers that are hidden for any tool (not only visually hidden, but
+                also hidden for assistive technologies), they are not shown in the tree. When activating
+                this option, they are also shown.
+            </dd>
+        </dl>
+        <h3>HTML 5 outline - settings</h3>
+        <p>According to the W3C, there are not browsers or assistive technologies that support it, so having a good
+            result in the test barely impact in the final accessibility. The HTML 5 algorithm is considered in the list
+            of possible <a href="https://www.w3.org/TR/html53/" target="_blank"> exclusions for the next Proposed
+                Recommendation</a>. If finally it is excluded from it, this feature will be removed from the extension.
+        </p>
+        <dl>
+            <dt>Show section index</dt>
+            <dd>According to the algorithm, each section would have an index in the tree. This setting shows/hides that
+                value
+            </dd>
+            <dt>Show section tag</dt>
+            <dd>With this setting, the tree shows the HTML tag that <a href="https://www.w3.org/TR/2011/WD-html5-author-20110809/headings-and-sections.html#outlines" target="_blank">generates the sections</a>.
+            </dd>
+            <dt>Identify errors</dt>
+            <dd>It highlights the tree items that have errors (sections without any header content)</dd>
+            <dt>Show hidden sections</dt>
+            <dd>When the document includes hidden sections (not only visually hidden, but
+                also hidden for assistive technologies), they are not shown in the tree. When activating
+                this option, they are shown. In long documents, this could affect to the performance since it requires
+                to check all elements in the DOM
+            </dd>
+        </dl>
+
+    </div>
+</div><div class="flex-grid dialog-content" id="release_notes">
+    <h2>Release notes</h2>
+    <div class="contents custom-scrollbar">
+        <dl>
+            <dt data-version="3.5.6">16/2/2019 (v 3.5.6)</dt>
+            <dd>Fix bug related with the text to show when all headers (including hidden ones) are considered</dd>
+
+            <dt data-version="3.5.5">22/1/2019 (v 3.5.5)</dt>
+            <dd>Dark theme by default</dd>
+            <dd>Added new information about the status of the HTML 5 Outline test and its algorithm based on
+                <a href="https://www.w3.org/TR/html53/" target="_blank"> HTML 5.3 Working Draft exclusions for the next
+                    Proposed Recommendation</a></dd>
+            <dd>When installing it for the first time, the HTML Outline tab is not active (activating it can be done in
+                the settings view)</dd>
+
+            <dt data-version="3.5.4">13/1/2019 (v 3.5.4)</dt>
+            <dd>Stop considering the hidden elements for assistive technologies (optionally can be considered)</dd>
+            <dd>Consider <em>role</em> attribute with value <em>heading</em> when used for defining headers in the
+                document (combined with <em>aria-level</em> attribute). Thanks to Arnaud Delafosse for his proposal
+                about this improvement (and the previous one) and feedback (<a href="https://twitter.com/arnauddelafosse" target="_blank" title="open in new tab">
+                    @arnauddelafosse</a>)</dd>
+            <dd>Consider error when heading doesn't have any content</dd>
+            <dd>Improvements in document selector</dd>
+            <dd>Simplify settings</dd>
+            <dd>Bug fixes (errors not correctly identified, ...)</dd>
+
+            <dt data-version="3.5.2">24/12/2018 (v 3.5.2)</dt>
+            <dd>Improvements in document selector</dd>
+            <dd>Margin top when scrolling to element</dd>
+            <dd>Prevent refreshing when document is updated and its structure is the same</dd>
+            <dd>Improve in quality code (modularized, updated,...)</dd>
+            <dd>Bug fix, ...</dd>
+
+            <dt data-version="3.5.1">25/11/2018 (v 3.5.1)</dt>
+            <dd>Selector for getting the headers structure from documents that are included in iframes</dd>
+            <dd>Code modularized</dd>
+            <dd>Performance improvements</dd>
+            <dd>Bug fixes, ...</dd>
+
+            <dt data-version="3.4.3">03/11/2018 (v 3.4.3)</dt>
+            <dd>New collapsable menu</dd>
+            <dd>Included release notes</dd>
+            <dd>Included help content</dd>
+            <dd>Code changes for improving efficiency in the execution</dd>
+
+            <dt>25/10/2018 (v 3.4.2)</dt>
+            <dd>User can resize the panel</dd>
+            <dd>The panel can be located in the right side (as option)</dd>
+            <dd>Added <em>overscroll-behavior</em> property to the CSS</dd>
+            <dd>Performance improvements</dd>
+
+            <dt>23/10/2018 (v 3.4.1)</dt>
+            <dd>Only execute the test of the active tab</dd>
+            <dd>Include loading gif for better user experience</dd>
+            <dd>Clicking the tree root scrolls to the top of the page</dd>
+            <dd>Include options panel in the widget</dd>
+            <dd>Bugfix in the HTML5 Outline that were not showing all sections</dd>
+
+            <dt>18/10/2018 (v 3.4.0)</dt>
+            <dd>Show <em>aria-label</em> content as optional feature</dd>
+            <dd>The links in the trees includes the anchors so they work as link for references</dd>
+            <dd>Style scroll-bars for Chrome and Vivaldi</dd>
+            <dd>Improve code quality</dd>
+            <dd>Fix error when considering headers/sections located outside of the view as hidden</dd>
+
+            <dt>11/10/2018 (v 3.3.7)</dt>
+            <dd>Hidden headers and sections are optionally considered</dd>
+            <dd>Update how the header/section is highlighted</dd>
+            <dd>Improvements in analysis performance</dd>
+
+            <dt>09/10/2018 (v 3.3.6)</dt>
+            <dd>Add Dark theme as option</dd>
+            <dd>Set the HTML5 Outline test as optional</dd>
+            <dd>Improve general styling</dd>
+            <dd>Bugfixes</dd>
+        </dl>
+        <p class="note">I am updating the content of the release notes, so older versions are still not shown in the
+            list. Sorry for the delay and thanks for your patience.</p>
+    </div>
+</div></div></body></html>

@@ -1,0 +1,8 @@
+button{
+ padding: 10px;
+ margin: 4px;
+ color: yellowgreen;
+ background-color: black;
+ font-weight: 850;
+ min-width: 140px;
+}
