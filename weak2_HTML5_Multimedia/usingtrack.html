@@ -5,13 +5,20 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <title>using html5 video track element</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+ <link rel="stylesheet" type="text/css" media="screen" href="usingtrack.css">
  <script src="main.js"></script>
 </head>
 <body>
- <video controls width="600" height="500">
-  <source src="">
-  <source>
+ <div class="center">
+ <video controls width="600" height="500" controls crossorigin="anonymous">
+<source src="../weak2_HTML5_Multimedia/videos/1.mp4" type="video/mp4">
+
+ <track src="1_captions.vtt" kind="captions" srclang="english" default>
+
  </video>
+
+
+
+</div>
 </body>
 </html>

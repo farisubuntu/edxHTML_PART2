@@ -6,3 +6,8 @@ button{
  font-weight: 850;
  min-width: 140px;
 }
+
+div#player-container{
+ border:10px groove burlywood;
+ 
+}
