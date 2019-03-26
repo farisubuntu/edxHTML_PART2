@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="ie ie9 lte9" lang="en"><![endif]-->
+<!--[if !IE]><!--><html lang="en"><!--<![endif]-->
+<head dir="ltr">
+    <meta charset="UTF-8">
+</head>
+<body class="ltr  lang_en">
+<div id="page-prompt"></div>
+  <div class="window-wrap" dir="ltr">
+    
+    <a class="nav-skip sr-only sr-only-focusable" href="#main">Skip to main content</a>
+        
+<header class="global-header ">
+        
+    
+    <script type="text/javascript" src="https://prod-edxapp.edx-cdn.org/static/bundles/CookiePolicyBanner.fe631af4297905cdcfe5.13b564e86f3c.js" ></script>
+    <script type="text/javascript" src="https://prod-edxapp.edx-cdn.org/static/bundles/ReactRenderer.22d478a3e2bdfb8bdd0c.aca4ea9b1784.js" ></script>
+    <div id="cookie-policy-banner"></div>
+    <script type="text/javascript">
+      var c;
+      try { c = CookiePolicyBanner; } catch (e) { c = null; }
+      new ReactRenderer({
+        component: c,
+        selector: '#cookie-policy-banner',
+        componentName: 'CookiePolicyBanner',
+        props: {}
+      });
+    </script>
+    <div class="main-header">
+        
+<h1 class="header-logo">
+  <a href="https://www.edx.org">
+    
+    <img  class="logo" src="https://prod-edxapp.edx-cdn.org/static/edx.org/images/logo.790c9a5340cb.png" alt="edX Home Page"/>
+    
+  </a>
+</h1>
+        <div class="hamburger-menu" role="button" aria-label=Options Menu aria-expanded="false" aria-controls="mobile-menu" tabindex="0">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+            
+<nav class="nav-links" aria-label='Sign in'>
+  <div class="secondary">
+    <div>
+    </div>
+  </div>
+</nav>
+    </div>
+    <div class="mobile-menu hidden" aria-label=More Options role="menu" id="mobile-menu"></div>
+</header>
+        
+    
+    <div class="marketing-hero"></div>
+    <div class="content-wrapper main-container" id="content" dir="ltr">
+      
+        <script type="text/template" id="account-tpl">
+            <form id="email-change-form" method="post">
+    <label for="new-email"><%- gettext("New Address") %></label>
+    <input id="new-email" type="text" name="new-email" value="" placeholder="xsy@edx.org" data-validate="required email"/>
+    <div id="new-email-status" />
+    <label for="password"><%- gettext("Password") %></label>
+    <input id="password" type="password" name="password" value="" data-validate="required"/>
+    <div id="password-status" />
+    <div class="submit-button">
+        <input type="submit" id="email-change-submit" value="<%- gettext("Change My Email Address") %>">
+    </div>
+    <div id="request-email-status" />
+    <div id="password-reset">
+        <button type="button"><%- gettext("Reset Password") %></button>
+    </div>
+    <div id="password-reset-status" />
+</form>
+        </script>
+        <script type="text/template" id="access-tpl">
+            <section id="login-anchor" class="form-type">
+    <div id="login-form" class="form-wrapper <% if ( mode !== 'login' ) { %>hidden<% } %>"></div>
+</section>
+<section id="register-anchor" class="form-type">
+    <div id="register-form" class="form-wrapper <% if ( mode !== 'register' ) { %>hidden<% } %>"></div>
+</section>
+<section id="password-reset-anchor" class="form-type">
+    <div id="password-reset-form" class="form-wrapper hidden"></div>
+</section>
+<section id="institution_login-anchor" class="form-type">
+    <div id="institution_login-form" class="form-wrapper hidden"></div>
+</section>
+<section id="hinted-login-anchor" class="form-type">
+    <div id="hinted-login-form" class="form-wrapper <% if ( mode !== 'hinted_login' ) { %>hidden<% } %>"></div>
+</section>
+        </script>
+        <script type="text/template" id="form_field-tpl">
+            <div class="form-field <%- type %>-<%- name %>">
+    <% if ( type !== 'checkbox' && type !== 'plaintext') { %>
+        <label for="<%- form %>-<%- name %>">
+            <span class="label-text"><%- label %></span>
+            <% if ( required && type !== 'hidden' ) { %>
+                <span id="<%- form %>-<%- name %>-required-label"
+                    class="label-required <% if ( !requiredStr ) { %>hidden<% } %>">
+                    <% if ( requiredStr ) { %><%- requiredStr %><% }%>
+                </span>
+                <span class="icon fa" id="<%- form %>-<%- name %>-validation-icon" aria-hidden="true"></span>
+            <% } %>
+            <% if ( !required && optionalStr && (type !== 'hidden') ) { %>
+                <span class="label-optional" id="<%- form %>-<%- name %>-optional-label"><%- optionalStr %></span>
+            <% } %>
+        </label>
+        <% if (supplementalLink && supplementalText) { %>
+            <div class="supplemental-link">
+                <a href="<%- supplementalLink %>" target="_blank"><%- supplementalText %></a>
+            </div>
+        <% } %>
+    <% } %>
+    <% if ( type === 'select' ) { %>
+        <select id="<%- form %>-<%- name %>"
+            name="<%- name %>"
+            class="input-inline"
+            <% if ( instructions ) { %>
+            aria-describedby="<%- form %>-<%- name %>-desc <%- form %>-<%- name %>-validation-error"
+            <% } %>
+            <% if ( typeof errorMessages !== 'undefined' ) {
+                _.each(errorMessages, function( msg, type ) {%>
+                    data-errormsg-<%- type %>="<%- msg %>"
+            <%  });
+            } %>
+            <% if ( required ) { %> aria-required="true" required<% } %>
+        >
+            <% _.each(options, function(el) { %>
+                <option value="<%- el.value%>"<% if ( el.default ) { %> data-isdefault="true" selected<% } %>><%- el.name %></option>
+            <% }); %>
+        </select>
+        <span id="<%- form %>-<%- name %>-validation-error" class="tip error" aria-live="assertive">
+            <span class="sr-only"></span>
+            <span id="<%- form %>-<%- name %>-validation-error-msg"></span>
+        </span>
+        <% if ( instructions ) { %> <span class="tip tip-input" id="<%- form %>-<%- name %>-desc"><%- instructions %></span><% } %>
+        <% if (supplementalLink && supplementalText) { %>
+            <div class="supplemental-link">
+                <a href="<%- supplementalLink %>" target="_blank"><%- supplementalText %></a>
+            </div>
+        <% } %>
+    <% } else if ( type === 'textarea' ) { %>
+        <textarea id="<%- form %>-<%- name %>"
+            type="<%- type %>"
+            name="<%- name %>"
+            class="input-block"
+            <% if ( instructions ) { %>
+            aria-describedby="<%- form %>-<%- name %>-desc <%- form %>-<%- name %>-validation-error"
+            <% } %>
+            <% if ( restrictions.min_length ) { %> minlength="<%- restrictions.min_length %>"<% } %>
+            <% if ( restrictions.max_length ) { %> maxlength="<%- restrictions.max_length %>"<% } %>
+            <% if ( typeof errorMessages !== 'undefined' ) {
+                _.each(errorMessages, function( msg, type ) {%>
+                    data-errormsg-<%- type %>="<%- msg %>"
+            <%  });
+            } %>
+            <% if ( required ) { %> aria-required="true" required<% } %>></textarea>
+        <span id="<%- form %>-<%- name %>-validation-error" class="tip error" aria-live="assertive">
+            <span class="sr-only"></span>
+            <span id="<%- form %>-<%- name %>-validation-error-msg"></span>
+        </span>
+        <% if ( instructions ) { %> <span class="tip tip-input" id="<%- form %>-<%- name %>-desc"><%- instructions %></span><% } %>
+        <% if (supplementalLink && supplementalText) { %>
+            <div class="supplemental-link">
+                <a href="<%- supplementalLink %>" target="_blank"><%- supplementalText %></a>
+            </div>
+        <% } %>
+    <% } else if (type === 'plaintext' ) { %>
+            <span class="plaintext-field"><%= HtmlUtils.HTML(label) %></span>
+            <input id="<%- form %>-<%- name %>"
+               type="hidden"
+               name="<%- name %>"
+               class="input-block"
+               value="true"
+            />
+    <% } else { %>
+        <% if ( type === 'checkbox' ) { %>
+            <% if (supplementalLink && supplementalText) { %>
+                <div class="supplemental-link">
+                    <a href="<%- supplementalLink %>" target="_blank"><%- supplementalText %></a>
+                </div>
+            <% } %>
+        <% } %>
+        <input id="<%- form %>-<%- name %>"
+           type="<%- type %>"
+           name="<%- name %>"
+           class="input-block <% if ( type === 'checkbox' ) { %>checkbox<% } %>"
+            <% if ( instructions ) { %>
+            aria-describedby="<%- form %>-<%- name %>-desc <%- form %>-<%- name %>-validation-error"
+            <% } %>
+            <% if ( restrictions.min_length ) { %> minlength="<%- restrictions.min_length %>"<% } %>
+            <% if ( restrictions.max_length ) { %> maxlength="<%- restrictions.max_length %>"<% } %>
+            <% if ( restrictions.readonly )   { %> readonly <% } %>
+            <% if ( required ) { %> required<% } %>
+            <% if ( typeof errorMessages !== 'undefined' ) {
+                _.each(errorMessages, function( msg, type ) {%>
+                    data-errormsg-<%- type %>="<%- msg %>"
+            <%  });
+            } %>
+            <% if ( placeholder ) { %> placeholder="<%- placeholder %>"<% } %>
+            value="<%- defaultValue %>"
+        />
+        <% if ( type === 'checkbox' ) { %>
+            <label for="<%- form %>-<%- name %>">
+                <span class="label-text"><%= HtmlUtils.HTML(label) %></span>
+                <% if ( required && type !== 'hidden' ) { %>
+                    <span id="<%- form %>-<%- name %>-required-label"
+                        class="label-required <% if ( !requiredStr ) { %>hidden<% } %>">
+                        <% if ( requiredStr ) { %><%- requiredStr %><% }%>
+                    </span>
+                    <span class="icon fa" id="<%- form %>-<%- name %>-validation-icon" aria-hidden="true"></span>
+                <% } %>
+                <% if ( !required && optionalStr ) { %>
+                    <span class="label-optional" id="<%- form %>-<%- name %>-optional-label"><%- optionalStr %></span>
+                <% } %>
+            </label>
+        <% } %>
+        <span id="<%- form %>-<%- name %>-validation-error" class="tip error" aria-live="assertive">
+            <span class="sr-only"></span>
+            <span id="<%- form %>-<%- name %>-validation-error-msg"></span>
+        </span>
+        <% if ( instructions ) { %> <span class="tip tip-input" id="<%- form %>-<%- name %>-desc"><%- instructions %></span><% } %>
+    <% } %>
+    <% if( form === 'login' && name === 'password' ) { %>
+        <button type="button" class="forgot-password field-link"><%- gettext("Need help logging in?") %></button>
+    <% } %>
+</div>
+        </script>
+        <script type="text/template" id="login-tpl">
+            <div class="js-form-feedback" aria-live="assertive" tabindex="-1">
+</div>
+<% if ( context.createAccountOption !== false && !context.syncLearnerProfileData && !(context.enterpriseName && context.currentProvider) ) { %>
+<div class="toggle-form">
+    <span class="text"><%- gettext("First time here?") %></span>
+    <a href="#login" class="form-toggle" data-type="register"><%- gettext("Create an Account.") %></a>
+</div>
+<% } %>
+<% // Hide SSO related messages if we are not in the SSO pipeline.  %>
+<% if (context.enterpriseName && context.currentProvider) { %>
+    <% if (context.pipelineUserDetails && context.pipelineUserDetails.email) { %>
+        <h2><%- gettext("Sign in to continue learning as {email}").replace("{email}", context.pipelineUserDetails.email) %></h2>
+    <% } else { %>
+        <h2><%- gettext("Sign in to continue learning") %></h2>
+    <% } %>
+    <p>
+        <%- gettext("You already have an edX account with your {enterprise_name} email address.").replace(/{enterprise_name}/g, context.enterpriseName) %>
+        <% if (context.syncLearnerProfileData) {
+            %><%- gettext("Going forward, your account information will be updated and maintained by {enterprise_name}.").replace(/{enterprise_name}/g, context.enterpriseName) %>
+        <% } %>
+        <%- gettext("You can view your information or unlink from {enterprise_name} anytime in your Account Settings.").replace(/{enterprise_name}/g, context.enterpriseName) %>
+    </p>
+    <p><%- gettext("To continue learning with this account, sign in below.") %></p>
+<% } else { %>
+    <h2><%- gettext("Sign In") %></h2>
+<% } %>
+<form id="login" class="login-form" tabindex="-1" method="POST">
+    <p class="sr">
+        <% if ( context.providers.length > 0 && !context.currentProvider || context.hasSecondaryProviders ) { %>
+            <%- gettext("Sign in here using your email address and password, or use one of the providers listed below.") %>
+        <% } else { %>
+            <%- gettext("Sign in here using your email address and password.") %>
+        <% } %>
+        <%- gettext("If you do not yet have an account, use the button below to register.") %>
+    </p>
+    <%= context.fields %>
+    <button type="submit" class="action action-primary action-update js-login login-button"><%- gettext("Sign in") %></button>
+    <% if ( context.providers.length > 0 && !context.currentProvider || context.hasSecondaryProviders ) { %>
+    <div class="login-providers">
+        <div class="section-title lines">
+            <h3>
+                <span class="text"><%- gettext("or sign in with") %></span>
+            </h3>
+        </div>
+        <% _.each( context.providers, function( provider ) {
+            if ( provider.loginUrl ) { %>
+                <button type="button" class="button button-primary button-<%- provider.id %> login-provider login-<%- provider.id %>" data-provider-url="<%- provider.loginUrl %>">
+                    <div class="icon <% if ( provider.iconClass ) { %>fa <%- provider.iconClass %><% } %>" aria-hidden="true">
+                        <% if ( provider.iconImage ) { %>
+                            <img class="icon-image" src="<%- provider.iconImage %>" alt="<%- provider.name %> icon" />
+                        <% } %>
+                    </div>
+                    <span aria-hidden="true"><%- provider.name %></span>
+                    <span class="sr"><%- _.sprintf( gettext("Sign in with %(providerName)s"), {providerName: provider.name} ) %></span>
+                </button>
+            <% }
+        }); %>
+        <% if ( context.hasSecondaryProviders ) { %>
+            <button type="button" class="button-secondary-login form-toggle" data-type="institution_login">
+                <%- gettext("Use my institution/campus credentials") %>
+            </button>
+        <% } %>
+    </div>
+    <% } %>
+</form>
+        </script>
+        <script type="text/template" id="register-tpl">
+            <div class="js-form-feedback" aria-live="assertive" tabindex="-1">
+</div>
+<% if (!context.syncLearnerProfileData) { %>
+	<div class="toggle-form">
+		<span class="text"><%- edx.StringUtils.interpolate(gettext('Already have an {platformName} account?'), {platformName: context.platformName }) %></span>
+		<a href="#login" class="form-toggle" data-type="login"><%- gettext("Sign in.") %></a>
+	</div>
+<% } %>
+        </script>
+        <script type="text/template" id="hinted_login-tpl">
+            <div class="wrapper-other-login">
+    <div class="section-title lines">
+        <h2>
+            <span class="text"><%- gettext("Sign in") %></span>
+        </h2>
+    </div>
+    <p class="instructions"><%- _.sprintf( gettext("Would you like to sign in using your %(providerName)s credentials?"), { providerName: hintedProvider.name } ) %></p>
+    <button class="action action-primary action-update proceed-button button-<%- hintedProvider.id %> hinted-login-<%- hintedProvider.id %>">
+        <span class="icon <% if ( hintedProvider.iconClass ) { %>fa <%- hintedProvider.iconClass %><% } %>" aria-hidden="true">
+            <% if ( hintedProvider.iconImage ) { %>
+                <img class="icon-image" src="<%- hintedProvider.iconImage %>" alt="<%- hintedProvider.name %> icon" />
+            <% } %>
+        </span>
+        <%- _.sprintf( gettext("Sign in using %(providerName)s"), { providerName: hintedProvider.name } ) %>
+    </button>
+    <div class="section-title lines">
+        <h2>
+            <span class="text"><%- gettext("or") %></span>
+        </h2>
+    </div>
+    <div class="toggle-form">
+        <button class="nav-btn form-toggle" data-type="login"><%- gettext("Show me other ways to sign in or register") %></button>
+    </div>
+</div>
+        </script>
+<div class="section-bkg-wrapper">
+    <main id="main" aria-label="Content" tabindex="-1">
+        <div id="content-container" class="login-register-content">
+                
+            <div id="login-and-registration-container" class="login-register "></div>
+        </div>
+    </main>
+</div>
+      
+    </div>
+  </div>
+  
+  
+    
+    
+      <script type="text/javascript" src="https://prod-edxapp.edx-cdn.org/static/js/student_account/logistration_factory.291ea4b56c0f.js?raw"></script>
+    <script type="text/javascript">
+        (function (require) {
+            require(['js/student_account/logistration_factory'], function (LogistrationFactory) {
+                
+        var options = {"password_reset_support_link": "https://support.edx.org/hc/en-us/articles/206212088-What-if-I-did-not-receive-a-password-reset-message-", "support_link": "https://support.edx.org", "account_recovery_messages": [], "account_activation_messages": [], "login_form_desc": {"submit_url": "/user_api/v1/account/login_session/", "fields": [{"restrictions": {"min_length": 3, "max_length": 254}, "required": true, "name": "email", "type": "email", "supplementalLink": "", "errorMessages": {}, "label": "Email", "supplementalText": "", "placeholder": "username@domain.com", "defaultValue": "", "instructions": "The email address you used to register with edX"}, {"restrictions": {"max_length": 5000}, "required": true, "name": "password", "type": "password", "supplementalLink": "", "errorMessages": {}, "label": "Password", "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": ""}, {"restrictions": {}, "required": false, "name": "remember", "type": "checkbox", "supplementalLink": "", "errorMessages": {}, "label": "Remember me", "supplementalText": "", "placeholder": "", "defaultValue": false, "instructions": ""}], "method": "post"}, "third_party_auth": {"errorMessage": null, "finishAuthUrl": null, "syncLearnerProfileData": false, "providers": [{"iconClass": "fa-facebook", "name": "Facebook", "iconImage": null, "registerUrl": "/auth/login/facebook/?auth_entry=register\u0026next=%2Fdashboard", "loginUrl": "/auth/login/facebook/?auth_entry=login\u0026next=%2Fdashboard", "id": "oa2-facebook"}, {"iconClass": "fa-google-plus", "name": "Google", "iconImage": null, "registerUrl": "/auth/login/google-oauth2/?auth_entry=register\u0026next=%2Fdashboard", "loginUrl": "/auth/login/google-oauth2/?auth_entry=login\u0026next=%2Fdashboard", "id": "oa2-google-oauth2"}, {"iconClass": null, "name": "Microsoft", "iconImage": "https://edxuploads.s3.amazonaws.com/MSFT-logo-only.png", "registerUrl": "/auth/login/azuread-oauth2/?auth_entry=register\u0026next=%2Fdashboard", "loginUrl": "/auth/login/azuread-oauth2/?auth_entry=login\u0026next=%2Fdashboard", "id": "oa2-azuread-oauth2"}], "registerFormSubmitButtonText": "Create Account", "pipeline_user_details": {}, "currentProvider": null, "secondaryProviders": []}, "third_party_auth_hint": "", "registration_form_desc": {"submit_url": "/user_api/v1/account/registration/", "fields": [{"restrictions": {"min_length": 3, "max_length": 254}, "required": true, "name": "email", "type": "email", "supplementalLink": "", "errorMessages": {}, "label": "Email", "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": "This is what you will use to login."}, {"restrictions": {"max_length": 255}, "required": true, "name": "name", "type": "text", "supplementalLink": "", "errorMessages": {}, "label": "Full Name", "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": "This name will be used on any certificates that you earn."}, {"restrictions": {"min_length": 2, "max_length": 30}, "required": true, "name": "username", "type": "text", "supplementalLink": "", "errorMessages": {}, "label": "Public Username", "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": "The name that will identify you in your courses. It cannot be changed later."}, {"restrictions": {"min_alphabetic": 1, "min_length": 8, "max_length": 100, "min_numeric": 1}, "required": true, "name": "password", "type": "password", "supplementalLink": "", "errorMessages": {}, "label": "Password", "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": "Your password must contain at least 8 characters, including 1 letter \u0026 1 number."}, {"restrictions": {}, "required": true, "name": "country", "type": "select", "supplementalLink": "", "errorMessages": {"required": "Select your country or region of residence."}, "label": "Country or Region of Residence", "options": [{"default": true, "name": "--", "value": ""}, {"default": false, "name": "Afghanistan", "value": "AF"}, {"default": false, "name": "\u00c5land Islands", "value": "AX"}, {"default": false, "name": "Albania", "value": "AL"}, {"default": false, "name": "Algeria", "value": "DZ"}, {"default": false, "name": "American Samoa", "value": "AS"}, {"default": false, "name": "Andorra", "value": "AD"}, {"default": false, "name": "Angola", "value": "AO"}, {"default": false, "name": "Anguilla", "value": "AI"}, {"default": false, "name": "Antarctica", "value": "AQ"}, {"default": false, "name": "Antigua and Barbuda", "value": "AG"}, {"default": false, "name": "Argentina", "value": "AR"}, {"default": false, "name": "Armenia", "value": "AM"}, {"default": false, "name": "Aruba", "value": "AW"}, {"default": false, "name": "Australia", "value": "AU"}, {"default": false, "name": "Austria", "value": "AT"}, {"default": false, "name": "Azerbaijan", "value": "AZ"}, {"default": false, "name": "Bahamas", "value": "BS"}, {"default": false, "name": "Bahrain", "value": "BH"}, {"default": false, "name": "Bangladesh", "value": "BD"}, {"default": false, "name": "Barbados", "value": "BB"}, {"default": false, "name": "Belarus", "value": "BY"}, {"default": false, "name": "Belgium", "value": "BE"}, {"default": false, "name": "Belize", "value": "BZ"}, {"default": false, "name": "Benin", "value": "BJ"}, {"default": false, "name": "Bermuda", "value": "BM"}, {"default": false, "name": "Bhutan", "value": "BT"}, {"default": false, "name": "Bolivia", "value": "BO"}, {"default": false, "name": "Bonaire, Sint Eustatius and Saba", "value": "BQ"}, {"default": false, "name": "Bosnia and Herzegovina", "value": "BA"}, {"default": false, "name": "Botswana", "value": "BW"}, {"default": false, "name": "Bouvet Island", "value": "BV"}, {"default": false, "name": "Brazil", "value": "BR"}, {"default": false, "name": "British Indian Ocean Territory", "value": "IO"}, {"default": false, "name": "Brunei", "value": "BN"}, {"default": false, "name": "Bulgaria", "value": "BG"}, {"default": false, "name": "Burkina Faso", "value": "BF"}, {"default": false, "name": "Burundi", "value": "BI"}, {"default": false, "name": "Cabo Verde", "value": "CV"}, {"default": false, "name": "Cambodia", "value": "KH"}, {"default": false, "name": "Cameroon", "value": "CM"}, {"default": false, "name": "Canada", "value": "CA"}, {"default": false, "name": "Cayman Islands", "value": "KY"}, {"default": false, "name": "Central African Republic", "value": "CF"}, {"default": false, "name": "Chad", "value": "TD"}, {"default": false, "name": "Chile", "value": "CL"}, {"default": false, "name": "China", "value": "CN"}, {"default": false, "name": "Christmas Island", "value": "CX"}, {"default": false, "name": "Cocos (Keeling) Islands", "value": "CC"}, {"default": false, "name": "Colombia", "value": "CO"}, {"default": false, "name": "Comoros", "value": "KM"}, {"default": false, "name": "Congo", "value": "CG"}, {"default": false, "name": "Congo (the Democratic Republic of the)", "value": "CD"}, {"default": false, "name": "Cook Islands", "value": "CK"}, {"default": false, "name": "Costa Rica", "value": "CR"}, {"default": false, "name": "C\u00f4te d'Ivoire", "value": "CI"}, {"default": false, "name": "Croatia", "value": "HR"}, {"default": false, "name": "Cuba", "value": "CU"}, {"default": false, "name": "Cura\u00e7ao", "value": "CW"}, {"default": false, "name": "Cyprus", "value": "CY"}, {"default": false, "name": "Czechia", "value": "CZ"}, {"default": false, "name": "Denmark", "value": "DK"}, {"default": false, "name": "Djibouti", "value": "DJ"}, {"default": false, "name": "Dominica", "value": "DM"}, {"default": false, "name": "Dominican Republic", "value": "DO"}, {"default": false, "name": "Ecuador", "value": "EC"}, {"default": false, "name": "Egypt", "value": "EG"}, {"default": false, "name": "El Salvador", "value": "SV"}, {"default": false, "name": "Equatorial Guinea", "value": "GQ"}, {"default": false, "name": "Eritrea", "value": "ER"}, {"default": false, "name": "Estonia", "value": "EE"}, {"default": false, "name": "Ethiopia", "value": "ET"}, {"default": false, "name": "Falkland Islands  [Malvinas]", "value": "FK"}, {"default": false, "name": "Faroe Islands", "value": "FO"}, {"default": false, "name": "Fiji", "value": "FJ"}, {"default": false, "name": "Finland", "value": "FI"}, {"default": false, "name": "France", "value": "FR"}, {"default": false, "name": "French Guiana", "value": "GF"}, {"default": false, "name": "French Polynesia", "value": "PF"}, {"default": false, "name": "French Southern Territories", "value": "TF"}, {"default": false, "name": "Gabon", "value": "GA"}, {"default": false, "name": "Gambia", "value": "GM"}, {"default": false, "name": "Georgia", "value": "GE"}, {"default": false, "name": "Germany", "value": "DE"}, {"default": false, "name": "Ghana", "value": "GH"}, {"default": false, "name": "Gibraltar", "value": "GI"}, {"default": false, "name": "Greece", "value": "GR"}, {"default": false, "name": "Greenland", "value": "GL"}, {"default": false, "name": "Grenada", "value": "GD"}, {"default": false, "name": "Guadeloupe", "value": "GP"}, {"default": false, "name": "Guam", "value": "GU"}, {"default": false, "name": "Guatemala", "value": "GT"}, {"default": false, "name": "Guernsey", "value": "GG"}, {"default": false, "name": "Guinea", "value": "GN"}, {"default": false, "name": "Guinea-Bissau", "value": "GW"}, {"default": false, "name": "Guyana", "value": "GY"}, {"default": false, "name": "Haiti", "value": "HT"}, {"default": false, "name": "Heard Island and McDonald Islands", "value": "HM"}, {"default": false, "name": "Holy See", "value": "VA"}, {"default": false, "name": "Honduras", "value": "HN"}, {"default": false, "name": "Hong Kong", "value": "HK"}, {"default": false, "name": "Hungary", "value": "HU"}, {"default": false, "name": "Iceland", "value": "IS"}, {"default": false, "name": "India", "value": "IN"}, {"default": false, "name": "Indonesia", "value": "ID"}, {"default": false, "name": "Iran", "value": "IR"}, {"default": false, "name": "Iraq", "value": "IQ"}, {"default": false, "name": "Ireland", "value": "IE"}, {"default": false, "name": "Isle of Man", "value": "IM"}, {"default": false, "name": "Israel", "value": "IL"}, {"default": false, "name": "Italy", "value": "IT"}, {"default": false, "name": "Jamaica", "value": "JM"}, {"default": false, "name": "Japan", "value": "JP"}, {"default": false, "name": "Jersey", "value": "JE"}, {"default": false, "name": "Jordan", "value": "JO"}, {"default": false, "name": "Kazakhstan", "value": "KZ"}, {"default": false, "name": "Kenya", "value": "KE"}, {"default": false, "name": "Kiribati", "value": "KI"}, {"default": false, "name": "Kosovo", "value": "XK"}, {"default": false, "name": "Kuwait", "value": "KW"}, {"default": false, "name": "Kyrgyzstan", "value": "KG"}, {"default": false, "name": "Laos", "value": "LA"}, {"default": false, "name": "Latvia", "value": "LV"}, {"default": false, "name": "Lebanon", "value": "LB"}, {"default": false, "name": "Lesotho", "value": "LS"}, {"default": false, "name": "Liberia", "value": "LR"}, {"default": false, "name": "Libya", "value": "LY"}, {"default": false, "name": "Liechtenstein", "value": "LI"}, {"default": false, "name": "Lithuania", "value": "LT"}, {"default": false, "name": "Luxembourg", "value": "LU"}, {"default": false, "name": "Macao", "value": "MO"}, {"default": false, "name": "Macedonia", "value": "MK"}, {"default": false, "name": "Madagascar", "value": "MG"}, {"default": false, "name": "Malawi", "value": "MW"}, {"default": false, "name": "Malaysia", "value": "MY"}, {"default": false, "name": "Maldives", "value": "MV"}, {"default": false, "name": "Mali", "value": "ML"}, {"default": false, "name": "Malta", "value": "MT"}, {"default": false, "name": "Marshall Islands", "value": "MH"}, {"default": false, "name": "Martinique", "value": "MQ"}, {"default": false, "name": "Mauritania", "value": "MR"}, {"default": false, "name": "Mauritius", "value": "MU"}, {"default": false, "name": "Mayotte", "value": "YT"}, {"default": false, "name": "Mexico", "value": "MX"}, {"default": false, "name": "Micronesia (Federated States of)", "value": "FM"}, {"default": false, "name": "Moldova", "value": "MD"}, {"default": false, "name": "Monaco", "value": "MC"}, {"default": false, "name": "Mongolia", "value": "MN"}, {"default": false, "name": "Montenegro", "value": "ME"}, {"default": false, "name": "Montserrat", "value": "MS"}, {"default": false, "name": "Morocco", "value": "MA"}, {"default": false, "name": "Mozambique", "value": "MZ"}, {"default": false, "name": "Myanmar", "value": "MM"}, {"default": false, "name": "Namibia", "value": "NA"}, {"default": false, "name": "Nauru", "value": "NR"}, {"default": false, "name": "Nepal", "value": "NP"}, {"default": false, "name": "Netherlands", "value": "NL"}, {"default": false, "name": "New Caledonia", "value": "NC"}, {"default": false, "name": "New Zealand", "value": "NZ"}, {"default": false, "name": "Nicaragua", "value": "NI"}, {"default": false, "name": "Niger", "value": "NE"}, {"default": false, "name": "Nigeria", "value": "NG"}, {"default": false, "name": "Niue", "value": "NU"}, {"default": false, "name": "Norfolk Island", "value": "NF"}, {"default": false, "name": "North Korea", "value": "KP"}, {"default": false, "name": "Northern Mariana Islands", "value": "MP"}, {"default": false, "name": "Norway", "value": "NO"}, {"default": false, "name": "Oman", "value": "OM"}, {"default": false, "name": "Pakistan", "value": "PK"}, {"default": false, "name": "Palau", "value": "PW"}, {"default": false, "name": "Palestine, State of", "value": "PS"}, {"default": false, "name": "Panama", "value": "PA"}, {"default": false, "name": "Papua New Guinea", "value": "PG"}, {"default": false, "name": "Paraguay", "value": "PY"}, {"default": false, "name": "Peru", "value": "PE"}, {"default": false, "name": "Philippines", "value": "PH"}, {"default": false, "name": "Pitcairn", "value": "PN"}, {"default": false, "name": "Poland", "value": "PL"}, {"default": false, "name": "Portugal", "value": "PT"}, {"default": false, "name": "Puerto Rico", "value": "PR"}, {"default": false, "name": "Qatar", "value": "QA"}, {"default": false, "name": "R\u00e9union", "value": "RE"}, {"default": false, "name": "Romania", "value": "RO"}, {"default": false, "name": "Russia", "value": "RU"}, {"default": false, "name": "Rwanda", "value": "RW"}, {"default": false, "name": "Saint Barth\u00e9lemy", "value": "BL"}, {"default": false, "name": "Saint Helena, Ascension and Tristan da Cunha", "value": "SH"}, {"default": false, "name": "Saint Kitts and Nevis", "value": "KN"}, {"default": false, "name": "Saint Lucia", "value": "LC"}, {"default": false, "name": "Saint Martin (French part)", "value": "MF"}, {"default": false, "name": "Saint Pierre and Miquelon", "value": "PM"}, {"default": false, "name": "Saint Vincent and the Grenadines", "value": "VC"}, {"default": false, "name": "Samoa", "value": "WS"}, {"default": false, "name": "San Marino", "value": "SM"}, {"default": false, "name": "Sao Tome and Principe", "value": "ST"}, {"default": false, "name": "Saudi Arabia", "value": "SA"}, {"default": false, "name": "Senegal", "value": "SN"}, {"default": false, "name": "Serbia", "value": "RS"}, {"default": false, "name": "Seychelles", "value": "SC"}, {"default": false, "name": "Sierra Leone", "value": "SL"}, {"default": false, "name": "Singapore", "value": "SG"}, {"default": false, "name": "Sint Maarten (Dutch part)", "value": "SX"}, {"default": false, "name": "Slovakia", "value": "SK"}, {"default": false, "name": "Slovenia", "value": "SI"}, {"default": false, "name": "Solomon Islands", "value": "SB"}, {"default": false, "name": "Somalia", "value": "SO"}, {"default": false, "name": "South Africa", "value": "ZA"}, {"default": false, "name": "South Georgia and the South Sandwich Islands", "value": "GS"}, {"default": false, "name": "South Korea", "value": "KR"}, {"default": false, "name": "South Sudan", "value": "SS"}, {"default": false, "name": "Spain", "value": "ES"}, {"default": false, "name": "Sri Lanka", "value": "LK"}, {"default": false, "name": "Sudan", "value": "SD"}, {"default": false, "name": "Suriname", "value": "SR"}, {"default": false, "name": "Svalbard and Jan Mayen", "value": "SJ"}, {"default": false, "name": "Swaziland", "value": "SZ"}, {"default": false, "name": "Sweden", "value": "SE"}, {"default": false, "name": "Switzerland", "value": "CH"}, {"default": false, "name": "Syria", "value": "SY"}, {"default": false, "name": "Taiwan", "value": "TW"}, {"default": false, "name": "Tajikistan", "value": "TJ"}, {"default": false, "name": "Tanzania", "value": "TZ"}, {"default": false, "name": "Thailand", "value": "TH"}, {"default": false, "name": "Timor-Leste", "value": "TL"}, {"default": false, "name": "Togo", "value": "TG"}, {"default": false, "name": "Tokelau", "value": "TK"}, {"default": false, "name": "Tonga", "value": "TO"}, {"default": false, "name": "Trinidad and Tobago", "value": "TT"}, {"default": false, "name": "Tunisia", "value": "TN"}, {"default": false, "name": "Turkey", "value": "TR"}, {"default": false, "name": "Turkmenistan", "value": "TM"}, {"default": false, "name": "Turks and Caicos Islands", "value": "TC"}, {"default": false, "name": "Tuvalu", "value": "TV"}, {"default": false, "name": "Uganda", "value": "UG"}, {"default": false, "name": "Ukraine", "value": "UA"}, {"default": false, "name": "United Arab Emirates", "value": "AE"}, {"default": false, "name": "United Kingdom", "value": "GB"}, {"default": false, "name": "United States Minor Outlying Islands", "value": "UM"}, {"default": false, "name": "United States of America", "value": "US"}, {"default": false, "name": "Uruguay", "value": "UY"}, {"default": false, "name": "Uzbekistan", "value": "UZ"}, {"default": false, "name": "Vanuatu", "value": "VU"}, {"default": false, "name": "Venezuela", "value": "VE"}, {"default": false, "name": "Vietnam", "value": "VN"}, {"default": false, "name": "Virgin Islands (British)", "value": "VG"}, {"default": false, "name": "Virgin Islands (U.S.)", "value": "VI"}, {"default": false, "name": "Wallis and Futuna", "value": "WF"}, {"default": false, "name": "Western Sahara", "value": "EH"}, {"default": false, "name": "Yemen", "value": "YE"}, {"default": false, "name": "Zambia", "value": "ZM"}, {"default": false, "name": "Zimbabwe", "value": "ZW"}], "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": "The country or region where you live."}, {"restrictions": {}, "required": false, "name": "gender", "type": "select", "supplementalLink": "", "errorMessages": {}, "label": "Gender", "options": [{"default": true, "name": "--", "value": ""}, {"default": false, "name": "Male", "value": "m"}, {"default": false, "name": "Female", "value": "f"}, {"default": false, "name": "Other/Prefer Not to Say", "value": "o"}], "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": ""}, {"restrictions": {}, "required": false, "name": "year_of_birth", "type": "select", "supplementalLink": "", "errorMessages": {}, "label": "Year of birth", "options": [{"default": true, "name": "--", "value": ""}, {"default": false, "name": "2019", "value": "2019"}, {"default": false, "name": "2018", "value": "2018"}, {"default": false, "name": "2017", "value": "2017"}, {"default": false, "name": "2016", "value": "2016"}, {"default": false, "name": "2015", "value": "2015"}, {"default": false, "name": "2014", "value": "2014"}, {"default": false, "name": "2013", "value": "2013"}, {"default": false, "name": "2012", "value": "2012"}, {"default": false, "name": "2011", "value": "2011"}, {"default": false, "name": "2010", "value": "2010"}, {"default": false, "name": "2009", "value": "2009"}, {"default": false, "name": "2008", "value": "2008"}, {"default": false, "name": "2007", "value": "2007"}, {"default": false, "name": "2006", "value": "2006"}, {"default": false, "name": "2005", "value": "2005"}, {"default": false, "name": "2004", "value": "2004"}, {"default": false, "name": "2003", "value": "2003"}, {"default": false, "name": "2002", "value": "2002"}, {"default": false, "name": "2001", "value": "2001"}, {"default": false, "name": "2000", "value": "2000"}, {"default": false, "name": "1999", "value": "1999"}, {"default": false, "name": "1998", "value": "1998"}, {"default": false, "name": "1997", "value": "1997"}, {"default": false, "name": "1996", "value": "1996"}, {"default": false, "name": "1995", "value": "1995"}, {"default": false, "name": "1994", "value": "1994"}, {"default": false, "name": "1993", "value": "1993"}, {"default": false, "name": "1992", "value": "1992"}, {"default": false, "name": "1991", "value": "1991"}, {"default": false, "name": "1990", "value": "1990"}, {"default": false, "name": "1989", "value": "1989"}, {"default": false, "name": "1988", "value": "1988"}, {"default": false, "name": "1987", "value": "1987"}, {"default": false, "name": "1986", "value": "1986"}, {"default": false, "name": "1985", "value": "1985"}, {"default": false, "name": "1984", "value": "1984"}, {"default": false, "name": "1983", "value": "1983"}, {"default": false, "name": "1982", "value": "1982"}, {"default": false, "name": "1981", "value": "1981"}, {"default": false, "name": "1980", "value": "1980"}, {"default": false, "name": "1979", "value": "1979"}, {"default": false, "name": "1978", "value": "1978"}, {"default": false, "name": "1977", "value": "1977"}, {"default": false, "name": "1976", "value": "1976"}, {"default": false, "name": "1975", "value": "1975"}, {"default": false, "name": "1974", "value": "1974"}, {"default": false, "name": "1973", "value": "1973"}, {"default": false, "name": "1972", "value": "1972"}, {"default": false, "name": "1971", "value": "1971"}, {"default": false, "name": "1970", "value": "1970"}, {"default": false, "name": "1969", "value": "1969"}, {"default": false, "name": "1968", "value": "1968"}, {"default": false, "name": "1967", "value": "1967"}, {"default": false, "name": "1966", "value": "1966"}, {"default": false, "name": "1965", "value": "1965"}, {"default": false, "name": "1964", "value": "1964"}, {"default": false, "name": "1963", "value": "1963"}, {"default": false, "name": "1962", "value": "1962"}, {"default": false, "name": "1961", "value": "1961"}, {"default": false, "name": "1960", "value": "1960"}, {"default": false, "name": "1959", "value": "1959"}, {"default": false, "name": "1958", "value": "1958"}, {"default": false, "name": "1957", "value": "1957"}, {"default": false, "name": "1956", "value": "1956"}, {"default": false, "name": "1955", "value": "1955"}, {"default": false, "name": "1954", "value": "1954"}, {"default": false, "name": "1953", "value": "1953"}, {"default": false, "name": "1952", "value": "1952"}, {"default": false, "name": "1951", "value": "1951"}, {"default": false, "name": "1950", "value": "1950"}, {"default": false, "name": "1949", "value": "1949"}, {"default": false, "name": "1948", "value": "1948"}, {"default": false, "name": "1947", "value": "1947"}, {"default": false, "name": "1946", "value": "1946"}, {"default": false, "name": "1945", "value": "1945"}, {"default": false, "name": "1944", "value": "1944"}, {"default": false, "name": "1943", "value": "1943"}, {"default": false, "name": "1942", "value": "1942"}, {"default": false, "name": "1941", "value": "1941"}, {"default": false, "name": "1940", "value": "1940"}, {"default": false, "name": "1939", "value": "1939"}, {"default": false, "name": "1938", "value": "1938"}, {"default": false, "name": "1937", "value": "1937"}, {"default": false, "name": "1936", "value": "1936"}, {"default": false, "name": "1935", "value": "1935"}, {"default": false, "name": "1934", "value": "1934"}, {"default": false, "name": "1933", "value": "1933"}, {"default": false, "name": "1932", "value": "1932"}, {"default": false, "name": "1931", "value": "1931"}, {"default": false, "name": "1930", "value": "1930"}, {"default": false, "name": "1929", "value": "1929"}, {"default": false, "name": "1928", "value": "1928"}, {"default": false, "name": "1927", "value": "1927"}, {"default": false, "name": "1926", "value": "1926"}, {"default": false, "name": "1925", "value": "1925"}, {"default": false, "name": "1924", "value": "1924"}, {"default": false, "name": "1923", "value": "1923"}, {"default": false, "name": "1922", "value": "1922"}, {"default": false, "name": "1921", "value": "1921"}, {"default": false, "name": "1920", "value": "1920"}, {"default": false, "name": "1919", "value": "1919"}, {"default": false, "name": "1918", "value": "1918"}, {"default": false, "name": "1917", "value": "1917"}, {"default": false, "name": "1916", "value": "1916"}, {"default": false, "name": "1915", "value": "1915"}, {"default": false, "name": "1914", "value": "1914"}, {"default": false, "name": "1913", "value": "1913"}, {"default": false, "name": "1912", "value": "1912"}, {"default": false, "name": "1911", "value": "1911"}, {"default": false, "name": "1910", "value": "1910"}, {"default": false, "name": "1909", "value": "1909"}, {"default": false, "name": "1908", "value": "1908"}, {"default": false, "name": "1907", "value": "1907"}, {"default": false, "name": "1906", "value": "1906"}, {"default": false, "name": "1905", "value": "1905"}, {"default": false, "name": "1904", "value": "1904"}, {"default": false, "name": "1903", "value": "1903"}, {"default": false, "name": "1902", "value": "1902"}, {"default": false, "name": "1901", "value": "1901"}, {"default": false, "name": "1900", "value": "1900"}], "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": ""}, {"restrictions": {}, "required": false, "name": "level_of_education", "type": "select", "supplementalLink": "", "errorMessages": {"required": "Select the highest level of education you have completed."}, "label": "Highest level of education completed", "options": [{"default": true, "name": "--", "value": ""}, {"default": false, "name": "Doctorate", "value": "p"}, {"default": false, "name": "Master's or professional degree", "value": "m"}, {"default": false, "name": "Bachelor's degree", "value": "b"}, {"default": false, "name": "Associate degree", "value": "a"}, {"default": false, "name": "Secondary/high school", "value": "hs"}, {"default": false, "name": "Junior secondary/junior high/middle school", "value": "jhs"}, {"default": false, "name": "Elementary/primary school", "value": "el"}, {"default": false, "name": "No formal education", "value": "none"}, {"default": false, "name": "Other education", "value": "other"}], "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": ""}, {"restrictions": {}, "required": false, "name": "goals", "type": "textarea", "supplementalLink": "", "errorMessages": {"required": "Tell us your goals."}, "label": "Tell us why you're interested in edX", "supplementalText": "", "placeholder": "", "defaultValue": "", "instructions": ""}, {"restrictions": {}, "required": true, "name": "honor_code", "type": "plaintext", "supplementalLink": "", "errorMessages": {"required": "You must agree to the edX Terms of Service and Honor Code"}, "label": "By creating an account with edX, you agree                   to abide by our edX                   \u003ca href='https://www.edx.org/edx-terms-service' target='_blank'\u003eTerms of Service and Honor Code\u003c/a\u003e                   and agree to our \u003ca href='https://www.edx.org/edx-privacy-policy' target='_blank'\u003ePrivacy Policy\u003c/a\u003e.", "supplementalText": "", "placeholder": "", "defaultValue": false, "instructions": ""}], "method": "post"}, "platform_name": "edX", "account_creation_allowed": true, "initial_mode": "login", "password_reset_form_desc": {"submit_url": "/account/password", "fields": [{"restrictions": {"min_length": 3, "max_length": 254}, "required": true, "name": "email", "type": "email", "supplementalLink": "", "errorMessages": {}, "label": "Email", "supplementalText": "", "placeholder": "username@domain.com", "defaultValue": "", "instructions": "The email address you used to register with edX"}], "method": "post"}, "is_account_recovery_feature_enabled": true, "login_redirect_url": "/dashboard"};
+        LogistrationFactory(options);
+        if ('newrelic' in window) {
+            newrelic.finished();
+            // Because of a New Relic bug, the finished() event doesn't show up
+            // in Insights, so we have to make a new PageAction that is basically
+            // the same thing. We still want newrelic.finished() for session
+            // traces though.
+            newrelic.addPageAction('xfinished');
+        }
+    
+            });
+        }).call(this, require || RequireJS.require);
+    </script>
+  
+    <!-- begin segment footer -->
+    <script type="text/javascript">
+    </script>
+    <!-- end segment footer -->
+  <script type="text/javascript" src="https://prod-edxapp.edx-cdn.org/static/js/vendor/noreferrer.aa62a3e70ffa.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://prod-edxapp.edx-cdn.org/static/js/utils/navigation.08930e16ab3d.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://prod-edxapp.edx-cdn.org/static/js/header/header.309a1243e175.js"></script>
+  
+</body>
+</html>
