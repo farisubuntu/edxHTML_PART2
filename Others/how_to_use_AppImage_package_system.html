@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>How to use AppImage Package System</title>
+</head>
+<body>
+ <p style="border:1px solid black;padding:10px;">from: <a href="https://itsfoss.com/use-appimage-linux/">[https://itsfoss.com/use-appimage-linux/]</a></p>
+ <main class="content" id="genesis-content">
+  <article
+   class="post-17439 post type-post status-publish format-standard has-post-thumbnail category-how-to tag-appimage tag-guide tag-install tag-linux entry"
+   itemscope="" itemtype="https://schema.org/CreativeWork">
+   <header class="entry-header">
+    <h1 class="entry-title" itemprop="headline">How To Use AppImage in Linux [Complete Guide]</h1>
+   </header>
+   <div align="center" id="itsfoss_728x90_320x50_ATF" data-google-query-id="CLjm8c-gpeECFcLk7Qodb0UHNw">
+    <script data-cfasync="false" type="text/javascript">
+     freestar.queue.push(function () { googletag.display('itsfoss_728x90_320x50_ATF'); });
+    </script>
+   </div>
+   <div class="entry-content" itemprop="text">
+    <p style="text-align: justify;"><em><strong>Brief</strong>: This AppImage tutorial shows you how to use AppImage to
+      install software and how to remove the applications it installed.</em></p>
+    <div id="eaa_after_nth_p" class="eaa-wrapper eaa_after_nth_p eaa_desktop">
+     <div class="eaa-ad  " style="">
+      <!-- code from sekindo - Itsfoss.com In-article - outstream -->
+      <script type="text/javascript" language="javascript"
+       src="https://live.sekindo.com/live/liveView.php?s=97824&amp;vid_viewAction=player&amp;cbuster=[CACHE_BUSTER]&amp;x=500&amp;y=280&amp;vid_outPause=0"></script>
+      <!-- code from sekindo -->
+     </div>
+    </div>
+    <h2 style="text-align: justify;">A. What is AppImage?</h2>
+    <p style="text-align: justify;"><noscript><img class="aligncenter size-large wp-image-17448"
+       src="https://i2.wp.com/itsfoss.com/wp-content/uploads/2017/07/use-appimage-linux.png?resize=800%2C450&#038;ssl=1"
+       alt="Using AppImage in Linux" width="800" height="450"
+       srcset="https://i2.wp.com/itsfoss.com/wp-content/uploads/2017/07/use-appimage-linux.png?w=800&amp;ssl=1 800w, https://i2.wp.com/itsfoss.com/wp-content/uploads/2017/07/use-appimage-linux.png?resize=300%2C169&amp;ssl=1 300w, https://i2.wp.com/itsfoss.com/wp-content/uploads/2017/07/use-appimage-linux.png?resize=768%2C432&amp;ssl=1 768w"
+       sizes="(max-width: 800px) 100vw, 800px" data-recalc-dims="1" /></noscript></p>
+    <p style="text-align: justify;">The official way to installing packages is using <strong>deb</strong> or
+     <strong>rpm</strong>. While these packages provide a convenient way of installing software to their respective
+     distribution users, it is not the most convenient for the application developer. The developers have to create
+     multiple packages for multiple distributions.<strong> <i>This is where AppImage comes into picture.</i></strong>
+    </p>
+    <p style="text-align: justify;"><a href="http://appimage.org/" target="_blank" rel="noopener nofollow"
+      class="external">AppImage [http://appimage.org/]</a> is a universal software package format. By packaging the software in AppImage, the
+     developer provides just one file ‘to rule them all’. End user, i.e. you, can use it in most (if not all) modern
+     Linux distributions</p>
+    <h3 style="text-align: justify;">AppImage doesn’t install software in the traditional way</h3>
+    <p style="text-align: justify;">A typical Linux software will create files at various places, requiring root
+     permission to make these changes to the system. AppImage doesn’t do it. In fact, AppImage doesn’t really install
+     the software. It is a compressed image with all the dependencies and libraries needed to run the desired software.
+    </p>
+    <p style="text-align: justify;">You execute the AppImage file, you run the software. There is no extraction, no
+     installation. You delete the AppImage file, the software is removed (we’ll see about it later). You can compare it
+     to .exe files in Windows that allow you to run the software without actually going through the installation
+     procedure.</p>
+    <p style="text-align: justify;">Let me list some of the features or benefits of AppImage.</p>
+    <h3 style="text-align: justify;">AppImage features</h3>
+    <ul style="text-align: justify;">
+     <li>Distribution agnostic: Can run on various different Linux distributions</li>
+     <li>No need of installing and compiling software: Just click and play</li>
+     <li>No need of root permission: System files are not touched</li>
+     <li>Portability: Can be run anywhere including live disks</li>
+     <li>Apps are in read only mode</li>
+     <li>Software are removed just by deleting the AppImage file</li>
+     <li>Applications packaged in AppImage are not <a href="https://en.wikipedia.org/wiki/Sandbox_(computer_security)"
+       target="_blank" rel="noopener nofollow" class="external">sandboxed</a> by default.</li>
+    </ul>
+    <h2 style="text-align: justify;">B. How to use AppImage in Linux</h2>
+    <p style="text-align: justify;">Using AppImage is fairly simple. It is done in these 3 simple steps:</p>
+    <ol style="text-align:left">
+     <li>Download AppImage file
+      <p style="">There are plenty of software that are available in AppImage format. GIMP, Krita, Scribus and OpenShot
+       are just a few names. You can find an extensive list of applications available in AppImage format
+       <a style="display:inline" href="https://github.com/AppImage/AppImageKit/wiki/AppImages" target="_blank"
+        rel="noopener nofollow" class="external">here [https://github.com/AppImage/AppImageKit/wiki/AppImages]</a>.</p>
+     </li>
+     <li>Make it executable:
+      <p> use chmod u+x <code>&lt;AppImage File&gt;</code> to make it executable.
+      </p>
+     </li>
+     <li>Run it</li>
+    </ol>
+    <h2 style="text-align: justify;">C. How to uninstall AppImage software</h2>
+    <p style="text-align: justify;">Since the software is never installed, there is no need of ‘uninstalling’ it. Just
+     delete the associated AppImage file and your software is removed from the system.</p>
+    <h2 style="text-align: justify;">D. Things to remember while using AppImage in Linux</h2>
+    <p style="text-align: justify;">There are few additional things about AppImage that you should know.</p>
+    <h3 style="text-align: justify;">1. Desktop integration</h3>
+    <p style="text-align: justify;">When you run AppImage file, <em>some software</em> may prompt you to ‘install a
+     desktop file’. &nbsp;If you select yes, your AppImage will be integrated with your Linux system like a regular
+     installed application. Which means that your software will be searchable through Unity or GNOME. You can find it in
+     menu and lock it to the Plank or Launcher.</p>
+    <figure id="attachment_17443" aria-describedby="caption-attachment-17443" style="width: 784px"
+     class="wp-caption aligncenter"><noscript><img class="size-full wp-image-17443"
+       src="https://i1.wp.com/itsfoss.com/wp-content/uploads/2017/07/using-appimage-in-linux-2.png?resize=784%2C147&#038;ssl=1"
+       alt="Using AppImage like a regular desktop app in Linux" width="784" height="147"
+       srcset="https://i1.wp.com/itsfoss.com/wp-content/uploads/2017/07/using-appimage-in-linux-2.png?w=784&amp;ssl=1 784w, https://i1.wp.com/itsfoss.com/wp-content/uploads/2017/07/using-appimage-in-linux-2.png?resize=300%2C56&amp;ssl=1 300w, https://i1.wp.com/itsfoss.com/wp-content/uploads/2017/07/using-appimage-in-linux-2.png?resize=768%2C144&amp;ssl=1 768w"
+       sizes="(max-width: 784px) 100vw, 784px" data-recalc-dims="1" /></noscript></figure>
+    <h3 style="text-align: justify;">2. Desktop integration may require manual cleanup post removal</h3>
+    <p style="text-align: justify;">If you choose desktop integration, you’ll have a few files created in your system.
+     The file size will only be in a few Kb though. When you delete the AppImage file, these desktop files remain in
+     your system. You may leave it as it is or delete it manually.</p>
+    <h3 style="text-align: justify;">3. Choose where you put the AppImage files</h3>
+    <p style="text-align: justify;">The downloaded AppImage files should arrive in the Download folder. But this might
+     not be the best place to keep it as it gets cluttered over time. <b>It is better to keep them in a separate
+      directory for easier management.</b></p>
+    <p style="text-align: justify;"><b>Also keep in mind that if you chose desktop integration and then moved the
+      AppImage file to some other location, you’ll have to remove the desktop files first. Else the desktop integration
+      might not work.</b></p>
+    <h3 style="text-align: justify;">4. Update is not always an option</h3>
+    <p style="text-align: justify;">Maybe some software will check for updates automatically and notify you about the
+     availability of a newer version. But that’s not going to happen most of the time.</p>
+    <p style="text-align: justify;">In short, there is no automatic updates here. You’ll have to find your own if there
+     is a newer version of the software available.</p>
+    <h3 style="text-align: justify;">Conclusion</h3>
+    <p style="text-align: justify;">There are other “universal Linux apps” such as Snap by Ubuntu and Flatpak by Fedora.
+     &nbsp;Since this article was about using AppImage, I didn’t go into the Snap vs Flatpak vs AppImage debate.</p>
+    <p style="text-align: justify;">To me, AppImage is a nice way to use software across Linux distributions. I do hope
+     that the update process improves here to make it much more useful for end users.</p>
+    <span class="tve-leads-two-step-trigger tl-2step-trigger-0"></span><span
+     class="tve-leads-two-step-trigger tl-2step-trigger-0"></span>
+    <p></p><img
+     src="https://i2.wp.com/itsfoss.com/wp-content/uploads/2017/07/use-appimage-linux.png?fit=800%2C450&amp;ssl=1"
+     class="ss-hidden-pin-image jetpack-lazy-image" data-pin-url="https://itsfoss.com/use-appimage-linux/"
+     data-pin-media="https://i2.wp.com/itsfoss.com/wp-content/uploads/2017/07/use-appimage-linux.png?fit=800%2C450&amp;ssl=1"
+     data-pin-description="How To Use AppImage in Linux [Complete Guide]"
+     data-lazy-src="https://i2.wp.com/itsfoss.com/wp-content/uploads/2017/07/use-appimage-linux.png?fit=800%2C450&amp;ssl=1&amp;is-pending-load=1"
+     srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img
+      src="https://i2.wp.com/itsfoss.com/wp-content/uploads/2017/07/use-appimage-linux.png?fit=800%2C450&ssl=1"
+      class="ss-hidden-pin-image" data-pin-url="https://itsfoss.com/use-appimage-linux/"
+      data-pin-media="https://i2.wp.com/itsfoss.com/wp-content/uploads/2017/07/use-appimage-linux.png?fit=800%2C450&ssl=1"
+      data-pin-description="How To Use AppImage in Linux [Complete Guide]" /></noscript>
+    <!-- END .ss-inline-share-wrapper -->
+   </div>
+  </article>
+ </main>
+</body>
+</html>
