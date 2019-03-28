@@ -1,0 +1,438 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Debian Linux Guide Contents</title>
+
+<META name="keywords" content="linux,basics,guide,beginner,newbie,tutor,tutorial,easy,simple,starting,web server,networking,how to,installing,installation,install,beginning,basic,configure,build,networking,training,setting up,setup,basics,help,home network,instruction,configuring,configure,servers,beginning,newbie,step-by-step,easy,how to,simple,mail server,help,info,information,assistance,reference,understanding,basics,introduction,configuration,managing,administration,administrating,administrator,learn,sample,example,explanation,definition,explain,starting,set up,building,guides,tutorials,newbies,beginners">
+
+<script language="javascript" type="text/javascript">
+<!-- 
+if (document.images) {
+    cdbuttonup       = new Image();
+    cdbuttonup.src   = "cd-tag-off.gif" ;
+    cdbuttondown     = new Image() ;
+    cdbuttondown.src = "cd-tag-on.gif" ;
+	gearbuttonup       = new Image();
+    gearbuttonup.src   = "gear-tag-off.gif" ;
+    gearbuttondown     = new Image() ;
+    gearbuttondown.src = "gear-tag-on.gif" ;
+}
+function buttondown( buttonname )
+{
+    if (document.images) {
+      document[ buttonname ].src = eval( buttonname + "down.src" );
+    }
+}
+function buttonup ( buttonname )
+{
+    if (document.images) {
+      document[ buttonname ].src = eval( buttonname + "up.src" );
+    }
+}
+
+// -->
+</script>
+</head>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#ae0039" VLINK="#dd0000" TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0">
+<a name="top"> </a>
+<font face="arial,sans serif,helvetica" size="3" color="#000000">
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td align="left" valign="middle" bgcolor="#c70036" nowrap>
+<a href="index.htm"><img src="smmain.gif" border="0" vspace="0" hspace="0" alt="Home Page"></a> <img src="menu.gif" usemap="#menu" border="0" vspace="0" hspace="0">
+</td>
+<td width="2%" align="right" valign="middle" bgcolor="#c70036" nowrap>
+<a href="order.htm" onmouseover="buttondown('cdbutton')" onmouseout="buttonup('cdbutton')"><img src="cd-tag-off.gif" name="cdbutton" border="0"></a>
+</td>
+</tr></table>
+<map name="menu">
+
+<area shape="rect" coords="113,4,205,12" href="/linux.htm" alt="Linux Basics">
+<area shape="rect" coords="113,18,198,27" href="/install8.htm" alt="Debian Linux Installation">
+<area shape="rect" coords="113,34,186,43" href="/packages.htm" alt="Using Debian Packages">
+<area shape="rect" coords="113,49,177,58" href="/modems.htm" alt="Linux Modem Setup">
+<area shape="rect" coords="113,64,200,73" href="/network.htm" alt="Setting Up A Network">
+<area shape="rect" coords="113,79,152,88" href="/dns.htm" alt="Setting Up DNS Servers">
+
+<area shape="rect" coords="238,4,302,12" href="/internet.htm" alt="Linux Internet Servers">
+<area shape="rect" coords="238,18,275,27" href="/lan.htm" alt="Linux LAN Servers">
+<area shape="rect" coords="238,34,310,43" href="/database.htm" alt="Linux Database Server">
+<area shape="rect" coords="238,49,292,58" href="/syslog.htm" alt="Linux Syslog Server">
+<area shape="rect" coords="238,64,271,73" href="/fax.htm" alt="Linux Fax Server">
+<area shape="rect" coords="238,79,317,88" href="/webcam.htm" alt="Linux Web Cam Servers">
+
+<area shape="rect" coords="355,4,439,12" href="/proxy.htm" alt="Linux Proxy/NAT Servers">
+<area shape="rect" coords="355,18,420,27" href="/firewall.htm" alt="Linux Firewall Servers">
+<area shape="rect" coords="355,34,419,43" href="/security.htm" alt="Linux Security">
+<area shape="rect" coords="355,49,430,58" href="/compile.htm" alt="Compiling Linux Programs">
+<area shape="rect" coords="355,62,393,74" href="/x10.htm" alt="Home Automation">
+<area shape="rect" coords="355,79,445,88" href="/whatnow.htm" alt="What Now?">
+
+</map>
+<br><br><br>
+<blockquote>
+
+<center>
+<font size="5" face="verdana" color="#c30035">
+<b>
+About Debian Linux Guides Contents
+</b>
+</font>
+</center>
+<br><br><br>
+<font size="3" face="verdana" color="#c30035"><b><a href="linux.htm">Linux Basics</a></b></font><br>
+<font size="2">
+<ul>
+<li>Linux distributions and how they differ
+<li>Uses for Linux in the server area
+<li>Comparing Linux with DOS, Windows, and UNIX
+<li>Automating processes with shell scripts
+<li>Milti-user Linux and user accounts
+<li>Linux disks and files
+<li>Source files vs binary files
+<li>Packages vs tar balls
+<li>Shutting down a Linux system
+<li>The Linux startup sequence
+<li>A little about the Linux kernel
+<li>Man pages<br>
+Commands introduced: mount, umount, ls, alias, whereis, echo, find, df, cat, more, file, gunzip, tar, man
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b>Installing Debian</b></font><br>
+<font size="2">
+<ul>
+<li><b><a href="dualboot.htm">Dual-Boot Options</a></b>
+<ul>
+<li>Dual-Boot overview
+<li>Assumptions
+<li>Dual-booting with Windows 9x/ME
+<li>Dual-booting with Windows NT/2000/ME
+<li>Dual-booting using the Grub boot manager
+<li>Dual-booting using the NTLDR boot manager
+<li>Using the BOOTPART utility
+<li>Un-doing dual-boot - The 3 steps
+<li>Un-doing dual-boot using FDISK with Windows 9x/ME
+<li>Un-doing dual-boot using Windows 2000
+</ul>
+<li><b>Installing Debian - <a href="install.htm">Potato</a>, <a href="install3.htm">Woody</a>, <a href="install31.htm">Sarge</a>, and <a href="install4.htm">Etch</a></b>
+<ul>
+<li>Installation options
+<li>Installation steps
+<li>Logging in
+<li>Working with user-specific files
+<li>Testing the network connection
+<li>Troubleshooting a network connectivity problem
+<li>Solving hard-drive problems<br>
+Commands introduced: mv, apt-get, export, vi, ping, ifconfig, lsmod, modprobe, fsck, badblocks
+</ul>
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="packages.htm">Using Packages</a></b></font><br>
+<font size="2">
+<ul>
+<li>Package definition and types
+<li>Debian package utilities
+<li>Searching for and installing individual packages
+<li>Removing packages
+<li>Installing the FTP server software
+Commands introduced: dselect, dpkg, startx, apt-cache, apt-get
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="modems.htm">Configuring A Modem</a></b></font><br>
+<font size="2">
+<ul>
+<li>Modem types
+<li>Serial ports with Linux
+<li>Testing the modem connection
+<li>Configuring PPP
+<li>Setting DNS resolution for an ISP connection
+<li>ISP connect/disconnect commands
+<li>Testing connectivity to the ISP
+<li>Trying a text-based Web browser
+<li>Checking active connections
+<li>Testing the Apache Web server over the Internet
+<li>Testing incoming telnet access over the Internet
+<li>Checking and killing processes<br>
+Commands introduced: pon, poff, useradd, telnet, ps, kill
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="network.htm">Setting Up A Network</a></b></font><br>
+<font size="2">
+<ul>
+<li>The 'whys' of private addresses, network address translation, and proxy servers
+<li>IP addressing basics and classes
+<li>Address types and encapsulation
+<li>Network devices and what they do
+<li>DMZ basics
+<li>Setting up a home network
+<li>Host name resolution on a home network
+<li>Sharing a broadband Internet connection
+<li>Sharing a modem connection
+<li>Setting up a &quot;no-network network&quot; for testing
+<li>How networks work
+<li>Linux network configuration files
+<li>Uses for static routes
+<li>Subnetting networks
+<li>DSL vs cable service<br>
+Commands introduced: ifconfig, arp, route
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="monitor.htm">Network Monitoring</a></b></font><br>
+<font size="2">
+<ul>
+<li>Monitoring challanges in a switched network
+<li>Router link monitoring with MRTG
+<li>Router CPU and RAM monitoring with MRTG
+<li>Traffic monitoring with nTop
+<li>Cisco NetFlow monitoring with nTop
+<li>Packet sniffer software
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="snort.htm">Setting Up A Snort IDS</a></b></font><br>
+<font size="2">
+<ul>
+<li>Installing Snort
+<li>Setting Up Snort E-mailing
+<li>Managing Rules
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="dns.htm">How To Set Up DNS Services</a></b></font><br>
+<font size="2">
+<ul>
+<li>DNS server functions
+<li>DNS basics and record types
+<li>Zone files and records
+<li>Dynamic DNS with your own domain name
+<li>Free dynamic DNS without a domain name
+<li>Installing ddclient
+<li>Reverse-lookup zone files and named.conf
+<li>DNS tools, testing, and troubleshooting
+<li>Your own simple DNS server
+<li>Setting up a LAN DNS server<br>
+Commands introduced: nslookup, dig
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="internet.htm">Internet Servers</a></b></font><br>
+<font size="2">
+<ul>
+<li>Different approaches of Web scripting languages
+<li>DNS basics and free DNS service for your Internet server
+<li>Install the Apache Web server software
+<li>Configuring the Apache Web server software
+<li>Default Apache file locations
+<li>Setting up virtual Web servers using Apache
+<li>Basics of Web server SSI (Includes)
+<li>Using telnet to test Apache responses and CGI script output
+<li>Adding support for PHP Web pages to Apache
+<li>Testing PHP functionality
+<li>Internet mail terms
+<li>Installing Sendmail SMTP e-mail server software
+<li>Configuring Sendmail
+<li>Default Sendmail file locations
+<li>Installing the ipopd POP e-mail server software
+<li>Testing Sendmail's SMTP functionality
+<li>Using telnet to test Sendmail interactively
+<li>Using telnet to test ipopd interactively
+<li>The security benefits of TCP wrappers<br>
+Commands introduced: cp, mv
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="lan.htm">LAN Servers</a></b></font><br>
+<font size="2">
+<ul>
+<li>Configuring a file server for Linux/UNIX clients using NFS
+<li>Configuring a print server for Linux/UNIX clients using lpd
+<li>Adding Linux printer drivers using apsfilter and Ghostscript
+<li>Configuring a file server for Windows clients using Samba
+<li>Sharing printers using Samba<br>
+Commands introduced: lpr, lprm, chmod
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="database.htm">Database Server</a></b></font><br>
+<font size="2">
+<ul>
+<li>Installing the mySQL database server software
+<li>Creating a two-table database and adding records
+<li>How mySQL handles database access security
+<li>The variety of mySQL clients available
+<li>Accessing the database server from a Windows PC
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="syslog.htm">Syslog Server</a></b></font><br>
+<font size="2">
+<ul>
+<li>Configuring a syslog log server for centralized monitoring
+<li>Configuring devices to act as syslog clients
+<li>Configuring log file rotation
+<li>Making the log files viewable using a browser
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="fax.htm">Fax Server</a></b></font><br>
+<font size="2">
+<ul>
+<li>Installing the HylaFax server software
+<li>Configuring HylaFax
+<li>Controlling user access to the server
+<li>HylaFax client options
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="webcam.htm">Web Cam Server</a></b></font><br>
+<font size="2">
+<ul>
+<li>Setting up the hardware and OS
+<li>Testing and troubleshooting the cam installation
+<li>Getting JPG files from cam images
+<li>Creating an auto-updating Web page<br>
+Commands introduced: modconf, modprobe, rmmod, fg, &amp; (background execution)
+</ul>
+</font>
+<br><br>
+
+
+
+<font size="3" face="verdana" color="#c30035"><b><a href="proxy.htm">Configuring Proxy/NAT</a></b></font><br>
+<font size="2">
+<ul>
+<li>A basic IPTABLES script to enable the NAT function
+<li>Testing the proxy server
+<li>How to start a program or daemon automatically at system boot up
+<li>How to enable auto-dialing of a modem connection<br>
+Commands introduced: ln, iptables
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="firewall.htm">Setting Up A Firewall</a></b></font><br>
+<font size="2">
+<ul>
+<li>What is a firewall and when is one needed ?
+<li>A basic IPTABLES script to enable firewall functionality
+<li>Tightening the firewall
+<li>The benefits of a DMZ
+<li>Configuring a DMZ
+<li>How Linux can be used as a router
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="security.htm">Securing Servers</a></b></font><br>
+<font size="2">
+<ul>
+<li>The risks servers face
+<li>Security categories
+<li>OS configuration
+<li>Application configuration
+<li>Perimeter security
+<li>Installing and testing the Snort IDS software
+<li>Physcial security
+<li>Proactive measures<br>
+<li>Updating the OS and installed software
+<li>Using the cron scheduler to automate security patching<br>
+Commands introduced: netstat
+</ul>
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="compile.htm">Compiling Software</a></b></font><br>
+<font size="2">
+<ul>
+<li>The steps in going from source to binary
+<li>Linux utilities for compiling software
+<li>Testing the modem connection
+<li>Trying it out with a command-line IRC (chat) client
+<li>A note about source code drivers
+<li>The basics of kernel loadable modules
+<li>Linux utilities for working with loadable modules<br>
+Commands introduced: configure, make, ftp, mkdir, insmod, rmmod,  depmod
+</ul> 
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="desktop.htm">GUI Desktop Linux</a></b></font><br>
+<font size="2">
+<ul>
+<li>The look of Corel Linux 1.2
+<li>Installation Options
+<li>Installing Corel Linux 1.2
+<li>Configuring Windows file and printer sharing
+<li>Serious desktop Linux
+</ul> 
+</font>
+<br><br>
+
+<font size="3" face="verdana" color="#c30035"><b><a href="whatnow.htm">What Now ?</a></b></font><br>
+<font size="2">
+<ul>
+<li>What to do next
+<li>Putting together a cheap network ala eBay
+<li>Getting the Linux+ certification
+<li>Promoting Debian<br>
+Commands introduced:
+</ul>
+</font>
+<br><br><br>
+Didn't see what you were looking for ?<br>
+Try our <font face="verdana" color="#c30035"><b>Simple Site Search</b></font> near the bottom of our <a href="index.htm#search">Home page</a>.
+<br><br><br>
+<br>
+
+
+<center>
+<br>
+<font size="2">
+Did you find this page helpful ?<br>
+If so, please help keep this site operating<br>
+by using our <a href="order.htm">DVD</a> or <a href="books.htm">book</a> pages.
+</font>
+<br><br><br>
+<font size="1">
+Site, content, documents, original images &nbsp; Copyright &copy; 2003-2016 &nbsp; <a href="http://www.parkansky.com" target="_blank">Keith Parkansky</a> &nbsp; All rights reserved<br>
+Duplication of any portion of this site or the material contained herein without<br>
+the express written consent of Keith Parkansky, USA is strictly prohibited.
+<br><br>
+This site is in no way affiliated with the Debian Project, the debian.org Web site, or<br>
+Software In The Public Interest, Inc.  No endorsement of this site by the Debian Project<br>
+or Software In the Public Interest is expressed or implied.  Debian and the Debian logo<br>
+are registered trademarks of Software In The Public Interest, Inc. Linux is a registered<br>
+trademark of Linus Torvalds.  The Tux penguin graphic is the creation of Larry Ewing.
+<br><br>
+LIABILITY 
+<br><br>
+IN NO EVENT WILL <a href="http://www.parkansky.com" target="_blank">KEITH PARKANSKY</a> OR <A href="http://www.bluehost.com" target="_blank">BLUEHOST INCORPORATED</a> OR ANY OF ITS SUBSIDIARIES BE LIABLE TO ANY PARTY (i) FOR ANY DIRECT, INDIRECT, SPECIAL, PUNITIVE OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF PROGRAMS OR INFORMATION, AND THE LIKE), OR ANY OTHER DAMAGES ARISING IN ANY WAY OUT OF THE AVAILABILITY, USE, RELIANCE ON, OR INABILITY TO USE THE INFORMATION, METHODS, HTML OR COMPUTER CODE, OR &quot;KNOWLEDGE&quot; PROVIDED ON OR THROUGH THIS WEBSITE, COMMONLY REFERRED TO AS THE &quot;ABOUT DEBIAN&quot; WEBSITE, OR ANY OF ITS ASSOCIATED DOCUMENTS, DIAGRAMS, IMAGES, REPRODUCTIONS, COMPUTER EXECUTED CODE, OR ELECTRONICALLY STORED OR TRANSMITTED FILES OR GENERATED COMMUNICATIONS OR DATA EVEN IF KEITH PARKANSKY OR <A href="http://www.bluehost.com" target="_blank">BLUEHOST INCORPORATED</a> OR ANY OF ITS SUBSIDIARIES SHALL HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, AND REGARDLESS OF THE FORM OF ACTION, WHETHER IN CONTRACT, TORT, OR OTHERWISE; OR (ii) FOR ANY CLAIM ATTRIBUTABLE TO ERRORS, OMISSIONS, OR OTHER INACCURACIES IN, OR DESTRUCTIVE PROPERTIES OF ANY INFORMATION, METHODS, HTML OR COMPUTER CODE, OR &quot;KNOWLEDGE&quot; PROVIDED ON OR THROUGH THIS WEBSITE, COMMONLY REFERRED TO AS THE &quot;ABOUT DEBIAN&quot; WEBSITE, OR ANY OF ITS ASSOCIATED DOCUMENTS, DIAGRAMS, IMAGES, REPRODUCTIONS, COMPUTER EXECUTED CODE, OR ELECTRONICALLY STORED, TRANSMITTED, OR GENERATED FILES, COMMUNICATIONS, OR DATA. ALL INFORMATION, METHODS, HTML OR COMPUTER CODE IS PROVIDED STRICTLY &quot;AS IS&quot; WITH NO GUARANTY OF ACCURACY AND/OR COMPLETENESS. USE OF THIS SITE CONSTITUTES ACCEPTANCE OF ALL STATED TERMS AND CONDITIONS.
+</font>
+<br><br>
+</center>
+</blockquote>
+</font>
+
+</body>
+</html>
