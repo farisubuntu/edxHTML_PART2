@@ -1,0 +1,84 @@
+0
+00:00:04,109 --> 00:00:07,770
+Hello everybody. Welcome to Week 3!
+
+1
+00:00:07,770 --> 00:00:12,460
+This is my favorite part of the course as we are going to work
+
+2
+00:00:12,460 --> 00:00:15,820
+with graphics. You will learn to
+
+3
+00:00:15,820 --> 00:00:19,820
+draw simple shapes into the new HTML5 canvas
+
+4
+00:00:19,820 --> 00:00:24,180
+elements. We will see along many examples
+
+5
+00:00:24,180 --> 00:00:28,680
+how to draw lines, curves, circles,
+
+6
+00:00:28,680 --> 00:00:32,430
+arcs, images, how to fill shapes with
+
+7
+00:00:32,430 --> 00:00:35,490
+textures, patterns, repetitive patterns
+
+8
+00:00:35,490 --> 00:00:38,580
+with gradiants, how to add shadows
+
+9
+00:00:38,580 --> 00:00:43,350
+and so on. The course comes with many small examples,
+
+10
+00:00:43,350 --> 00:00:46,400
+so do not be afraid by its length.
+
+11
+00:00:46,400 --> 00:00:50,930
+This time the course is long but there is no major difficulties in it.
+
+12
+00:00:50,930 --> 00:00:54,210
+You will also learn a lot of good practices.
+
+13
+00:00:54,210 --> 00:00:57,650
+You will learn how to use geometric transformations,
+
+14
+00:00:57,650 --> 00:01:01,930
+how to make a responsive canvas, and how to write
+
+15
+00:01:01,930 --> 00:01:05,010
+a multiple image loader and this is a bit
+
+16
+00:01:05,010 --> 00:01:09,310
+the tricky part usually for beginners.
+
+17
+00:01:09,310 --> 00:01:14,870
+The canvas API is simple but rich, and this week covers
+
+18
+00:01:14,870 --> 00:01:18,909
+all the things you need to draw graphics.
+
+19
+00:01:18,909 --> 00:01:23,120
+I hope you enjoyed the course so far and I'll meet you next week
+
+20
+00:01:23,120 --> 00:01:27,159
+for a very funny part that is about animation.
+

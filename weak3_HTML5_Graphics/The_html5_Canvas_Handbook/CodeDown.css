@@ -1,0 +1,196 @@
+/* CodeDown.css */
+
+body {
+  font-family: Arial;
+  background-color: #FFFFFF;
+  color: #555555;
+  text-align: justify;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  /* font-size: small; */
+}
+h1, h2, h3, h4, h5, h6 {
+  background-color: #EEEEEE;
+  color: #555555;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+p, pre {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+code, pre {
+  color: blue;
+  font-family: monospace;
+}
+pre {
+  font-size: small;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 150%;
+  background-color: #EEEEEE;
+}
+blockquote {
+  border: solid 3pt;
+  border-color: #CCCCCC;
+  padding-right: 15px;
+}
+blockquote, pre {
+  margin-left: 15px;
+  margin-right: 5px;
+}
+blockquote pre {
+  margin: 0px;
+}
+/* list layout */
+ol, ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 15px;
+  padding-left: 0px;
+}
+ol {
+  list-style-type: decimal-leading-zero; /* or decimal; see http://www.w3schools.com/cssref/pr_list-style-type.asp */
+}
+li {
+  margin-left: 20px;
+  padding: 0px;
+}
+dl {
+  margin: 15px;
+}
+dt {
+  margin: 0px;
+}
+dd {
+  margin-left: 2em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+/* table layout */
+table {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border-style: solid;
+  border-width: thin;
+}
+th {
+  border-style: solid;
+  border-width: thin;
+  padding: 3px;
+  text-align: center;
+}
+td {
+  border-style: solid;
+  border-width: thin;
+  padding: 3px;
+  text-align: left;
+  vertical-align: text-top;
+}
+/* images */
+img {
+  margin-left: 15px; margin-right: 15px;
+}
+/* links */
+a, a:link, a:visited {
+  color: #555555;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  text-decoration: none;
+  color: #555555;
+}
+/* other definitions */
+.subheader {
+  color: #777777;
+  margin-top: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: bold;
+}
+.subheader code {
+  font-weight: normal;
+}
+.todo, .continue { /* for CONTINUEHERE text */
+  color: red;
+  font-size: x-large;
+}
+/* special Pandoc elements and classes */
+#header {
+  padding: 10px;
+  margin: 20px;
+  border: solid;
+  text-align: center; 
+  background-color: #EEEEEE;
+}
+#header h1, #header h2, #header h3 {}
+#TOC {
+  border: solid 1px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: small;
+}
+.footnoteRef {
+}
+.math {
+  color: blue; 
+  font-family: monospace;
+}
+.math em {
+  /* font-style: normal; /* default is italics */
+}
+
+/* html5 */
+header {
+  display: block;
+  text-align: center;
+  border: solid 1px black;
+  margin-bottom: 20px;
+}
+header, header h1, header h2, header h3, header h4 {
+  color: black;
+  background-color: #EEEEEE;
+}
+/* special for canvas */
+canvas {
+  margin: 10px;
+}
+
+/* special for ToF.js output */
+.treeLabel {
+  background-color: cyan;
+  padding-left: 5pt;
+  padding-right: 5pt;
+}
+.treeTable {
+  background-color: yellow;
+  margin: 5px;
+}
+.treeList {
+  background-color: yellow;
+  margin: 5px;
+  padding: 5px;
+}
+.unit {
+  font-family: monospace;
+  background-color: #EEEEEE;
+}
+.unit .name {
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+}
+.unit .type {
+  color: blue; 
+}
+.unit .value {
+  color: cyan; 
+}
+.unit .info {
+  color: green; 
+}
+.unit .test {
+  color: brown; 
+}

@@ -1,0 +1,12 @@
+/* CodeDownPrint.css */
+
+body {
+  font-size: small;
+}
+h1 {
+  page-break-before: always;
+}
+/* pandoc specific */
+h1.title { page-break-before: avoid; }
+h2.author { page-break-before: avoid; }
+h3.date { page-break-before: avoid; }
