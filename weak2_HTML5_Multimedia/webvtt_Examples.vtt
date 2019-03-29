@@ -1,1 +1,522 @@
+<ul class="chapter-container">
+<li class="outline-item section">
+	<button class="section-name accordion-trigger" aria-expanded="true" aria-controls="block-v1:LinuxFoundationX+LFS101x+1T2017+type@chapter+block@17e43829df2840b997fa26e1bc5602af_contents" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@chapter+block@17e43829df2840b997fa26e1bc5602af">
+		<span class="fa fa-chevron-right fa-rotate-90" aria-hidden="true"></span>
+		<h3 class="section-title">Chapter 12: User Environment</h3>
+	</button>
+	<ol class="outline-item accordion-panel" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@chapter+block@17e43829df2840b997fa26e1bc5602af_contents" aria-labelledby="block-v1:LinuxFoundationX+LFS101x+1T2017+type@chapter+block@17e43829df2840b997fa26e1bc5602af" style="display: block;">
+
+	  <li class="subsection accordion ">
+					<button class="subsection-text accordion-trigger" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@143d08cd974d4ab3b268f4a67e8ebf5a" aria-expanded="true" aria-controls="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@143d08cd974d4ab3b268f4a67e8ebf5a_contents">
+						<span class="fa fa-chevron-right fa-rotate-90" aria-hidden="true"></span>
+						<h4 class="subsection-title">
+							Introduction/ Learning Objectives
+						</h4>
+						<div class="details">
+
+
+						</div> <!-- /details -->
+					</button> <!-- /subsection-text -->
+				<ol class="outline-item accordion-panel" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@143d08cd974d4ab3b268f4a67e8ebf5a_contents" aria-labelledby="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@143d08cd974d4ab3b268f4a67e8ebf5a" style="display: block;">
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@14de29d88a15423796fabdf7045dabe3" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@14de29d88a15423796fabdf7045dabe3">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								User Environment
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@6e0c19b663b2409eaa61a804d5b584e0" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@6e0c19b663b2409eaa61a804d5b584e0">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Learning Objectives
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+				</ol>
+			</li>
+
+	  <li class="subsection accordion current">
+					<button class="subsection-text accordion-trigger" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@37d91de7048f462f8c3feb9f7d879d1c" aria-expanded="true" aria-controls="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@37d91de7048f462f8c3feb9f7d879d1c_contents">
+						<span class="fa fa-chevron-right fa-rotate-90" aria-hidden="true"></span>
+						<h4 class="subsection-title">
+							Section 1: Accounts, Users and Groups
+						</h4>
+						<div class="details">
+
+
+						</div> <!-- /details -->
+					</button> <!-- /subsection-text -->
+				<ol class="outline-item accordion-panel" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@37d91de7048f462f8c3feb9f7d879d1c_contents" aria-labelledby="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@37d91de7048f462f8c3feb9f7d879d1c" style="display: block;">
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@2646e3c24c5f4e95abfc0afbfa6e8908" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@2646e3c24c5f4e95abfc0afbfa6e8908">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Identifying the Current User
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@dfc0932c20fb467e89b3909c02620f35" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@dfc0932c20fb467e89b3909c02620f35">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Basics of Users and Groups
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@2075884bcd2b4783a455a74db394b5f4" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@2075884bcd2b4783a455a74db394b5f4">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Adding and Removing Users
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@6d337f1b84a94127813db3556660f25a" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@6d337f1b84a94127813db3556660f25a">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Adding and Removing Groups
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@70737e6e04344738a42d0fbd1ba5d88f" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@70737e6e04344738a42d0fbd1ba5d88f">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								The root Account
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@e413c13171274766a2458e681345705f" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@e413c13171274766a2458e681345705f">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								su and sudo
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@47670807dbe44a668fe68dfbbdd7283b" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@47670807dbe44a668fe68dfbbdd7283b">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Elevating to root Account
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@cfb3f4b937104f85b0d9caeb46be7bb1" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@cfb3f4b937104f85b0d9caeb46be7bb1">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								User Startup Files
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@61e7a2217b47400bba479a191f20593b" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@61e7a2217b47400bba479a191f20593b">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Order of the Startup Files
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@5cd5ce8e473748ce9d9ac1a08a4c8886" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@5cd5ce8e473748ce9d9ac1a08a4c8886">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Creating Aliases
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@4f6fd0275dd24d25a12ab3aded7b59fe" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@4f6fd0275dd24d25a12ab3aded7b59fe">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Try-It-Yourself: Identify the Currently Logged-In User and User
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@9408c25be25b4df5b8aa884f3efe4eab" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@9408c25be25b4df5b8aa884f3efe4eab">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@1ae66e41b7e14f7aa4304676accacc3f" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@1ae66e41b7e14f7aa4304676accacc3f">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@72e47257fb0f403e9400a1e7df6214dd" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@72e47257fb0f403e9400a1e7df6214dd">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@0c7bf11601d34491ac3139055997c3a8" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@0c7bf11601d34491ac3139055997c3a8">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Lab 1: Deploying aliases
+							  </div>
+							</div>
+						</a>
+					</li>
+				</ol>
+			</li>
+
+	  <li class="subsection accordion ">
+					<button class="subsection-text accordion-trigger" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@3d99ae48ff724532a3ba43c73080ead7" aria-expanded="true" aria-controls="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@3d99ae48ff724532a3ba43c73080ead7_contents">
+						<span class="fa fa-chevron-right fa-rotate-90" aria-hidden="true"></span>
+						<h4 class="subsection-title">
+							Section 2: Environment Variables
+						</h4>
+						<div class="details">
+
+
+						</div> <!-- /details -->
+					</button> <!-- /subsection-text -->
+				<ol class="outline-item accordion-panel" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@3d99ae48ff724532a3ba43c73080ead7_contents" aria-labelledby="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@3d99ae48ff724532a3ba43c73080ead7" style="display: block;">
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@54f8e3369465409283cbfa75c6a621f3" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@54f8e3369465409283cbfa75c6a621f3">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Environment Variables
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@9c7cd25c73ec480dbb983eb5e6ee2a89" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@9c7cd25c73ec480dbb983eb5e6ee2a89">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Setting Environment Variables
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@b1306a78487444b9880c17da9045a411" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@b1306a78487444b9880c17da9045a411">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								The HOME Variable
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@a84d8506baf44969b117d7d15b9b76a3" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@a84d8506baf44969b117d7d15b9b76a3">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								The PATH Variable
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@13833301ce71451f9d70dc6fb75e536f" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@13833301ce71451f9d70dc6fb75e536f">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								The PS1 Variable and the Command Line Prompt
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@8bd57e7a88534ea3bd90fa4e1f055947" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@8bd57e7a88534ea3bd90fa4e1f055947">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								The SHELL Variable
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@d261e97eb40a4129b4954a380672af71" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@d261e97eb40a4129b4954a380672af71">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@9f5b1c59b04a4d9d958294312bdc5ce8" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@9f5b1c59b04a4d9d958294312bdc5ce8">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@e3c7d033b3b34970b912afa6c6971125" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@e3c7d033b3b34970b912afa6c6971125">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@360153b82f524a68a9fb95e8dd1941d2" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@360153b82f524a68a9fb95e8dd1941d2">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Lab 2: Adding /tmp to Your Path
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@ca30d2549d874153a5a7a99e50bb458f" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@ca30d2549d874153a5a7a99e50bb458f">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Lab 3: Changing the Command Line Prompt
+							  </div>
+							</div>
+						</a>
+					</li>
+				</ol>
+			</li>
+
+	  <li class="subsection accordion ">
+					<button class="subsection-text accordion-trigger" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@1bdb9eaf134a426085d62c5bb75d3b1b" aria-expanded="true" aria-controls="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@1bdb9eaf134a426085d62c5bb75d3b1b_contents">
+						<span class="fa fa-chevron-right fa-rotate-90" aria-hidden="true"></span>
+						<h4 class="subsection-title">
+							Section 3: Recalling Previous Commands
+						</h4>
+						<div class="details">
+
+
+						</div> <!-- /details -->
+					</button> <!-- /subsection-text -->
+				<ol class="outline-item accordion-panel" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@1bdb9eaf134a426085d62c5bb75d3b1b_contents" aria-labelledby="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@1bdb9eaf134a426085d62c5bb75d3b1b" style="display: block;">
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@8feede50c96b4224aaa61838974f9c8e" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@8feede50c96b4224aaa61838974f9c8e">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Recalling Previous Commands
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@54f938de21c947038781713c89c25f9a" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@54f938de21c947038781713c89c25f9a">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Using History Environment Variables
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@01fd2831aea2410fa50155929dd71790" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@01fd2831aea2410fa50155929dd71790">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Finding and Using Previous Commands
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@fe99402618ac411cbce953ec8e2bca6f" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@fe99402618ac411cbce953ec8e2bca6f">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Executing Previous Commands
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@e0354ddf832c47fe93cc64e071e8c54d" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@e0354ddf832c47fe93cc64e071e8c54d">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Keyboard Shortcuts
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@12fc54c4fb664c288dba156b74c94ab4" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@12fc54c4fb664c288dba156b74c94ab4">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@5f9bcd8651ff457585ae2d9ea3a478ab" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@5f9bcd8651ff457585ae2d9ea3a478ab">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@d99f214fa69b449887455f3b67b6b4ae" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@d99f214fa69b449887455f3b67b6b4ae">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@4d0994e12fb746bbae3cb9acc87af223" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@4d0994e12fb746bbae3cb9acc87af223">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Lab 4: Command History
+							  </div>
+							</div>
+						</a>
+					</li>
+				</ol>
+			</li>
+
+	  <li class="subsection accordion ">
+					<button class="subsection-text accordion-trigger" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@29af5a1ae65b4fb6bacf954b71761ac7" aria-expanded="true" aria-controls="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@29af5a1ae65b4fb6bacf954b71761ac7_contents">
+						<span class="fa fa-chevron-right fa-rotate-90" aria-hidden="true"></span>
+						<h4 class="subsection-title">
+							Section 4: File Permissions
+						</h4>
+						<div class="details">
+
+
+						</div> <!-- /details -->
+					</button> <!-- /subsection-text -->
+				<ol class="outline-item accordion-panel" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@29af5a1ae65b4fb6bacf954b71761ac7_contents" aria-labelledby="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@29af5a1ae65b4fb6bacf954b71761ac7" style="display: block;">
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@0e83a3bee119420c9f9b360e27cd2cce" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@0e83a3bee119420c9f9b360e27cd2cce">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								File Ownership
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@267bf9296ffb4358905c209a825893b4" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@267bf9296ffb4358905c209a825893b4">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								File Permission Modes and chmod
+							  </div>
+							</div>
+								<span class="complete-checkmark fa fa-check"></span>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@5bcb0130817641b09aa84e3b4db0b527" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@5bcb0130817641b09aa84e3b4db0b527">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Example of chown
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@cff5f29c3fef4aa3ab381cd09873d288" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@cff5f29c3fef4aa3ab381cd09873d288">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Example of chgrp
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@b573ad4a6fb94e0d851d005070ab9c29" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@b573ad4a6fb94e0d851d005070ab9c29">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Try-It-Yourself: Using chmod to Change File Permissions
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@a38c9e4a707143c0bdacee35988563e6" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@a38c9e4a707143c0bdacee35988563e6">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Knowledge Check
+							  </div>
+							</div>
+						</a>
+					</li>
+				</ol>
+			</li>
+
+	  <li class="subsection accordion ">
+					<button class="subsection-text accordion-trigger" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@a2446dc179a447f5b247e2f0f38b85e2" aria-expanded="true" aria-controls="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@a2446dc179a447f5b247e2f0f38b85e2_contents">
+						<span class="fa fa-chevron-right fa-rotate-90" aria-hidden="true"></span>
+						<h4 class="subsection-title">
+							Summary
+						</h4>
+						<div class="details">
+
+
+						</div> <!-- /details -->
+					</button> <!-- /subsection-text -->
+				<ol class="outline-item accordion-panel" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@a2446dc179a447f5b247e2f0f38b85e2_contents" aria-labelledby="block-v1:LinuxFoundationX+LFS101x+1T2017+type@sequential+block@a2446dc179a447f5b247e2f0f38b85e2" style="display: block;">
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@a1ae23c2312646f7bde98a11f1392f3e" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@a1ae23c2312646f7bde98a11f1392f3e">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Summary (1 of 2)
+							  </div>
+							</div>
+						</a>
+					</li>
+					<li class="vertical outline-item focusable">
+						<a class="outline-item focusable" href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2017/jump_to/block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@a2ee511eaa1447b4b5ae9288345b0cfa" id="block-v1:LinuxFoundationX+LFS101x+1T2017+type@vertical+block@a2ee511eaa1447b4b5ae9288345b0cfa">
+							<div class="vertical-details">
+							  <div class="vertical-title">
+								Summary (2 of 2)
+							  </div>
+							</div>
+						</a>
+					</li>
+				</ol>
+			</li>
+	</ol>
+</li>
+</ul>
+
+<ul class='chapter-container'>
+
+
+</ul>
+
 
