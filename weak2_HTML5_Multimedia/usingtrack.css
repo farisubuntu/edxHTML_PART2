@@ -13,4 +13,11 @@ video{
   /* margin:auto; */
   margin-left:26%;
  }
+ video::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  color: rgb(111, 218, 79);
+}
+video::cue(b) {
+  color: peachpuff;
+}
  

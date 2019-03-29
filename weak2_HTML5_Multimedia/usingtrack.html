@@ -11,12 +11,10 @@
 
 <body>
  <div class="center">
-  <video id="myVideo" controls width="600" height="500" controls
-   crossorigin="anonymous">
-  <source src="../weak2_HTML5_Multimedia/videos/1.mp4" type="video/mp4">
-   <source src="../weak2_HTML5_Multimedia/videos/1.webm" type="video/webm">
-
-    <track src="../weak2_HTML5_Multimedia/videos/1_subtitles.vtt" kind="subtitles" lang=en label="English" srclang=en>
+  <video id="myVideo" controls width="600" height="500" controls autoplay>
+<source src="10.webm" type="video/webm">
+ <track src="1_subtitles.vtt" kind="subtitles" label="subtitles of the video" default srclang="en" lang="en">
+<track id="nav" src="1_captions.vtt" kind="captions" srclang="en" label="captions - chapters..." lang="en"
 
    </video>
  
