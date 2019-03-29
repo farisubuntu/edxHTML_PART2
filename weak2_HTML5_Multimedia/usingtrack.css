@@ -10,7 +10,7 @@ video{
  /* max-width: 80%; */
  /* height: auto; */
   border:10px solid darkorange;
-  /* margin:auto; */
+
   margin-left:26%;
  }
  video::cue {
