@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <title> title of page</title>
+ <style>
+	body{
+	margin-left:2%;}
+	canvas{
+		border:4px solid blue;}
+ </style>
+
+</head>
+
+<body>
+<h3>Method 2</h3>
+<pre><code>
+function canvasSupport () {
+return !!document.createElement('canvas').getContext;
+}
+function canvasApp() {
+if (!canvasSupport) {
+return;
+}
+}
+
+	</code></pre>
+<h3>Also: Our favorite method is to use the modernizr.js library.</h3> <p>Modernizr—an easy-to-use, lightweight library for testing support for various web-based technologies—creates a
+set of static Booleans that you can test against to see whether Canvas is supported.</p>
+<p>
+To include modernizr.js in your HTML page, download the code from http://
+www.modernizr.com/ and then include the external .js file in your HTML page:
+<code>
+&lt;script&gt; src="modernizr.js"&gt;&lt;/script&gt;  
+</code>
+ </p>
+
+<h3>The canvas object and its 2d context </h3>
+<p>You probably know about the DOM (Document Object Model). Each web document is first of all given as a HTML file. When this HTML code is loaded, the browser translates the document into a hierarchical JavaScript tree object. Each element of the HTML code is represented as a node object in this tree. The root to that tree is accessed by the predefined document keyword. Any element node in this tree that corresponds to a tag with an id is then accessed by a call of document.getElementById('...'). Alternatively we could also get the array of all HTMLCanvasElement objects in one document by calling document.getElementsByTagName('canvas'). But we will not use this in our text here. </p>
+<img src='9.png' alt="canvas">
+
+<h3>the next two lines are the same:</h3>
+<pre><code>
+var context = canvas.getContext('2d');
+the same result with this line instead:
+var context = document.getElementById('myCan').getContext('2d');
+</code></pre>
+
+<h3>The JavaScript canvas object is a <code>HTMLCanvasElement</code>. It has:</h3>
+
+<li><p>two properties, namely</p>
+<ul>
+<li><p><a href="#width"><code>width</code></a> and</p></li>
+<li><p><a href="#height"><code>height</code></a> that represent the according attributes of the <code>&lt;canvas&gt;</code> tags, and</p></li>
+</ul></li>
+<li><p>two methods, namely</p>
+<ul>
+<li><p><a href="#getcontext2d"><code>getContext()</code></a> that provides access to the <strong>canvas context</strong>,</p></li>
+<li><p><a href="#todataurl"><code>toDataURL()</code></a> that translates the full content of the given canvas into code for an image file (PNG or JPEG).</p></li>
+</ul></li>
+<h3>toDataURL():</h3>
+<blockquote>
+<p><code>HTMLCanvasElement.toDataURL ()</code> // return png<br><code>HTMLCanvasElement.toDataURL (type,... ) //return jpeg if type='image/jpeg'</code></p>
+</blockquote>
+<h3>For a more convenient solution, we can attach these lines to the previous code:
+<code>
+canvas.onclick = function () {
+  window.location = canvas.toDataURL('image/png');
+};
+</code>
+</h3>
+
+<h3>CanvasRenderingContext2D</h3>
+<p>refers back to the <code>HTMLCanvasElement</code> of that given context.</p>
+<div class='example'>
+<pre><code>&lt;canvas id="ReferenceSample1" width=150 height=100 style="border: solid 5pt orange"&gt; &lt;/canvas&gt;
+&lt;script&gt;
+  var context = document.getElementById('ReferenceSample1').getContext('2d');
+  context.canvas.width = 250;        // reset the canvas width to 250
+  context.canvas.height = 50;        // reset the canvas height to 50
+&lt;/script&gt;</code></pre>
+</div>
+<h3>Drawing State:</h3>
+
+<p>A <strong>drawing state</strong> is the set of the current settings of a <code>CanvasRenderingContext2D</code> object. It includes the current style values (<a href="#strokestyle"><code>strokeStyle</code></a> and <a href="#fillstyle"><code>fillStyle</code></a>), <a href="#globalalpha"><code>globalAlpha</code></a> and <a href="#globalcompositeoperation"><code>globalCompositeOperation</code></a>, the line (<a href="#linewidth"><code>lineWidth</code></a>, <a href="#linecap"><code>lineCap</code></a>, <a href="#linejoin"><code>lineJoin</code></a>, <a href="#miterlimit"><code>miterLimit</code></a>), shadow (<a href="#shadowoffsetx"><code>shadowOffsetX</code></a>, <a href="#shadowoffsety"><code>shadowOffsetY</code></a>, <a href="#shadowblur"><code>shadowBlur</code></a>, <a href="#shadowcolor"><code>shadowColor</code></a>) and text settings (<a href="#font"><code>font</code></a>, <a href="#textalign"><code>textAlign</code></a>, <a href="#textbaseline"><code>textBaseline</code></a>), the <a href="#clip">current clipping region</a> and the <a href="#settransform-a-b-c-d-e-f">current transformation matrix</a>.</p>
+<p>Each <code>CanvasRenderingContext2D</code> object maintains a <strong>stack of drawing states</strong>. And with <a href="#save"><code>save()</code></a> and <a href="#restore"><code>restore()</code></a>, drawing states can be pushed onto this stack and recovered at a later point.</p>
+
+
+<div class='note'>
+Note, that the drawing state does not include the current path or bitmaps. So <code>save()</code> and <code>restore()</code> do not save and restore entire canvas pictures, i.e. entire contents of the given context. For that, you should use <a href="#imagedata"><code>ImageData</code></a> objects and the <a href="#getimagedatasxsyswsh"><code>getImageData()</code></a> and <a href="#putimagedata-imagedata-dx-dy-and-putimagedata-imagedata-dx-dy-sx-sy-sw-sh"><code>putImageData()</code></a> methods (see the chapter on <a href="#pixel-manipulation">pixel manipulation</a>).
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
