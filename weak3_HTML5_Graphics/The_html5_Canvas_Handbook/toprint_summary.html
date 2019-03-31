@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
  <title> title of page</title>
- <style>
-	body{
-	margin-left:2%;}
-	canvas{
-		border:4px solid blue;}
- </style>
+ <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<!-- <script src="https://www.w3schools.com/lib/w3codecolor.js"></script> -->
+<!-- <link rel="stylesheet" href="../../w3.css"> -->
+<link rel="stylesheet" href="CodeDown.css">
+<link rel="stylesheet" href="CodeDownPrint.css">
 
 </head>
 
-<body>
-<h3>Method 2</h3>
-<pre><code>
+<body class="w3-container">
+ <h3>Method 2</h3>
+ <div class="w3-container">
+  <code class="w3-code jsHigh">
 function canvasSupport () {
 return !!document.createElement('canvas').getContext;
 }
@@ -25,79 +26,203 @@ return;
 }
 }
 
-	</code></pre>
-<h3>Also: Our favorite method is to use the modernizr.js library.</h3> <p>Modernizr—an easy-to-use, lightweight library for testing support for various web-based technologies—creates a
-set of static Booleans that you can test against to see whether Canvas is supported.</p>
-<p>
-To include modernizr.js in your HTML page, download the code from http://
-www.modernizr.com/ and then include the external .js file in your HTML page:
-<code>
+	</code>
+ </div>
+ <h3>Also: Our favorite method is to use the modernizr.js library.</h3>
+ <p>Modernizr—an easy-to-use, lightweight library for testing support for various web-based technologies—creates a
+  set of static Booleans that you can test against to see whether Canvas is supported.</p>
+ <p>
+  To include modernizr.js in your HTML page, download the code from http://
+  www.modernizr.com/ and then include the external .js file in your HTML page:
+  <code class="w3-code jsHigh">
 &lt;script&gt; src="modernizr.js"&gt;&lt;/script&gt;  
 </code>
  </p>
 
-<h3>The canvas object and its 2d context </h3>
-<p>You probably know about the DOM (Document Object Model). Each web document is first of all given as a HTML file. When this HTML code is loaded, the browser translates the document into a hierarchical JavaScript tree object. Each element of the HTML code is represented as a node object in this tree. The root to that tree is accessed by the predefined document keyword. Any element node in this tree that corresponds to a tag with an id is then accessed by a call of document.getElementById('...'). Alternatively we could also get the array of all HTMLCanvasElement objects in one document by calling document.getElementsByTagName('canvas'). But we will not use this in our text here. </p>
-<img src='9.png' alt="canvas">
+ <h3>The canvas object and its 2d context </h3>
+ <p>You probably know about the DOM (Document Object Model). Each web document is first of all given as a HTML file.
+  When this HTML code is loaded, the browser translates the document into a hierarchical JavaScript tree object. Each
+  element of the HTML code is represented as a node object in this tree. The root to that tree is accessed by the
+  predefined document keyword. Any element node in this tree that corresponds to a tag with an id is then accessed by a
+  call of document.getElementById('...'). Alternatively we could also get the array of all HTMLCanvasElement objects in
+  one document by calling document.getElementsByTagName('canvas'). But we will not use this in our text here. </p>
+ <img src='9.png' alt="canvas">
 
-<h3>the next two lines are the same:</h3>
-<pre><code>
+ <h3>the next two lines are the same:</h3>
+ <code class="w3-code jsHigh">
 var context = canvas.getContext('2d');
 the same result with this line instead:
 var context = document.getElementById('myCan').getContext('2d');
-</code></pre>
-
-<h3>The JavaScript canvas object is a <code>HTMLCanvasElement</code>. It has:</h3>
-
-<li><p>two properties, namely</p>
-<ul>
-<li><p><a href="#width"><code>width</code></a> and</p></li>
-<li><p><a href="#height"><code>height</code></a> that represent the according attributes of the <code>&lt;canvas&gt;</code> tags, and</p></li>
-</ul></li>
-<li><p>two methods, namely</p>
-<ul>
-<li><p><a href="#getcontext2d"><code>getContext()</code></a> that provides access to the <strong>canvas context</strong>,</p></li>
-<li><p><a href="#todataurl"><code>toDataURL()</code></a> that translates the full content of the given canvas into code for an image file (PNG or JPEG).</p></li>
-</ul></li>
-<h3>toDataURL():</h3>
-<blockquote>
-<p><code>HTMLCanvasElement.toDataURL ()</code> // return png<br><code>HTMLCanvasElement.toDataURL (type,... ) //return jpeg if type='image/jpeg'</code></p>
-</blockquote>
-<h3>For a more convenient solution, we can attach these lines to the previous code:
-<code>
-canvas.onclick = function () {
-  window.location = canvas.toDataURL('image/png');
-};
 </code>
-</h3>
 
-<h3>CanvasRenderingContext2D</h3>
-<p>refers back to the <code>HTMLCanvasElement</code> of that given context.</p>
-<div class='example'>
-<pre><code>&lt;canvas id="ReferenceSample1" width=150 height=100 style="border: solid 5pt orange"&gt; &lt;/canvas&gt;
+ <h3>The JavaScript canvas object is a <code>HTMLCanvasElement</code>. It has:</h3>
+
+ <li>
+  <p>two properties, namely</p>
+  <ul>
+   <li>
+    <p><a href="#width"><code class="jsHigh">width</code></a> and</p>
+   </li>
+   <li>
+    <p><a href="#height"><code class="jsHigh">height</code></a> that represent the according attributes of the
+     <code class="htmlHigh">&lt;canvas&gt;</code> tags, and</p>
+   </li>
+  </ul>
+ </li>
+ <li>
+  <p>two methods, namely</p>
+  <ul>
+   <li>
+    <p><a href="#getcontext2d"><code class="jsHigh">getContext()</code></a> that provides access to the <strong>canvas
+      context</strong>,</p>
+   </li>
+   <li>
+    <p><a href="#todataurl"><code class="jsHigh">toDataURL()</code></a> that translates the full content of the given canvas into code
+     for an image file (PNG or JPEG).</p>
+   </li>
+  </ul>
+ </li>
+ <h3>toDataURL():</h3>
+ 
+  <p><code class="jsHigh">HTMLCanvasElement.toDataURL ()</code> // return
+   png<br><code class="jsHigh">HTMLCanvasElement.toDataURL (type,... )</code>//return jpeg if type='image/jpeg'</p>
+ 
+ <div class="w3-panel w3-card w3-light-gray"><p>For a more convenient solution, we can attach these lines to the previous code:<pre><code class="w3-code jsHigh">
+canvas.onclick = function () {
+window.location = canvas.toDataURL('image/png');
+};
+</code></pre></p>
+ </div>
+
+ <h3>CanvasRenderingContext2D</h3>
+ <p>refers back to the <code class="w3-code jsHigh">HTMLCanvasElement</code> of that given context.</p>
+ <div class='example'>
+  <code class="w3-code htmlHigh">&lt;canvas id="ReferenceSample1" width=150 height=100 style="border: solid 5pt orange"&gt; &lt;/canvas&gt;
 &lt;script&gt;
   var context = document.getElementById('ReferenceSample1').getContext('2d');
   context.canvas.width = 250;        // reset the canvas width to 250
   context.canvas.height = 50;        // reset the canvas height to 50
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;</code>
+ </div>
+ <h3>Drawing State:</h3>
+
+ <p>A <strong>drawing state</strong> is the set of the current settings of a <code class="w3-code jsHigh">CanvasRenderingContext2D</code>
+  object. It includes the current style values (<a href="#strokestyle"><code class="w3-code jsHigh">strokeStyle</code></a> and <a
+   href="#fillstyle"><code class="w3-code jsHigh">fillStyle</code></a>), <a href="#globalalpha"><code class="w3-code jsHigh">globalAlpha</code></a> and <a
+   href="#globalcompositeoperation"><code class="w3-code jsHigh">globalCompositeOperation</code></a>, the line (<a
+   href="#linewidth"><code class="w3-code jsHigh">lineWidth</code></a>, <a href="#linecap"><code class="w3-code jsHigh">lineCap</code></a>, <a
+   href="#linejoin"><code class="w3-code jsHigh">lineJoin</code></a>, <a href="#miterlimit"><code class="w3-code jsHigh">miterLimit</code></a>), shadow (<a
+   href="#shadowoffsetx"><code class="w3-code jsHigh">shadowOffsetX</code></a>, <a href="#shadowoffsety"><code class="w3-code jsHigh">shadowOffsetY</code></a>, <a
+   href="#shadowblur"><code class="w3-code jsHigh">shadowBlur</code></a>, <a href="#shadowcolor"><code class="w3-code jsHigh">shadowColor</code></a>) and text
+  settings (<a href="#font"><code class="w3-code jsHigh">font</code></a>, <a href="#textalign"><code class="w3-code jsHigh">textAlign</code></a>, <a
+   href="#textbaseline"><code class="w3-code jsHigh">textBaseline</code></a>), the <a href="#clip">current clipping region</a> and the <a
+   href="#settransform-a-b-c-d-e-f">current transformation matrix</a>.</p>
+ <p>Each <code class="w3-code jsHigh">CanvasRenderingContext2D</code> object maintains a <strong>stack of drawing states</strong>. And with <a
+   href="#save"><code class="w3-code jsHigh">save()</code></a> and <a href="#restore"><code class="w3-code jsHigh">restore()</code></a>, drawing states can be pushed
+  onto this stack and recovered at a later point.</p>
+
+
+ <div class='note'>
+  Note, that the drawing state does not include the current path or bitmaps. So <code class="w3-code jsHigh">save()</code> and
+  <code class="w3-code jsHigh">restore()</code> do not save and restore entire canvas pictures, i.e. entire contents of the given context. For
+  that, you should use <a href="#imagedata"><code class="w3-code jsHigh">ImageData</code></a> objects and the <a
+   href="#getimagedatasxsyswsh"><code class="w3-code jsHigh">getImageData()</code></a> and <a
+   href="#putimagedata-imagedata-dx-dy-and-putimagedata-imagedata-dx-dy-sx-sy-sw-sh"><code class="w3-code jsHigh">putImageData()</code></a>
+  methods (see the chapter on <a href="#pixel-manipulation">pixel manipulation</a>).
+
+
+<div class="Example">
+  Suppose we draw 5 figures, each one a <a href="#fillrectxywh"><code>fillRect()</code></a> rectangle with two lines of <a href="#stroketexttextxy-and-stroketexttextxymaxwidth"><code>strokeText()</code></a> text in it, like so:
+ <img src="canvas.png" alt="example">
+ <p>As it is apparent from the picture, we use 3 different style settings for the 5 figures, defined as <em>states</em>:</p>
+ <ul>
+   <li><em>State A</em> with a <a href="createlineargradient-x0-y0-x1-y1-and-addcolorstop-pos-color">linear gradient</a> <a href="#fillstyle"><code>fillStyle</code></a>, running from top red to bottom green and yellow <a href="#strokestyle"><code>strokeStyle</code></a>.</li>
+   <li><em>State B</em> with a <a href="#createradialgradient-x0-y0-r0-x1-y1-r1-and-addcolorstop-pos-color">radial gradient</a> <a href="#fillstyle"><code>fillStyle</code></a>, running from a orange center start to an outer green end circle and green <a href="#strokestyle"><code>strokeStyle</code></a>.</li>
+   <li><em>State C</em> with dark gray <a href="#fillstyle"><code>fillStyle</code></a> and light gray <a href="#strokestyle"><code>strokeStyle</code></a>.</li>
+   </ul>
+   <p>We could generate the previous canvas by following these steps:</p>
+   <ol style="list-style-type: decimal">
+     <li>declare <em>State A</em> and draw Figure 1 and 5</li>
+     <li>declare <em>State B</em> and draw Figure 2 and 4</li>
+     <li>declare <em>State C</em> and draw Figure 3</li>
+     </ol>
+     <p>But since we want to demonstrate the use of <code>save()</code> and <code>restore()</code>, we create the Figures in their presented order:</p>
+     <ol style="list-style-type: decimal">
+       <li>set <em>State A</em>, draw Figure 1 and save <em>State A</em> on the state stack</li>
+       <li>set <em>State B</em>, draw Figure 2 and save <em>State B</em> on the state stack</li>
+       <li>set <em>State C</em> and draw Figure 3</li>
+       <li>overwrite <em>State C</em> by restoring <em>State B</em> from the stack and draw Figure 4</li>
+       <li>restore <em>State A</em> and draw Figure 5</li>
+       </ol>
+       <p>The full source code that actually generated the canvas is this:</p>
+       <pre><code>// Text style settings (these will be part of Start A, B, and C alike, because they do not change) 
+         context.textAlign = 'center';
+         context.textBaseline = 'middle';
+         context.lineWidth = 2.0;
+         context.font = '25px Arial';    
+         // Settings for State A 
+         var verticalGrad = context.createLinearGradient (0,0,0,200);
+         verticalGrad.addColorStop (0,'red');
+         verticalGrad.addColorStop (1,'green');
+         context.fillStyle = verticalGrad;                                      
+         context.strokeStyle = 'yellow';
+         // Draw Figure 1 
+         context.fillRect (25,25,100,150);
+         context.strokeText ("Fig 1",75,50);
+         context.strokeText ("State A", 75,125);  
+         // Save State A
+         context.save();  
+         // Settings for State B
+         var radGrad = context.createRadialGradient (375,100,5, 375,100,200);
+         radGrad.addColorStop (0,'orange');
+         radGrad.addColorStop (1,'yellow');
+         context.fillStyle = radGrad;
+         context.strokeStyle = 'green';  
+         // Draw Figure 2
+         context.fillRect (175,25,100,150);
+         context.strokeText ("Fig 2",225,50);  
+         context.strokeText ("State B",225,125);  
+         // Save State B
+         context.save();  
+         // Settings for State C
+         context.fillStyle = '#888888';
+         context.strokeStyle = '#EEEEEE';  
+         // Draw Figure 3
+         context.fillRect (325,25,100,150);
+         context.strokeText ("Fig 3",375,50);  
+         context.strokeText ("State C",375,125);  
+         // Pop State C and restore State B
+         context.restore();  
+         // Draw Figure 4
+         context.fillRect (475,25,100,150);
+         context.strokeText ("Fig 4",525,50);  
+         context.strokeText ("State B",525,125);  
+         // Pop state B and restore state A
+         context.restore();  
+         // Draw Figure 5
+         context.fillRect (625,25,100,150);
+         context.strokeText ("Fig 5",675,50); 
+         context.strokeText ("State A",675,125);  </code></pre>
 </div>
-<h3>Drawing State:</h3>
-
-<p>A <strong>drawing state</strong> is the set of the current settings of a <code>CanvasRenderingContext2D</code> object. It includes the current style values (<a href="#strokestyle"><code>strokeStyle</code></a> and <a href="#fillstyle"><code>fillStyle</code></a>), <a href="#globalalpha"><code>globalAlpha</code></a> and <a href="#globalcompositeoperation"><code>globalCompositeOperation</code></a>, the line (<a href="#linewidth"><code>lineWidth</code></a>, <a href="#linecap"><code>lineCap</code></a>, <a href="#linejoin"><code>lineJoin</code></a>, <a href="#miterlimit"><code>miterLimit</code></a>), shadow (<a href="#shadowoffsetx"><code>shadowOffsetX</code></a>, <a href="#shadowoffsety"><code>shadowOffsetY</code></a>, <a href="#shadowblur"><code>shadowBlur</code></a>, <a href="#shadowcolor"><code>shadowColor</code></a>) and text settings (<a href="#font"><code>font</code></a>, <a href="#textalign"><code>textAlign</code></a>, <a href="#textbaseline"><code>textBaseline</code></a>), the <a href="#clip">current clipping region</a> and the <a href="#settransform-a-b-c-d-e-f">current transformation matrix</a>.</p>
-<p>Each <code>CanvasRenderingContext2D</code> object maintains a <strong>stack of drawing states</strong>. And with <a href="#save"><code>save()</code></a> and <a href="#restore"><code>restore()</code></a>, drawing states can be pushed onto this stack and recovered at a later point.</p>
 
 
-<div class='note'>
-Note, that the drawing state does not include the current path or bitmaps. So <code>save()</code> and <code>restore()</code> do not save and restore entire canvas pictures, i.e. entire contents of the given context. For that, you should use <a href="#imagedata"><code>ImageData</code></a> objects and the <a href="#getimagedatasxsyswsh"><code>getImageData()</code></a> and <a href="#putimagedata-imagedata-dx-dy-and-putimagedata-imagedata-dx-dy-sx-sy-sw-sh"><code>putImageData()</code></a> methods (see the chapter on <a href="#pixel-manipulation">pixel manipulation</a>).
+<h3>Transformation</h3>
+
+<p>In general geometry, a <strong>transformation</strong> turns a given object into another object, but preserves its structure. Things may appear deformed, but they are not ruptured or destroyed. The absolute position of points may change, but the relative positions remain, neighboring points are still neighbors after the transformation.</p>
+<p>Three special transformations can be called by special methods on the canvas context:</p>
+<img src="transformation1.png" alt="transformation">
+
+<p><a href="#scale-x-y"><code>scale()</code></a> resizes the canvas, <a href="#rotate-angle"><code>rotate()</code></a> turns it around the origin, and <a href="#translate-x-y"><code>translate()</code></a> shifts it to a new position. But actually, and different to what the three previous images suggest, not the canvas as an object in the brower window is moved by any of these operations, but rather its coordinate system is altered. Below we will demonstrate what that means in many examples.</p>
+<p>Next to these three special tranformations, there are also the general <a href="#transform-a-b-c-d-e-f"><code>transform()</code></a> and <a href="#settransform-a-b-c-d-e-f"><code>setTransform()</code></a> methods, which are more powerful, but also more difficult to comprehend and apply. <sup><a href="#fn16" class="footnoteRef" id="fnref16">16</a></sup> We also show, that any combination of transformations (e.g. first scaling, then a rotation, and finally scaling, again) is itself a transformation and can be performed with one <code>transform()</code> call. The other way round, this also implies, that we can decompose a complex transformation into simpler steps.</p>
 
 
+  <script src="../../w3codecolor.js"></script>
+
+</body>
+
+</html>
 
 
-
-
-
-
-
-
-
-</body></html>
+<!-- <div class="w3-panel w3-card w3-light-grey"> 
+  <h4>HTML Example</h4>
+  <div class="w3-code htmlHigh notranslate"> -->
